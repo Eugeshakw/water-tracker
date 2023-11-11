@@ -1,6 +1,6 @@
 import { BrowserRouter as Routes, Route } from 'react-router-dom';
 
-import { PublicRoute } from './publickRoute';
+import { PublicRoute } from './publickRoute.jsx';
 import Layout from '../components/Layout/Loyout'
 // import { PrivateRoute } from './privateRoute';
 export const App = () => {
