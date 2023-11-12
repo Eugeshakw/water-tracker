@@ -24,8 +24,25 @@
   border-radius: 10px;
   background-color: #ECF2FF;
   box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.30);
-  padding-top: 32px;
-  padding-bottom: 32px;
-  padding-right: 24px;
-  padding-left: 24px;
+
+}
+
+@media screen and (min-width: 768px) {
+  .divWhyDrinkWater {
+    padding-top: 32px;
+    padding-bottom: 32px;
+    padding-right: 24px;
+    padding-left: 24px;
+    max-width: 446px;
+  }
+}
+
+@media sscreen and (min-width: 0px) and (max-width: 767px) {
+  .divWhyDrinkWater {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    padding-right: 16px;
+    padding-left: 16px;
+    max-width: 248px;
+  }
 }
