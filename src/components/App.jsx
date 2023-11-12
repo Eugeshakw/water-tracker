@@ -1,5 +1,5 @@
+import ForgotPasswordPage from './ForgotPasswordPage';
 import {Routes, Route} from 'react-router-dom';
-
 // import { PublicRoute } from './publickRoute.jsx';
 import Layout from '../components/Layout/Loyout'
 // import { PrivateRoute } from './privateRoute';
