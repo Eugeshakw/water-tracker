@@ -1,10 +1,10 @@
-.user-logo {
+.userLogo {
   width: 122px;
   height: 28px;
   display: flex;
   align-items: center;
 }
-.user-nam {
+.name {
   width: 66px;
   height: 20px;
   margin-right: 8px;
@@ -17,14 +17,14 @@
   font-weight: 400;
   line-height: 20px; /* 125% */
 }
-.user-avatar {
+.avatar {
   width: 28px;
   height: 28px;
   border-radius: 28px;
   margin-right: 4px;
   /* ckground: url(<path-to-image>), lightgray 50% / cover no-repeat; */
 }
-.logo-modal-button {
+.modal {
   display: flex;
   align-items: center;
   justify-content: center;

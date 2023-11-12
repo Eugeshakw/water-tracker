@@ -1,15 +1,16 @@
 import React from 'react';
-import '../UserLogo/UserLogo.css';
+import styles from './UserLogo.module.css';
+
 const UserLogo = () => {
   return (
-    <div className="user-logo">
-      <h3 className="user-nam">UserNam</h3>
+    <div className={styles.userLogo}>
+      <h3 className={styles.name}>UserNam</h3>
       <img
-        className="user-avatar"
+        className={styles.avatar}
         src="https://trello-members.s3.amazonaws.com/63ee1379a0122cf60acbadf8/9cf5e1c5c18cdf0fb573732112c72bc7/30.png"
         alt=""
       />
-      <button className="logo-modal-button">
+      <button className={styles.modal}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
