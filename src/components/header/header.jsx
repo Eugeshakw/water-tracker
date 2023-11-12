@@ -1,7 +1,7 @@
 import '../header/header.css';
-const Header = () => {
+const Header = ({ children }) => {
   return (
-    <div>
+    <div className="container-header">
       <div className="logo-heder">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -158,6 +158,7 @@ const Header = () => {
         </svg>
         <p className="logo-text">Tracker of water</p>
       </div>
+      {children}
     </div>
   );
 };
