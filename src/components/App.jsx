@@ -3,8 +3,12 @@ import { BrowserRouter as Routes, Route } from 'react-router-dom';
 import { PublicRoute } from './publickRoute.jsx';
 import Layout from '../components/Layout/Loyout';
 // import { PrivateRoute } from './privateRoute';
+
 //import WhyDrinkWater from '../components/WhyDrinkWater/WhyDrinkWater';
 // <Route path="/whydrinkwater" element={<WhyDrinkWater />} />
+
+//import WhyDrinkWater from '../components/WhyDrinkWater/WhyDrinkWater';
+//<Route path="/whydrinkwater" element={<WhyDrinkWater />} />
 
 export const App = () => {
   return (
