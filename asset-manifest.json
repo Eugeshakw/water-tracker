@@ -1,15 +1,14 @@
 {
   "files": {
-    "main.css": "/water-tracker/static/css/main.b27f177b.css",
-    "main.js": "/water-tracker/static/js/main.41ffa8b9.js",
-    "static/media/ForgotPassPageImgTab.png": "/water-tracker/static/media/ForgotPassPageImgTab.60ad62f90ee53105bc9b.png",
-    "static/media/ForgotPassPageImg.png": "/water-tracker/static/media/ForgotPassPageImg.fee63d9c3e002a159c49.png",
+    "main.css": "/water-tracker/static/css/main.fe1dbc84.css",
+    "main.js": "/water-tracker/static/js/main.56840afd.js",
     "index.html": "/water-tracker/index.html",
-    "main.b27f177b.css.map": "/water-tracker/static/css/main.b27f177b.css.map",
-    "main.41ffa8b9.js.map": "/water-tracker/static/js/main.41ffa8b9.js.map"
+    "static/media/marker_item.svg": "/water-tracker/static/media/marker_item.fddb539b56ea3011c50a91ee6d888f28.svg",
+    "main.fe1dbc84.css.map": "/water-tracker/static/css/main.fe1dbc84.css.map",
+    "main.56840afd.js.map": "/water-tracker/static/js/main.56840afd.js.map"
   },
   "entrypoints": [
-    "static/css/main.b27f177b.css",
-    "static/js/main.41ffa8b9.js"
+    "static/css/main.fe1dbc84.css",
+    "static/js/main.56840afd.js"
   ]
 }
