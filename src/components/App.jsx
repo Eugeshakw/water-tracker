@@ -5,6 +5,9 @@ import { Routes, Route } from 'react-router-dom';
 import Layout from '../components/Layout/Loyout';
 
 // import { PrivateRoute } from './privateRoute';
+
+import WelcomePage from '../components/WelcomePage/WelcomePage';
+
 import WhyDrinkWater from './WhyDrinkWater/WhyDrinkWater';
 
 export const App = () => {
@@ -21,8 +24,13 @@ export const App = () => {
         {/* <Route path="register" element={<PublicRoute redirectTo="/" component={'Register'} />} /> */}
         <Route path="dashboard" element={''} />
 
-        <Route path="/forgot-password" element={'ForgotPasswordPage'} />
+        <Route path='/forgot-password' element={<ForgotPasswordPage/>}/>
+        <Route path="welcomepage" element={<WelcomePage />} />
+
+
+       
         <Route path="whydrinkwater" element={<WhyDrinkWater />} />
+
 
       </Route>
     </Routes>
