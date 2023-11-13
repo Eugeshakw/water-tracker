@@ -24,7 +24,7 @@ export const App = () => {
         {/* <Route path="register" element={<PublicRoute redirectTo="/" component={'Register'} />} /> */}
         <Route path="dashboard" element={''} />
 
-        <Route path='/forgot-password' element={<ForgotPasswordPage/>}/>
+        <Route path='/forgot-password' element={"ForgotPasswordPage"}/>
         <Route path="welcomepage" element={<WelcomePage />} />
 
 
