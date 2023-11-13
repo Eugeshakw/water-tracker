@@ -3,6 +3,7 @@ import {Routes, Route} from 'react-router-dom';
 // import { PublicRoute } from './publickRoute.jsx';
 import Layout from '../components/Layout/Loyout'
 // import { PrivateRoute } from './privateRoute';
+import WelcomePage from '../components/WelcomePage/WelcomePage';
 export const App = () => {
   return (
     
@@ -15,6 +16,7 @@ export const App = () => {
         {/* <Route path="register" element={<PublicRoute redirectTo="/" component={'Register'} />} /> */}
         <Route path="dashboard" element={''} />
         <Route path='/forgot-password' element={<ForgotPasswordPage/>}/>
+        <Route path="welcomepage" element={<WelcomePage />} />
       </Route>
     </Routes>
   
