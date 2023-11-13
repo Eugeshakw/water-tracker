@@ -10,7 +10,6 @@
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
-  margin-bottom: 18px;
   font-family: 'Roboto';
 }
 
@@ -66,4 +65,25 @@
 
 p {
   margin: 0;
+}
+
+.buttonClose {
+  border: none;
+  background-color: #FFF;
+  display: flex;
+  align-items: center;
+  display: block;
+  padding: 0;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.imgButtonClose {
+  display: block;
+}
+
+.dateOfMonthGroup {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 18px;
 }

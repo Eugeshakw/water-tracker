@@ -1,4 +1,5 @@
 import css from './DaysGeneralStats.module.css';
+import img from '../DaysGeneralStats/icons/button_svg.svg';
 
 const DaysGeneralStats = function ({
   dateOfMonth,
@@ -8,7 +9,12 @@ const DaysGeneralStats = function ({
 }) {
   return (
     <div className={css.divDaysGeneralStats}>
-      <p className={css.dateOfMonthParagrah}>{dateOfMonth}</p>
+      <div className={css.dateOfMonthGroup}>
+        <p className={css.dateOfMonthParagrah}>{dateOfMonth}</p>
+        <button className={css.buttonClose}>
+          <img className={css.imgButtonClose} src={img} alt="button icon" />
+        </button>
+      </div>
       <p className={css.dailyNormaParagrah}>
         Daily norma: <span className={css.dailyNormaSpan}>{dailyNorma}</span>
       </p>

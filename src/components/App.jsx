@@ -3,18 +3,18 @@
 // import { PublicRoute } from './publickRoute.jsx';
 //import Layout from '../components/Layout/Loyout';
 // import { PrivateRoute } from './privateRoute';
-import WhyDrinkWater from './WhyDrinkWater/WhyDrinkWater';
+//import WhyDrinkWater from './WhyDrinkWater/WhyDrinkWater';
 import DaysGeneralStats from './DaysGeneralStats/DaysGeneralStats';
 
 export const App = () => {
   return (
-    //   <DaysGeneralStats
-    //     dateOfMonth="8.3"
-    //     dailyNorma="1.2"
-    //      fullfilmentOfDailyNorma="1.3"
-    //     howManyServings="5.2"
-    //    />
-    <WhyDrinkWater />
+    <DaysGeneralStats
+      dateOfMonth="8.3"
+      dailyNorma="1.2"
+      fullfilmentOfDailyNorma="1.3"
+      howManyServings="5.2"
+    />
+    // <WhyDrinkWater />
     //    <Routes>
     //      <Route path="/" element={<Layout />}>
     //       <Route index element={'main'} />
