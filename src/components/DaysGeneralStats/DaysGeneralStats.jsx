@@ -13,13 +13,15 @@ const DaysGeneralStats = function ({
         Daily norma: <span className={css.dailyNormaSpan}>{dailyNorma}</span>
       </p>
       <p className={css.fullfilmentParagrah}>
-        Fulfillment of the daily norm:
+        Fulfillment of the daily norm:{' '}
         <span className={css.fullfilmentSpan}>{fullfilmentOfDailyNorma}</span>
       </p>
       <p className={css.howManyServingsParagrah}>
-        How many servings of water:
+        How many servings of water:{' '}
         <span className={css.howManyServingsSpan}>{howManyServings}</span>
       </p>
     </div>
   );
 };
+
+export default DaysGeneralStats;
