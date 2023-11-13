@@ -23,6 +23,7 @@ export const App = () => {
 
         <Route path="/forgot-password" element={'ForgotPasswordPage'} />
         <Route path="whydrinkwater" element={<WhyDrinkWater />} />
+        {/* впавпварпр */}
 
       </Route>
     </Routes>
