@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 import { Routes, Route } from 'react-router-dom';
 
 // import { PublicRoute } from './publickRoute.jsx';
@@ -10,6 +17,10 @@ import LoginPage from '../components/pages/LoginPage/LoginPage.jsx';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import WhyDrinkWater from './WhyDrinkWater/WhyDrinkWater';
 
+import './ForgotPasswordPage';
+import ForgotPasswordPage from './ForgotPasswordPage';
+import ResetPasswordForm from './ResetPasswordForm';
+
 export const App = () => {
   return (
     <Routes>
@@ -20,11 +31,12 @@ export const App = () => {
 
         <Route path="dashboard" element={''} />
 
-        <Route path="/forgot-password" element={'ForgotPasswordPage'} />
+        <Route path='/forgot-password' element={<ForgotPasswordPage />} />
         <Route path="welcomepage" element={<WelcomePage />} />
 
         <Route path="whydrinkwater" element={<WhyDrinkWater />} />
       </Route>
     </Routes>
+
   );
 };
