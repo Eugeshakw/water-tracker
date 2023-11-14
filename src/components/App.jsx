@@ -25,7 +25,7 @@ export const App = () => {
 
         <Route path="dashboard" element={''} />
 
-        <Route path='/forgot-password' element={"ForgotPasswordPage"} />
+        <Route path='/forgot-password' element={<ForgotPasswordPage/>} />
         <Route path="welcomepage" element={<WelcomePage />} />
 
         <Route path="whydrinkwater" element={<WhyDrinkWater />} />
