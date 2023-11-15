@@ -1,6 +1,6 @@
 import img from '../WhyDrinkWater/icons/marker_item.svg';
 import styled from 'styled-components';
-
+//ыуака
 const H2WhyDrinkWater = styled.h2`
   color: #2f2f2f;
   font-size: 18px;
