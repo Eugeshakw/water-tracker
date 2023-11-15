@@ -25,6 +25,11 @@ export const UserIn = styled.div`
     margin-right: 4px;
     /* ckground: url(<path-to-image>), lightgray 50% / cover no-repeat; */
   }
+
+  path {
+    fillrule: 'evenodd';
+    cliprule: 'evenodd';
+  }
   button {
     display: flex;
     align-items: center;
