@@ -23,8 +23,8 @@ export const App = () => {
         <Route path="/signup" element={<RegisterPage />} />
         <Route path="/signin" element={<LoginPage />} />
 
-        <Route path="dashboard" element={''} />
-
+        <Route path="dashboard" element={'ff'} />
+        
         <Route path='/forgot-password' element={<ForgotPasswordPage/>} />
         <Route path="welcomepage" element={<WelcomePage />} />
 
