@@ -1,14 +1,13 @@
 import React from 'react';
-import styles from './UserLogo.module.css';
+import { LogoModal } from './UserLogoModalStyle';
 
 const UserLogoModal = () => {
   return (
-    <div className={styles.overlay}>
-      <ul className={styles.content}>
+    <LogoModal>
+      <ul>
         <li>
-          <button className={styles.optionBtn}>
+          <button>
             <svg
-              className={styles.svg}
               xmlns="http://www.w3.org/2000/svg"
               width="16"
               height="16"
@@ -32,9 +31,8 @@ const UserLogoModal = () => {
           </button>
         </li>
         <li>
-          <button className={styles.optionBtn}>
+          <button>
             <svg
-              className={styles.svg}
               xmlns="http://www.w3.org/2000/svg"
               width="16"
               height="16"
@@ -52,7 +50,7 @@ const UserLogoModal = () => {
           </button>
         </li>
       </ul>
-    </div>
+    </LogoModal>
   );
 };
 

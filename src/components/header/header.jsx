@@ -1,9 +1,9 @@
-import styles from './header.module.css';
+import { HeaderStyle } from './HederStyle';
 
 const Header = ({ children }) => {
   return (
-    <div className={styles.container}>
-      <div className={styles.logo}>
+    <HeaderStyle>
+      <div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="40"
@@ -157,10 +157,10 @@ const Header = ({ children }) => {
             </clipPath>
           </defs>
         </svg>
-        <p className={styles.logoText}>Tracker of water</p>
+        <p>Tracker of water</p>
       </div>
       {children}
-    </div>
+    </HeaderStyle>
   );
 };
 

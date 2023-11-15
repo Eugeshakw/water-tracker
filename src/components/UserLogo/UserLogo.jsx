@@ -1,16 +1,16 @@
 import React from 'react';
-import styles from './UserLogo.module.css';
+
+import { UserIn } from './UserLodoStyle';
 
 const UserLogo = () => {
   return (
-    <div className={styles.userLogo}>
-      <h3 className={styles.name}>UserNam</h3>
+    <UserIn>
+      <h2>UserNam</h2>
       <img
-        className={styles.avatar}
         src="https://trello-members.s3.amazonaws.com/63ee1379a0122cf60acbadf8/9cf5e1c5c18cdf0fb573732112c72bc7/30.png"
         alt=""
       />
-      <button className={styles.modal}>
+      <button>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -26,7 +26,7 @@ const UserLogo = () => {
           />
         </svg>
       </button>
-    </div>
+    </UserIn>
   );
 };
 
