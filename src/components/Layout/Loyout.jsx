@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from 'components/header/header';
-import UserLogo from './../UserLogo/UserLogo';
+import UserLogo from '../UserLogo/UserLogo';
 
 const Layout = () => {
   return (

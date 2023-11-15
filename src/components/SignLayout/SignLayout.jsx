@@ -1,5 +1,5 @@
 import React from 'react';
-import { SignLayoutStyled } from './SignLayout.styled';
+// import { SignLayoutStyled } from './SignLayout.styled';
 
 import imgDesk from '../../img/signup/bottle-desk.webp';
 import imgTablet from '../../img/signup/bottle-tablet.webp';
@@ -8,7 +8,7 @@ import img from '../../img/signup/bottle-desk.png';
 
 const SignLayout = ({ children }) => {
   return (
-    <SignLayoutStyled>
+    <div>
       <picture>
         <source media="(min-width:1280px)" srcSet={imgDesk} type="image/webp" />
         <source
@@ -20,7 +20,7 @@ const SignLayout = ({ children }) => {
         <img src={img} alt="Responsive" />
       </picture>
       {children}
-    </SignLayoutStyled>
+    </div>
   );
 };
 

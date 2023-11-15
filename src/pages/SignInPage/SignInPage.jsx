@@ -1,5 +1,5 @@
 import SignLayout from 'components/SignLayout/SignLayout';
-import { useFormik } from 'formik';
+import { Field, Form, useFormik } from 'formik';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -13,12 +13,12 @@ const SignIn = () => {
     onSubmit,
   });
   return (
-    <SignLayout>
-      <form onSubmit={onSubmit}>
+    <div>
+      <Form onSubmit={onSubmit}>
         <h1>Sign In</h1>
         <label>
           Enter email
-          <input
+          <Field
             type="email"
             name="email"
             value={values.email}
@@ -30,8 +30,7 @@ const SignIn = () => {
           {/* {touched.email && errors.email&&()} */}
         </label>
         <label>
-          {' '}
-          Enter password{' '}
+          Enter password
           <input
             name="password"
             value={values.password}
@@ -45,8 +44,8 @@ const SignIn = () => {
         <button type="submit">Sign in</button>
         <Link to="/forgot-password">Forgot password?</Link>
         <Link to="/signup">Sign up</Link>
-      </form>
-    </SignLayout>
+      </Form>
+    </div>
   );
 };
 

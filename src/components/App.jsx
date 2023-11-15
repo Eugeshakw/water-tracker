@@ -9,6 +9,9 @@ import Layout from '../components/Layout/Loyout';
 import WelcomePage from '../components/WelcomePage/WelcomePage';
 
 import WhyDrinkWater from './WhyDrinkWater/WhyDrinkWater';
+import SignIn from 'pages/SignInPage/SignInPage';
+
+
 
 export const App = () => {
   return (
@@ -20,7 +23,7 @@ export const App = () => {
 
         <Route index element={'main'} />
         <Route path="/signup" element={'SignUpPage'} />
-        <Route path="/signin" element={'SignInPage'} />
+        <Route path="/signin" element={<SignIn/>} />
         {/* <Route path="register" element={<PublicRoute redirectTo="/" component={'Register'} />} /> */}
         <Route path="dashboard" element={''} />
 
@@ -35,7 +38,6 @@ export const App = () => {
 
       </Route>
     </Routes>
-  
    
     
   );
