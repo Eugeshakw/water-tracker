@@ -3,20 +3,22 @@ import styled from 'styled-components';
 import calendar from './icons/calendar.svg';
 import statistic from './icons/statistic.svg';
 import settings from './icons/settings.svg';
-import img1 from './icons/Pageback-mob.jpg';
+import backMobile from './icons/Background-mob.png';
+import backTablet from './icons/Background-tablet.png';
+import backDesktop from './icons/Background-desk.png';
 const Front = styled.div`
   width: 320px;
   height: 952px;
-  background-image: url(${img1});
+  background-image: url(${backMobile});
   @media screen and (min-width: 768px) {
     width: 768px;
     height: 800px;
-    background-image: url(./icons/Page-tablet.jpg);
+    background-image: url(${backTablet});
   }
   @media screen and (min-width: 1440px) {
     width: 1440px;
     height: 432px;
-    background-image: url(./icons/pagedesk.png);
+    background-image: url(${backDesktop});
     background-position: center center, left bottom;
   }
 `;
