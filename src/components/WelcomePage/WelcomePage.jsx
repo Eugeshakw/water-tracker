@@ -5,22 +5,14 @@ import statistic from './icons/statistic.svg';
 import settings from './icons/settings.svg';
 import img1 from './icons/Pageback-mob.jpg';
 const Front = styled.div`
-  /* display: flex;
-  flex-direction: column;
-  align-items: flex-start; */
   width: 320px;
   height: 952px;
-  /* margin-left: auto;
-  margin-right: auto; */
-  /* padding-right: 20px; */
   background-image: url(${img1});
-
   @media screen and (min-width: 768px) {
     width: 768px;
     height: 800px;
     background-image: url(./icons/Page-tablet.jpg);
   }
-
   @media screen and (min-width: 1440px) {
     width: 1440px;
     height: 432px;
@@ -65,6 +57,7 @@ const Benefits = styled.p`
 `;
 
 const BenefitsList = styled.ul`
+  margin-bottom: 24px;
   @media screen and (min-width: 768px) {
     display: flex;
     align-items: center;
@@ -82,13 +75,20 @@ const BenefitsItem = styled.li`
   width: auto;
   margin-bottom: 16px;
   &:last-child {
-    margin-bottom: 24px;
+    margin-bottom: 0;
   }
+
   @media screen and (min-width: 768px) {
     width: 224px;
+    &:last-child {
+      margin-bottom: 16px;
+    }
   }
   @media screen and (min-width: 1440px) {
     width: 248px;
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 `;
 
@@ -97,6 +97,10 @@ const ItemText = styled.p`
   font-weight: 400;
   line-height: 1.3;
   margin: 0;
+  @media screen and (min-width: 1440px) {
+    font-size: 20px;
+    line-height: 1.25;
+  }
 `;
 
 const ButtonTracker = styled.button`
@@ -105,6 +109,7 @@ const ButtonTracker = styled.button`
   justify-content: center;
   align-items: center;
   width: 280px;
+  margin-bottom: 40px;
   border-radius: 10px;
   background: #407bff;
   box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
@@ -123,6 +128,7 @@ const ButtonTracker = styled.button`
   }
   @media screen and (min-width: 1440px) {
     width: 384px;
+    margin-bottom: 0;
   }
 `;
 
@@ -132,26 +138,28 @@ const ImgIcon = styled.img`
 
 const WelcomePage = function () {
   return (
-    <Front>
-      <Title>Water consumption tracker</Title>
-      <H2Title>Record daily water intake and track</H2Title>
-      <Benefits>Tracker Benefits</Benefits>
-      <BenefitsList>
-        <BenefitsItem>
-          <ImgIcon src={calendar} alt="calendar icon" />
-          <ItemText>Habit drive</ItemText>
-        </BenefitsItem>
-        <BenefitsItem>
-          <ImgIcon src={statistic} alt="statistic icon" />
-          <ItemText>View statistics</ItemText>
-        </BenefitsItem>
-        <BenefitsItem>
-          <ImgIcon src={settings} alt="settings icon" />
-          <ItemText>Personal rate setting</ItemText>
-        </BenefitsItem>
-      </BenefitsList>
-      <ButtonTracker type="button">Try tracker</ButtonTracker>
-    </Front>
+    <div className="container">
+      <Front>
+        <Title>Water consumption tracker</Title>
+        <H2Title>Record daily water intake and track</H2Title>
+        <Benefits>Tracker Benefits</Benefits>
+        <BenefitsList>
+          <BenefitsItem>
+            <ImgIcon src={calendar} alt="calendar icon" />
+            <ItemText>Habit drive</ItemText>
+          </BenefitsItem>
+          <BenefitsItem>
+            <ImgIcon src={statistic} alt="statistic icon" />
+            <ItemText>View statistics</ItemText>
+          </BenefitsItem>
+          <BenefitsItem>
+            <ImgIcon src={settings} alt="settings icon" />
+            <ItemText>Personal rate setting</ItemText>
+          </BenefitsItem>
+        </BenefitsList>
+        <ButtonTracker type="button">Try tracker</ButtonTracker>
+      </Front>
+    </div>
   );
 };
 
