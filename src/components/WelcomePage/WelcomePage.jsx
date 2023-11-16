@@ -36,15 +36,15 @@ const NewDecorateImg = styled.div`
 
 @media screen and (min-width: 1440px) {
   display: block;
-  background-image: url(${backDesktop}), url(${backElements});
+  background-image: url(${backDesktop});
   width: 100vw; /* Используйте viewport width вместо фиксированной ширины */
-  height: 100vh; /* Используйте viewport height вместо фиксированной высоты */
+  height: 62vh; /* Используйте viewport height вместо фиксированной высоты */
   position: absolute;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
   z-index: -1;
-  bottom: -15%;
+  bottom: 0;
 }
 
 `;
