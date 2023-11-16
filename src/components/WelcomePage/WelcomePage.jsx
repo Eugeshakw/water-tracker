@@ -7,7 +7,6 @@ import settings from './icons/settings.svg';
 import backMobile from './icons/Background-mob.png';
 import backTablet from './icons/Background-tablet.png';
 import backDesktop from './icons/Background-desk.png';
-import backElements from './icons/Pagedesk-elements.svg';
 import img from '../WhyDrinkWater/icons/marker_item.svg';
 
 const Front = styled.div`
