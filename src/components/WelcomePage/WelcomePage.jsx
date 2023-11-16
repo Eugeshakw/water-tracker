@@ -14,10 +14,12 @@ const Front = styled.div`
   width: 320px;
   height: 952px;
   background-image: url(${backMobile});
+
   @media screen and (min-width: 768px) {
     width: 768px;
     height: 800px;
     background-image: url(${backTablet});
+
   }
   @media screen and (min-width: 1440px) {
     display:flex;
@@ -25,9 +27,26 @@ const Front = styled.div`
     gap:81px;
     width: 1440px;
     height: 432px;
-    background-image: url(${backDesktop}), url(${backElements});
     background-position: right bottom;
+    background-image: none;
   }
+`;
+const NewDecorateImg = styled.div`
+  display:none;
+
+@media screen and (min-width: 1440px) {
+  display: block;
+  background-image: url(${backDesktop}), url(${backElements});
+  width: 100vw; /* Используйте viewport width вместо фиксированной ширины */
+  height: 100vh; /* Используйте viewport height вместо фиксированной высоты */
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  z-index: -1;
+  bottom: -15%;
+}
+
 `;
 
 const Title = styled.h1`
@@ -211,6 +230,8 @@ const ListWhyDrinkWater = styled.ul`
 
 const WelcomePage = function () {
   return (
+    <div>
+      <NewDecorateImg></NewDecorateImg>
     <div className="container">
       <Front>
         <div>
@@ -269,7 +290,8 @@ const WelcomePage = function () {
             </DivWhyDrinkWater>
             </div>
       </Front>
-    </div>
+      </div>
+      </div>
   );
 };
 
