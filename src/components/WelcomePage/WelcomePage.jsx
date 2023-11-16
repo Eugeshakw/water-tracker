@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 
 import calendar from './icons/calendar.svg';
-import statistic from './icons/statistic.svg';
+import statistic from './icons/statistics.svg';
 import settings from './icons/settings.svg';
 import backMobile from './icons/Background-mob.png';
 import backTablet from './icons/Background-tablet.png';
 import backDesktop from './icons/Background-desk.png';
+import backElements from './icons/Pagedesk-elements.svg';
+
 const Front = styled.div`
   width: 320px;
   height: 952px;
@@ -18,8 +20,8 @@ const Front = styled.div`
   @media screen and (min-width: 1440px) {
     width: 1440px;
     height: 432px;
-    background-image: url(${backDesktop});
-    background-position: center center, left bottom;
+    background-image: url(${backDesktop}), url(${backElements});
+    background-position: right bottom;
   }
 `;
 
@@ -136,6 +138,9 @@ const ButtonTracker = styled.button`
 
 const ImgIcon = styled.img`
   display: block;
+  @media screen and (min-width: 768px) {
+    width: 40px;
+  }
 `;
 
 const WelcomePage = function () {
