@@ -8,19 +8,15 @@ import { Title } from 'common/Title/Title.styled';
 import { Input } from 'common/Input/Input.styled';
 import { PasswordInputWrapper } from 'components/PasswordInput/PasswordInput.styled';
 import PasswordInput from 'components/PasswordInput/PasswordInput';
+import { useDispatch } from 'react-redux';
+import { signUpThunk } from 'redux/auth/auth-operations';
 
 const RegisterPage = () => {
+  const dispatch = useDispatch();
+
   const onSubmit = e => {
-    //   e.preventDefault();
-    //   dispatch(
-    //     signUp({
-    //       name: e.target.elements.name.value,
-    //       email: e.target.elements.email.value,
-    //       password: e.target.elements.password.value,
-    //     })
-    //   );
-    //   e.target.reset();
-    console.log(e);
+    const { email, password } = e;
+    dispatch(signUpThunk({ email, password }));
   };
 
   const {

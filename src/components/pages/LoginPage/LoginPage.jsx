@@ -11,13 +11,14 @@ import { Input } from 'common/Input/Input.styled';
 import PasswordInput from 'components/PasswordInput/PasswordInput';
 import { Button } from 'common/Button/Button.styled';
 import { RouterLink } from 'common/RouterLink/RouterLink.styled';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { signInThunk } from 'redux/auth/auth-operations';
 
 const LoginPage = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const onSubmit = e => {
-    // dispatch();
+    dispatch(signInThunk(e));
   };
 
   const { values, touched, errors, handleSubmit, handleChange, handleBlur } =
