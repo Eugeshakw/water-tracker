@@ -1,20 +1,25 @@
 {
   "files": {
     "main.css": "/water-tracker/static/css/main.106a8511.css",
-    "main.js": "/water-tracker/static/js/main.95702bb2.js",
+    "main.js": "/water-tracker/static/js/main.21ceca0b.js",
+    "static/media/bottle-desk.png": "/water-tracker/static/media/bottle-desk.ae104bfd8b47eb232ca0.png",
     "static/media/ForgotPassPageImgTab.png": "/water-tracker/static/media/ForgotPassPageImgTab.60ad62f90ee53105bc9b.png",
     "static/media/Pageback-mob.jpg": "/water-tracker/static/media/Pageback-mob.c3f45686369991dd7df6.jpg",
+    "static/media/bottle-desk.webp": "/water-tracker/static/media/bottle-desk.0c40af75ca1f45237b40.webp",
+    "static/media/bottle-tablet.webp": "/water-tracker/static/media/bottle-tablet.c0334bb8f99cbfe2fbe1.webp",
     "static/media/ForgotPassPageImg.png": "/water-tracker/static/media/ForgotPassPageImg.fee63d9c3e002a159c49.png",
+    "static/media/bottle-mobile.webp": "/water-tracker/static/media/bottle-mobile.898641316a0cf60d645e.webp",
+    "static/media/bg-mobile.webp": "/water-tracker/static/media/bg-mobile.1c3b63e87fd3211b5069.webp",
     "static/media/settings.svg": "/water-tracker/static/media/settings.efbb94a9d6b57aee55f71b3ad62c22a2.svg",
     "index.html": "/water-tracker/index.html",
     "static/media/calendar.svg": "/water-tracker/static/media/calendar.e0bdc4a9fab9ecfb9bbdffb4d00d0301.svg",
     "static/media/statistic.svg": "/water-tracker/static/media/statistic.452fd129f151e10013b27172cc6b83ff.svg",
     "static/media/marker_item.svg": "/water-tracker/static/media/marker_item.fddb539b56ea3011c50a91ee6d888f28.svg",
     "main.106a8511.css.map": "/water-tracker/static/css/main.106a8511.css.map",
-    "main.95702bb2.js.map": "/water-tracker/static/js/main.95702bb2.js.map"
+    "main.21ceca0b.js.map": "/water-tracker/static/js/main.21ceca0b.js.map"
   },
   "entrypoints": [
     "static/css/main.106a8511.css",
-    "static/js/main.95702bb2.js"
+    "static/js/main.21ceca0b.js"
   ]
 }
