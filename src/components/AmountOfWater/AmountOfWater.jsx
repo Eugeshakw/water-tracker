@@ -203,6 +203,61 @@ const HeadAmountWater = styled.h3`
   line-height: 20px;
   margin-bottom: 12px;
 `;
+
+const SpanButtonForm = styled.span`
+  color: #fff;
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+`;
+
+const DivGroupButtonForm = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+`;
+
+const SpanMlForm = styled.span`
+  display: block;
+  margin-right: 30px;
+  color: #407bff;
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+`;
+
+const SpanCountForm = styled.span`
+  color: #407bff;
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+`;
+
+const FormAmount = styled.form`
+  display: flex;
+  flex-direction: column;
+`;
+
+const LabelRecordingTime = styled.label`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+`;
+
+const LabelWaterUsed = styled.label`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+`;
+
 const AmountOfWater = ({ countOfWater, timeOfDay, partOfDay }) => {
   return (
     <DivMainAmount>
@@ -235,19 +290,23 @@ const AmountOfWater = ({ countOfWater, timeOfDay, partOfDay }) => {
           <IkonInkr src={IconInkrement} alt="icon inkrement" />
         </ButtonInkrIcon>
       </DivAmountWater>
-      <form>
-        <label>
+      <FormAmount>
+        <LabelRecordingTime>
           Recording time:
           <input type="time" name="recordingtime" />
-        </label>
-        <label>
+        </LabelRecordingTime>
+        <LabelWaterUsed>
           Enter the value of the water used:
           <input type="number" name="watervalue" />
-        </label>
-        <span>{countOfWater}</span>
-        <span>ml</span>
-        <ButtonForm>Save</ButtonForm>
-      </form>
+        </LabelWaterUsed>
+        <DivGroupButtonForm>
+          <SpanCountForm>{countOfWater}</SpanCountForm>
+          <SpanMlForm>ml</SpanMlForm>
+          <ButtonForm>
+            <SpanButtonForm>Save</SpanButtonForm>
+          </ButtonForm>
+        </DivGroupButtonForm>
+      </FormAmount>
     </DivMainAmount>
   );
 };
