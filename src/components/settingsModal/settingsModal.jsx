@@ -31,9 +31,6 @@ const SettingsModal = () => {
       <div className={css.modal}>
         <div className={css.settings_flex_container}>
           <b className={css.modal_setting}>Setting</b>
-          {/* <svg class="close-modal" viewBox="0 0 24 24">
-            <use href=""></use>
-          </svg> */}
         </div>
 
         <p className={css.modal_photo_text}>Your Photo</p>
@@ -75,105 +72,128 @@ const SettingsModal = () => {
         </ul>
 
         <form className={css.modal_form_user} onSubmit={handleSubmit}>
-          <div className={css.modal_gender_block}>
-            <p className={css.modal_gender_text}>Your gender identity</p>
-            <input type="radio" value="girl" id="Girl" name="gender" />
-            <label htmlFor="Girl" className={`${css.gender_label} `}>
-              Girl
-            </label>
-            <input type="radio" value="man" id="Man" name="gender" />
-            <label htmlFor="Man" className={`${css.gender_label} `}>
-              Man
-            </label>
-          </div>
+          <div className={css.all_inp_cont}>
+            <div className={css.user_info_container}>
+              <div className={css.modal_gender_block}>
+                <p className={css.modal_gender_text}>Your gender identity</p>
+                <input
+                  type="radio"
+                  className={css.gender_input}
+                  value="girl"
+                  id="Girl"
+                  name="gender"
+                />
+                <label htmlFor="Girl" className={`${css.gender_label} `}>
+                  Girl
+                </label>
+                <input
+                  type="radio"
+                  className={css.gender_input}
+                  value="man"
+                  id="Man"
+                  name="gender"
+                />
+                <label htmlFor="Man" className={`${css.gender_label} `}>
+                  Man
+                </label>
+              </div>
 
-          <label htmlFor="nameInput" className={css.dataLabel}>
-            Your name
-          </label>
-          <input
-            type="text"
-            placeholder="David"
-            id="nameInput"
-            className={`${css.modal_input} ${css.modal_input_data}`}
-          />
-          <label htmlFor="emailInp" className={css.dataLabel}>
-            E-mail
-          </label>
-          <input
-            type="text"
-            placeholder="david01@gmail.com"
-            id="emailInp"
-            className={`${css.modal_input} ${css.modal_input_data}`}
-          />
-
-          <div className={css.modal_password_inp}>
-            <p className={css.modal_password_text}>Password</p>
-
-            <div className={css.passwordInputContainer}>
-              <label htmlFor="outdatedPas" className={css.password_label}>
-                Outdated password:
+              <label htmlFor="nameInput" className={css.dataLabel}>
+                Your name
               </label>
               <input
-                type={showPassword ? 'text' : 'password'}
-                value={outdatedPassword}
-                onChange={e => setOutdatedPassword(e.target.value)}
-                placeholder="Password"
-                id="outdatedPas"
-                // ref={inputRefs.outdatedPas}
-                className={`${css.modal_input} ${css.modal_input_password}`}
+                type="text"
+                placeholder="David"
+                id="nameInput"
+                className={`${css.modal_input} ${css.modal_input_data}`}
               />
-              <div
-                className={css.togglePasswordIcon}
-                onClick={() => {
-                  handleTogglePassword();
-                }}
-              >
-                <EyeIcon />
-              </div>
+              <label htmlFor="emailInp" className={css.dataLabel}>
+                E-mail
+              </label>
+              <input
+                type="text"
+                placeholder="david01@gmail.com"
+                id="emailInp"
+                className={`${css.modal_input} ${css.modal_input_data}`}
+              />
             </div>
 
-            <div className={css.passwordInputContainer}>
-              <label htmlFor="newPas" className={css.password_label}>
-                New Password:
-              </label>
-              <input
-                type={showPassword ? 'text' : 'password'}
-                value={newPassword}
-                onChange={e => setNewPassword(e.target.value)}
-                placeholder="Password"
-                id="newPas"
-                // ref={inputRefs.newPas}
-                className={`${css.modal_input} ${css.modal_input_password}`}
-              />
-              <div
-                className={css.togglePasswordIcon}
-                onClick={() => {
-                  handleTogglePassword();
-                }}
-              >
-                <EyeIcon />
+            <div className={css.modal_password_inp}>
+              <p className={css.modal_password_text}>Password</p>
+
+              <div className={css.passwordInputContainer}>
+                <label htmlFor="outdatedPas" className={css.password_label}>
+                  Outdated password:
+                </label>
+                <div className={css.inputContainer}>
+                  <input
+                    type={showPassword ? 'text' : 'password'}
+                    value={outdatedPassword}
+                    onChange={e => setOutdatedPassword(e.target.value)}
+                    placeholder="Password"
+                    id="outdatedPas"
+                    // ref={inputRefs.outdatedPas}
+                    className={`${css.modal_input} ${css.modal_input_password}`}
+                  />
+                  <div
+                    className={css.togglePasswordIcon}
+                    onClick={() => {
+                      handleTogglePassword();
+                    }}
+                  >
+                    <EyeIcon />
+                  </div>
+                </div>
               </div>
-            </div>
-            <div className={css.passwordInputContainer}>
-              <label htmlFor="repeatPas" className={css.password_label}>
-                Repeat new password:
-              </label>
-              <input
-                type={showPassword ? 'text' : 'password'}
-                value={repeatPassword}
-                onChange={e => setRepeatPassword(e.target.value)}
-                placeholder="Password"
-                id="repeatPas"
-                // ref={inputRefs.repeatPas}
-                className={`${css.modal_input} ${css.modal_input_password}`}
-              />
-              <div
-                className={css.togglePasswordIcon}
-                onClick={() => {
-                  handleTogglePassword();
-                }}
-              >
-                <EyeIcon />
+
+              <div className={css.passwordInputContainer}>
+                <label htmlFor="newPas" className={css.password_label}>
+                  New Password:
+                </label>
+                <div className={css.inputContainer}>
+                  <input
+                    type={showPassword ? 'text' : 'password'}
+                    value={newPassword}
+                    onChange={e => setNewPassword(e.target.value)}
+                    placeholder="Password"
+                    id="newPas"
+                    // ref={inputRefs.newPas}
+                    className={`${css.modal_input} ${css.modal_input_password}`}
+                  />
+                  <div
+                    className={css.togglePasswordIcon}
+                    onClick={() => {
+                      handleTogglePassword();
+                    }}
+                  >
+                    <EyeIcon />
+                  </div>
+                </div>
+              </div>
+              <div className={css.passwordInputContainer}>
+                <label htmlFor="repeatPas" className={css.password_label}>
+                  Repeat new password:
+                </label>
+
+                <div className={css.inputContainer}>
+                  <input
+                    type={showPassword ? 'text' : 'password'}
+                    value={repeatPassword}
+                    onChange={e => setRepeatPassword(e.target.value)}
+                    placeholder="Password"
+                    id="repeatPas"
+                    // ref={inputRefs.repeatPas}
+                    className={`${css.modal_input} ${css.modal_input_password}`}
+                  />
+                  <div
+                    className={css.togglePasswordIcon}
+                    onClick={() => {
+                      handleTogglePassword();
+                    }}
+                  >
+                    <EyeIcon />
+                  </div>
+                </div>
               </div>
             </div>
           </div>

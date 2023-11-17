@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 ul {
   margin: 0;
   padding: 0;
@@ -14,6 +17,15 @@ div {
 img {
   padding: 0;
   margin: 0;
+}
+
+@media screen and (min-width: 1280px) {
+  .all_inp_cont {
+    display: flex;
+    align-items: center;
+
+    gap: 24px;
+  }
 }
 
 .backdrop {
@@ -35,6 +47,20 @@ img {
   top: 50%;
   left: 50%;
   background-color: white;
+  border-radius: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .modal {
+    padding: 32px 24px;
+    width: 704px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .modal {
+    padding: 32px 24px;
+    width: 1008px;
+  }
 }
 
 .image_modal {
@@ -104,8 +130,47 @@ img {
   line-height: 20px;
   margin-bottom: 12px;
 }
+.gender_input {
+  position: relative;
+  height: 14px;
+  width: 14px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+}
+.gender_input::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 2px solid dodgerblue;
+}
+.gender_input:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: dodgerblue;
+  transform: translate(-53%, -54%);
+  visibility: visible;
+}
+
 .modal_gender_block {
   margin-bottom: 12px;
+}
+@media screen and (min-width: 1280px) {
+  .modal_gender_block {
+    margin-bottom: 52px;
+  }
 }
 .gender_label {
   font-size: 16px;
@@ -123,6 +188,18 @@ img {
   display: block;
   border-radius: 6px;
   border: 1px solid #d7e3ff;
+}
+.inputContainer {
+  width: 256px;
+  position: relative;
+}
+@media screen and (min-width: 768px) {
+  .modal_input {
+    width: 392px;
+  }
+  .inputContainer {
+    width: 392px;
+  }
 }
 .modal_input_data {
   margin-bottom: 24px;
@@ -161,12 +238,30 @@ img {
   background: rgba(64, 123, 255, 1);
   box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
 }
+
+@media screen and (min-width: 768px) {
+  .modal_form_submit {
+    width: 160px;
+    height: 44px;
+    font-size: 18px;
+
+    line-height: 24px;
+    padding: 10px 30px;
+    margin: 0;
+    margin-left: auto;
+    text-align: center;
+  }
+}
+
 .togglePasswordIcon {
   position: absolute;
-  top: 73%;
+  top: 58%;
   right: 10px; /* Располагаем иконку справа */
   transform: translateY(-50%);
   cursor: pointer;
+}
+.passwordInputContainer:last-of-type {
+  margin-bottom: 24px;
 }
 .passwordInputContainer {
   position: relative;
