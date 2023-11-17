@@ -6,7 +6,7 @@ import IconInkrement from '../AmountOfWater/icons/inkr_icon.svg';
 
 const DivAmountGroup = styled.div`
   display: flex;
-  align-items: center;
+  align-items: end;
   margin-bottom: 24px;
 `;
 
@@ -249,6 +249,13 @@ const LabelRecordingTime = styled.label`
   flex-direction: column;
   gap: 12px;
   margin-bottom: 24px;
+
+  color: #2f2f2f;
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
 `;
 
 const LabelWaterUsed = styled.label`
@@ -256,6 +263,47 @@ const LabelWaterUsed = styled.label`
   flex-direction: column;
   gap: 16px;
   margin-bottom: 24px;
+
+  color: #2f2f2f;
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+`;
+
+const InputTime = styled.input`
+  border-radius: 6px;
+  border: 1px solid #d7e3ff;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  color: #407bff;
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+`;
+
+const InputNumber = styled.input`
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  border-radius: 6px;
+  border: 1px solid #d7e3ff;
+
+  color: #407bff;
+
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
 `;
 
 const AmountOfWater = ({ countOfWater, timeOfDay, partOfDay }) => {
@@ -293,11 +341,11 @@ const AmountOfWater = ({ countOfWater, timeOfDay, partOfDay }) => {
       <FormAmount>
         <LabelRecordingTime>
           Recording time:
-          <input type="time" name="recordingtime" />
+          <InputTime type="time" name="recordingtime" />
         </LabelRecordingTime>
         <LabelWaterUsed>
           Enter the value of the water used:
-          <input type="number" name="watervalue" />
+          <InputNumber type="number" name="watervalue" />
         </LabelWaterUsed>
         <DivGroupButtonForm>
           <SpanCountForm>{countOfWater}</SpanCountForm>
