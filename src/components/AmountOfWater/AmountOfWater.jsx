@@ -103,9 +103,29 @@ const SpanCountWaterTitle = styled.span`
   display: block;
 `;
 
+const DivMainAmount = styled.div`
+  border-radius: 10px;
+  background: #fff;
+  max-width: 592px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  padding-left: 24px;
+  padding-right: 24px;
+`;
+
+const ButtonForm = styled.button`
+  border-radius: 10px;
+  background: #407bff;
+  box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 54px;
+  padding-right: 54px;
+`;
+
 const AmountOfWater = ({ countOfWater, timeOfDay, partOfDay }) => {
   return (
-    <div>
+    <DivMainAmount>
       <DivAmountGroup>
         <HeaderMain>Edit the entered amount of water</HeaderMain>
         <ButtoCloseAmount>
@@ -135,7 +155,20 @@ const AmountOfWater = ({ countOfWater, timeOfDay, partOfDay }) => {
           <IkonInkr src={IconInkrement} alt="icon inkrement" />
         </ButtonInkrIcon>
       </DivAmountWater>
-    </div>
+      <form>
+        <label>
+          Recording time:
+          <input type="time" name="recordingtime" />
+        </label>
+        <label>
+          Enter the value of the water used:
+          <input type="number" name="watervalue" />
+        </label>
+        <span>{countOfWater}</span>
+        <span>ml</span>
+        <ButtonForm>Save</ButtonForm>
+      </form>
+    </DivMainAmount>
   );
 };
 
