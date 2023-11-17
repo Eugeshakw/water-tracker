@@ -23,6 +23,7 @@ const Front = styled.div`
   @media screen and (min-width: 1440px) {
     display:flex;
     align-items: center;
+    justify-content:center;
     gap:81px;
     width: 1440px;
     height: 432px;
@@ -36,8 +37,8 @@ const NewDecorateImg = styled.div`
 @media screen and (min-width: 1440px) {
   display: block;
   background-image: url(${backDesktop});
-  width: 100vw; /* Используйте viewport width вместо фиксированной ширины */
-  height: 62vh; /* Используйте viewport height вместо фиксированной высоты */
+  width: 100vw; 
+  height: 62vh; 
   position: absolute;
   background-repeat: no-repeat;
   background-size: contain;
