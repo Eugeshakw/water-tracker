@@ -1,3 +1,4 @@
+//
 import { Routes, Route } from 'react-router-dom';
 
 // import { PublicRoute } from './publickRoute.jsx';
@@ -31,5 +32,6 @@ export const App = () => {
         <Route path="whydrinkwater" element={<WhyDrinkWater />} />
       </Route>
     </Routes>
+    //
   );
 };
