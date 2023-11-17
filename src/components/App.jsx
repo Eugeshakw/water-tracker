@@ -29,7 +29,12 @@ export const App = () => {
         <Route path="welcomepage" element={<WelcomePage />} />
 
         <Route path="whydrinkwater" element={<WhyDrinkWater />} />
-        <Route path="amountofwater" element={<AmountOfWater />} />
+        <Route
+          path="amountofwater"
+          element={
+            <AmountOfWater countOfWater="250" timeOfDay="7:00" partOfDay="AM" />
+          }
+        />
       </Route>
     </Routes>
   );
