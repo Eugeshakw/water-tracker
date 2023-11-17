@@ -1,4 +1,3 @@
-
 import { Routes, Route } from 'react-router-dom';
 
 // import { PublicRoute } from './publickRoute.jsx';
@@ -10,6 +9,7 @@ import WelcomePage from '../components/WelcomePage/WelcomePage';
 import LoginPage from '../components/pages/LoginPage/LoginPage.jsx';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import WhyDrinkWater from './WhyDrinkWater/WhyDrinkWater';
+import AmountOfWater from './AmountOfWater/AmountOfWater';
 
 import './ForgotPasswordPage';
 import ForgotPasswordPage from './ForgotPasswordPage';
@@ -24,13 +24,13 @@ export const App = () => {
         <Route path="/signin" element={<LoginPage />} />
 
         <Route path="dashboard" element={'ff'} />
-        
-        <Route path='/forgot-password' element={<ForgotPasswordPage/>} />
+
+        <Route path="/forgot-password" element={<ForgotPasswordPage />} />
         <Route path="welcomepage" element={<WelcomePage />} />
 
         <Route path="whydrinkwater" element={<WhyDrinkWater />} />
+        <Route path="amountofwater" element={<AmountOfWater />} />
       </Route>
     </Routes>
-
   );
 };
