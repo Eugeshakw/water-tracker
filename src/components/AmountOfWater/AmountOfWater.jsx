@@ -7,10 +7,17 @@ import IconInkrement from '../AmountOfWater/icons/inkr_icon.svg';
 const DivAmountGroup = styled.div`
   display: flex;
   align-items: center;
+  margin-bottom: 24px;
 `;
 
 const HeaderMain = styled.h2`
   margin: 0;
+  color: #2f2f2f;
+  font-family: 'Roboto';
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px;
 `;
 
 const ButtoCloseAmount = styled.button`
@@ -33,6 +40,8 @@ const DivDateAmount = styled.div`
   background-color: #ecf2ff;
   display: flex;
   align-items: center;
+  max-width: 254px;
+  margin-bottom: 24px;
 `;
 
 const ImgWater = styled.img`
@@ -43,10 +52,17 @@ const ImgWater = styled.img`
 const SpanMl = styled.span`
   display: block;
   margin-right: 16px;
+  color: #407bff;
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
 `;
 
 const DivAmountWater = styled.div`
   display: flex;
+  margin-bottom: 28px;
 `;
 
 const ButtonDekrIcon = styled.button`
@@ -88,8 +104,8 @@ const DivSpanCountMl = styled.div`
   background: #d7e3ff;
   padding-top: 6px;
   padding-bottom: 6px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
   align-items: center;
   justify-content: center;
   margin-right: 7px;
@@ -97,10 +113,22 @@ const DivSpanCountMl = styled.div`
 
 const SpanCountWater = styled.span`
   display: block;
+  color: #407bff;
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
 `;
 
 const SpanCountWaterTitle = styled.span`
   display: block;
+  color: #407bff;
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
 `;
 
 const DivMainAmount = styled.div`
@@ -123,26 +151,78 @@ const ButtonForm = styled.button`
   padding-right: 54px;
 `;
 
+const ImgCloseButton = styled.img`
+  display: block;
+`;
+
+const SpanCountOfWater = styled.span`
+  color: #407bff;
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+`;
+
+const SpanTimeOfDay = styled.span`
+  color: #2f2f2f;
+  font-family: 'Roboto';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+`;
+
+const SpanPartOfDay = styled.span`
+  color: #2f2f2f;
+  font-family: 'Roboto';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+`;
+
+const HeadCorrectEnteredData = styled.h3`
+  margin: 0;
+  color: #2f2f2f;
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  margin-bottom: 16px;
+`;
+
+const HeadAmountWater = styled.h3`
+  margin: 0;
+  color: #2f2f2f;
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  margin-bottom: 12px;
+`;
 const AmountOfWater = ({ countOfWater, timeOfDay, partOfDay }) => {
   return (
     <DivMainAmount>
       <DivAmountGroup>
         <HeaderMain>Edit the entered amount of water</HeaderMain>
         <ButtoCloseAmount>
-          <img src={imgamountclose} alt="button icon close" />
+          <ImgCloseButton src={imgamountclose} alt="button icon close" />
         </ButtoCloseAmount>
       </DivAmountGroup>
       <DivDateAmount>
         <ImgWater src={waterIcon} alt="water icon" />
-        <span>{countOfWater}</span>
+        <SpanCountOfWater>{countOfWater}</SpanCountOfWater>
         &nbsp;
         <SpanMl>ml</SpanMl>
-        <span>{timeOfDay}</span>
+        <SpanTimeOfDay>{timeOfDay}</SpanTimeOfDay>
         &nbsp;
-        <span>{partOfDay}</span>
+        <SpanPartOfDay>{partOfDay}</SpanPartOfDay>
       </DivDateAmount>
-      <h3>Correct entered data:</h3>
-      <h3>Amount of water:</h3>
+      <HeadCorrectEnteredData>Correct entered data:</HeadCorrectEnteredData>
+      <HeadAmountWater>Amount of water:</HeadAmountWater>
       <DivAmountWater>
         <ButtonDekrIcon>
           <IkonDekr src={IconDekrement} alt="icon dekrement" />
