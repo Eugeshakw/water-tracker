@@ -10,14 +10,15 @@ import {
     PURGE,
     REGISTER,
   } from 'redux-persist';
-// import storage from "redux-persist/lib/storage";
+  import sessionStorage from 'redux-persist/es/storage/session.js'
+// import storage from "redux-persist/lib/storage.js";
 
 import { authReducer } from "redux/auth/authSlice.js";
 
 
 const persistConfig = {
     key: 'root',
-    // storage,
+    storage: sessionStorage ,
     whitelist: ['token'],
   };  
 
