@@ -9,38 +9,36 @@ import backTablet from './icons/Background-tablet.png';
 import backDesktop from './icons/Background-desk.png';
 import img from '../WhyDrinkWater/icons/marker_item.svg';
 
- const Front = styled.div`
-//   width: 320px;
-//   height: 952px;
-//   background-image: url(${backMobile});
+const Front = styled.div`
+  //   width: 320px;
+  //   height: 952px;
+  //   background-image: url(${backMobile});
 
-//   @media screen and (min-width: 768px) {
-//     width: 768px;
-//     height: 800px;
-//     background-image: url(${backTablet});
+  //   @media screen and (min-width: 768px) {
+  //     width: 768px;
+  //     height: 800px;
+  //     background-image: url(${backTablet});
 
-//   }
+  //   }
   @media screen and (min-width: 1440px) {
-    display:flex;
+    display: flex;
     align-items: center;
-    justify-content:center;
-    gap:81px;
-//     width: 1440px;
-//     height: 432px;
-//     background-position: right bottom;
-//     background-image: none;
+    justify-content: center;
+    gap: 81px;
   }
- `;
+`;
 const NewDecorateImg = styled.div`
   padding-bottom: 40px;
   background-size: 100%;
   background-image: url(${backMobile});
   background-position: bottom;
   background-repeat: no-repeat;
+
   @media screen and (min-width: 768px) {
     padding-bottom: 50px;
     background-image: url(${backTablet});
   }
+
   @media screen and (min-width: 1440px) {
     padding-top: 80px;
     padding-bottom: 294px;
@@ -69,6 +67,7 @@ const H2Title = styled.h2`
   line-height: 1.33;
   margin-bottom: 24px;
   width: 197px;
+
   @media screen and (min-width: 768px) {
     font-size: 26px;
     line-height: 1.2;
@@ -88,10 +87,7 @@ const BenefitsList = styled.ul`
   @media screen and (min-width: 768px) {
     display: flex;
     align-items: center;
-    gap: 16px;
-  }
-  @media screen and (min-width: 1440px) {
-    display: block;
+    justify-content: space-between;
   }
 `;
 
@@ -99,23 +95,19 @@ const BenefitsItem = styled.li`
   display: flex;
   align-items: center;
   gap: 8px;
-  width: auto;
   margin-bottom: 16px;
   &:last-child {
     margin-bottom: 0;
   }
 
   @media screen and (min-width: 768px) {
-    width: 224px;
     &:last-child {
       margin-bottom: 16px;
     }
   }
+
   @media screen and (min-width: 1440px) {
     width: 248px;
-    &:last-child {
-      margin-bottom: 0;
-    }
   }
 `;
 
@@ -233,75 +225,76 @@ const WelcomePage = function () {
       <NewDecorateImg>
         <div className="container">
           <Front>
-          <div>
-            <Title>Water consumption tracker</Title>
-            <H2Title>Record daily water intake and track</H2Title>
-            <Benefits>Tracker Benefits</Benefits>
-            <BenefitsList>
-              <BenefitsItem>
-                <ImgIcon src={calendar} alt="calendar icon" />
-                <ItemText>Habit drive</ItemText>
-              </BenefitsItem>
-              <BenefitsItem>
-                <ImgIcon src={statistic} alt="statistic icon" />
-                <ItemText>View statistics</ItemText>
-              </BenefitsItem>
-              <BenefitsItem>
-                <ImgIcon src={settings} alt="settings icon" />
-                <ItemText>Personal rate setting</ItemText>
-              </BenefitsItem>
-            </BenefitsList>
-            <ButtonTracker type="button">Try tracker</ButtonTracker>
-          </div>
-          <div>
-            <DivWhyDrinkWater>
-              <H2WhyDrinkWater>Why drink water</H2WhyDrinkWater>
-              <ListWhyDrinkWater>
-                <ItemOfListWhyDrinkWater>
-                  <ImgStyle src={img} alt="icon item" />
-                  <ItemWhyDrinkWater>
-                    Supply of nutrients to all organs
-                  </ItemWhyDrinkWater>
-                </ItemOfListWhyDrinkWater>
-                <ItemOfListWhyDrinkWater>
-                  <ImgStyle src={img} alt="icon item" />
-                  <ItemWhyDrinkWater>
-                    Providing oxygen to the lungs
-                  </ItemWhyDrinkWater>
-                </ItemOfListWhyDrinkWater>
-                <ItemOfListWhyDrinkWater>
-                  <ImgStyle src={img} alt="icon item" />
-                  <ItemWhyDrinkWater>
-                    Maintaining the work of the heart
-                  </ItemWhyDrinkWater>
-                </ItemOfListWhyDrinkWater>
-                <ItemOfListWhyDrinkWater>
-                  <ImgStyle src={img} alt="icon item" />
-                  <ItemWhyDrinkWater>
-                    Release of processed substances
-                  </ItemWhyDrinkWater>
-                </ItemOfListWhyDrinkWater>
-                <ItemOfListWhyDrinkWater>
-                  <ImgStyle src={img} alt="icon item" />
-                  <ItemWhyDrinkWater>
-                    Ensuring the stability of the internal environment
-                  </ItemWhyDrinkWater>
-                </ItemOfListWhyDrinkWater>
-                <ItemOfListWhyDrinkWater>
-                  <ImgStyle src={img} alt="icon item" />
-                  <ItemWhyDrinkWater>
-                    Maintaining within the normal temperature
-                  </ItemWhyDrinkWater>
-                </ItemOfListWhyDrinkWater>
-                <ItemOfListWhyDrinkWater>
-                  <ImgStyle src={img} alt="icon item" />
-                  <ItemWhyDrinkWater>
-                    Maintaining an immune system capable of resisting disease
-                  </ItemWhyDrinkWater>
-                </ItemOfListWhyDrinkWater>
-              </ListWhyDrinkWater>
-            </DivWhyDrinkWater>
-          </div>
+            <div>
+              <Title>Water consumption tracker</Title>
+              <H2Title>Record daily water intake and track</H2Title>
+              <Benefits>Tracker Benefits</Benefits>
+              <BenefitsList>
+                <BenefitsItem>
+                  <ImgIcon src={calendar} alt="calendar icon" />
+                  <ItemText>Habit drive</ItemText>
+                </BenefitsItem>
+                <BenefitsItem>
+                  <ImgIcon src={statistic} alt="statistic icon" />
+                  <ItemText>View statistics</ItemText>
+                </BenefitsItem>
+                <BenefitsItem>
+                  <ImgIcon src={settings} alt="settings icon" />
+                  <ItemText>Personal rate setting</ItemText>
+                </BenefitsItem>
+              </BenefitsList>
+              <ButtonTracker type="button">Try tracker</ButtonTracker>
+            </div>
+
+            <div>
+              <DivWhyDrinkWater>
+                <H2WhyDrinkWater>Why drink water</H2WhyDrinkWater>
+                <ListWhyDrinkWater>
+                  <ItemOfListWhyDrinkWater>
+                    <ImgStyle src={img} alt="icon item" />
+                    <ItemWhyDrinkWater>
+                      Supply of nutrients to all organs
+                    </ItemWhyDrinkWater>
+                  </ItemOfListWhyDrinkWater>
+                  <ItemOfListWhyDrinkWater>
+                    <ImgStyle src={img} alt="icon item" />
+                    <ItemWhyDrinkWater>
+                      Providing oxygen to the lungs
+                    </ItemWhyDrinkWater>
+                  </ItemOfListWhyDrinkWater>
+                  <ItemOfListWhyDrinkWater>
+                    <ImgStyle src={img} alt="icon item" />
+                    <ItemWhyDrinkWater>
+                      Maintaining the work of the heart
+                    </ItemWhyDrinkWater>
+                  </ItemOfListWhyDrinkWater>
+                  <ItemOfListWhyDrinkWater>
+                    <ImgStyle src={img} alt="icon item" />
+                    <ItemWhyDrinkWater>
+                      Release of processed substances
+                    </ItemWhyDrinkWater>
+                  </ItemOfListWhyDrinkWater>
+                  <ItemOfListWhyDrinkWater>
+                    <ImgStyle src={img} alt="icon item" />
+                    <ItemWhyDrinkWater>
+                      Ensuring the stability of the internal environment
+                    </ItemWhyDrinkWater>
+                  </ItemOfListWhyDrinkWater>
+                  <ItemOfListWhyDrinkWater>
+                    <ImgStyle src={img} alt="icon item" />
+                    <ItemWhyDrinkWater>
+                      Maintaining within the normal temperature
+                    </ItemWhyDrinkWater>
+                  </ItemOfListWhyDrinkWater>
+                  <ItemOfListWhyDrinkWater>
+                    <ImgStyle src={img} alt="icon item" />
+                    <ItemWhyDrinkWater>
+                      Maintaining an immune system capable of resisting disease
+                    </ItemWhyDrinkWater>
+                  </ItemOfListWhyDrinkWater>
+                </ListWhyDrinkWater>
+              </DivWhyDrinkWater>
+            </div>
           </Front>
         </div>
       </NewDecorateImg>
