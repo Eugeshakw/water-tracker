@@ -24,9 +24,11 @@ export const App = () => {
         <Route path="/signup" element={<RegisterPage />} />
         <Route path="/signin" element={<LoginPage />} />
 
+
         <Route path="dashboard" element={<DaysGeneralStats />} />
 
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+
         <Route path="welcomepage" element={<WelcomePage />} />
 
         <Route path="whydrinkwater" element={<WhyDrinkWater />} />

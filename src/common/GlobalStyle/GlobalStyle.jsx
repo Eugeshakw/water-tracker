@@ -65,10 +65,10 @@ export const GlobalStyles = createGlobalStyle`
 			padding: 0 32px;
 		}
 	}
-	@media screen and (min-width: 1280px) {
+	@media screen and (min-width: 1440px) {
 		[class="container"] {
-			max-width: 1080px;
-			padding: 0 100px;
+			max-width: 1215px;
+			// padding: 0 100px;
 		}
 	}
 `;
