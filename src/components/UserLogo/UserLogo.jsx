@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import { UserIn } from './UserLodoStyle';
-<<<<<<< Updated upstream
 import UserLogoModal from '../UserLogoModal/UserLogoModal';
-=======
-import { MenuUser } from '../UserLogoModal/MenuUser.jsx';
->>>>>>> Stashed changes
 
 const UserLogo = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,11 +15,7 @@ const UserLogo = () => {
         src="https://trello-members.s3.amazonaws.com/63ee1379a0122cf60acbadf8/9cf5e1c5c18cdf0fb573732112c72bc7/30.png"
         alt="User avatar"
       />
-<<<<<<< Updated upstream
       <button onClick={toggleMenu}>
-=======
-      {/* <button>
->>>>>>> Stashed changes
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -36,13 +28,8 @@ const UserLogo = () => {
             fill="#407BFF"
           />
         </svg>
-<<<<<<< Updated upstream
       </button>
       {isOpen && <UserLogoModal />}
-=======
-      </button> */}
-      <MenuUser />
->>>>>>> Stashed changes
     </UserIn>
   );
 };
