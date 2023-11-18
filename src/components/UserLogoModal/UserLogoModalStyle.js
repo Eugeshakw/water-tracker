@@ -36,4 +36,10 @@ export const LogoModal = styled.div`
   svg {
     margin-right: 8px;
   }
+  @media screen and (min-width: 768px) {
+    top: 56px;
+    right: 32px;
+  }
+  @media screen and (min-width: 1440px) {
+  }
 `;
