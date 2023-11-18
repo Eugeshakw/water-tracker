@@ -30,7 +30,7 @@ export const App = () => {
 
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
 
-        
+        <Route path='/HomePage' element=""/>
 
         <Route path="whydrinkwater" element={<WhyDrinkWater />} />
       </Route>
