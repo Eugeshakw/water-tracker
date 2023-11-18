@@ -1,16 +1,18 @@
 {
   "files": {
     "main.css": "/water-tracker/static/css/main.106a8511.css",
-    "main.js": "/water-tracker/static/js/main.299f4b28.js",
+    "main.js": "/water-tracker/static/js/main.e57515ac.js",
     "static/media/bottle-desk.png": "/water-tracker/static/media/bottle-desk.ae104bfd8b47eb232ca0.png",
     "static/media/ForgotPassPageImgTab.png": "/water-tracker/static/media/ForgotPassPageImgTab.60ad62f90ee53105bc9b.png",
     "static/media/Background-tablet.png": "/water-tracker/static/media/Background-tablet.56a681ea9d8a8401bb99.png",
+    "static/media/main-logo.svg": "/water-tracker/static/media/main-logo.3ed05534b551b01ed4ee3d754a1479f3.svg",
     "static/media/Background-desk.png": "/water-tracker/static/media/Background-desk.05401b8a9e645a3cf64d.png",
     "static/media/bottle-desk.webp": "/water-tracker/static/media/bottle-desk.0c40af75ca1f45237b40.webp",
     "static/media/bottle-tablet.webp": "/water-tracker/static/media/bottle-tablet.c0334bb8f99cbfe2fbe1.webp",
     "static/media/ForgotPassPageImg.png": "/water-tracker/static/media/ForgotPassPageImg.fee63d9c3e002a159c49.png",
     "static/media/Background-mob.png": "/water-tracker/static/media/Background-mob.4390387300c35e6647eb.png",
     "static/media/bottle-mobile.webp": "/water-tracker/static/media/bottle-mobile.898641316a0cf60d645e.webp",
+    "static/media/sprite.svg": "/water-tracker/static/media/sprite.94e95607e8821fbf1f1abc8cdfbb52bc.svg",
     "static/media/bg-mobile.webp": "/water-tracker/static/media/bg-mobile.1c3b63e87fd3211b5069.webp",
     "static/media/settings.svg": "/water-tracker/static/media/settings.efbb94a9d6b57aee55f71b3ad62c22a2.svg",
     "index.html": "/water-tracker/index.html",
@@ -19,10 +21,10 @@
     "static/media/button_svg.svg": "/water-tracker/static/media/button_svg.90322daa098e22b0e3fac4d9cfe108f2.svg",
     "static/media/marker_item.svg": "/water-tracker/static/media/marker_item.fddb539b56ea3011c50a91ee6d888f28.svg",
     "main.106a8511.css.map": "/water-tracker/static/css/main.106a8511.css.map",
-    "main.299f4b28.js.map": "/water-tracker/static/js/main.299f4b28.js.map"
+    "main.e57515ac.js.map": "/water-tracker/static/js/main.e57515ac.js.map"
   },
   "entrypoints": [
     "static/css/main.106a8511.css",
-    "static/js/main.299f4b28.js"
+    "static/js/main.e57515ac.js"
   ]
 }
