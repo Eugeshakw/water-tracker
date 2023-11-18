@@ -1,8 +1,12 @@
 import { styled } from 'styled-components';
 
 export const LogoModal = styled.div`
+  position: absolute;
+  top: 48px;
+  right: 20px;
   width: 118px;
   height: 88px;
+  padding: 16px;
   border-radius: 10px;
   background: #fff;
   box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.2);
@@ -10,9 +14,7 @@ export const LogoModal = styled.div`
     list-style-type: none; /* Зняття маркерів */
     padding: 0; /* Зняття відступів */
     margin: 0;
-
     display: inline-flex;
-    padding: 16px;
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
