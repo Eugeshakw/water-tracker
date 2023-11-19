@@ -1,3 +1,4 @@
+
 import { Wrapper } from './DailyNorma.styled';
 
 const DailyNorma = () => {
@@ -14,3 +15,4 @@ const DailyNorma = () => {
 };
 
 export default DailyNorma;
+
