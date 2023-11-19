@@ -2,8 +2,10 @@ import { styled } from 'styled-components';
 
 export const ToDayWaterListStyle = styled.div`
   width: 264px;
-  /* height: 258px; */
+  padding: 24px 8px;
   background-color: #ecf2ff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(64, 123, 255, 0.3);
   * {
     margin: 0;
     padding: 0;
@@ -11,21 +13,21 @@ export const ToDayWaterListStyle = styled.div`
   }
 
   /* Кастомізація скролу */
-  ul::-webkit-scrollbar {
+  .todayList::-webkit-scrollbar {
     width: 4px; /* Ширина скролу */
   }
 
-  ul::-webkit-scrollbar-thumb {
+  .todayList::-webkit-scrollbar-thumb {
     background-color: #9ebbff; /* Колір скролу */
     border-radius: 8px; /* Закруглення країв */
   }
 
-  ul::-webkit-scrollbar-track {
+  .todayList::-webkit-scrollbar-track {
     background-color: #d7e3ff; /* Колір фону за скролом */
     border-radius: 8px; /*Закруглення країв*/
   }
 
-  ul {
+  .todayList {
     max-height: 212px;
     margin-top: 16px;
     overflow-y: auto;
@@ -81,15 +83,77 @@ export const ToDayWaterListStyle = styled.div`
     }
   }
 
+  .monthContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+    margin-bottom: 16px;
+  }
+  .pagination {
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+
+    p {
+      color: #407bff;
+    }
+  }
+  .arrow {
+    fill: #407bff;
+    background-color: transparent;
+  }
+
+  .monthList {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 26px;
+    row-gap: 16px;
+  }
+  .monthListItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .day {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    margin-bottom: 4px;
+    font-size: 14px;
+    transition: border 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    line-height: calc(18 / 14);
+  }
+  .day:hover {
+    border: 1px solid #ff9d43;
+  }
+  .percent {
+    font-size: 10px;
+    line-height: 16px;
+    color: #9ebbff;
+  }
+
   @media screen and (min-width: 768px) {
     width: 656px;
 
-    ul {
+    .todayList {
       row-gap: 14px;
+    }
+    .monthList {
+      column-gap: 34px;
+      row-gap: 20px;
     }
   }
   @media screen and (min-width: 1440px) {
     width: 544px;
-   
+    .monthList {
+      column-gap: 22px;
+    }
   }
 `;
