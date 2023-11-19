@@ -10,6 +10,7 @@ export const RouterLink = styled(Link)`
   text-decoration: none;
   display: flex;
   align-items: center;
+  gap:8px;
   &:hover {
     color: #ff9d43;
     transition: color 0.3s ease;

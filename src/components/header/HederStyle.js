@@ -16,6 +16,8 @@ export const HeaderStyle = styled.header`
   }
 
   div {
+    display:flex;
+    align-items:center;
     width: 102px;
     height: 48px;
   }
