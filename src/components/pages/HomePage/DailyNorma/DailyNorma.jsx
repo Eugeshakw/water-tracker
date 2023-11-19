@@ -12,4 +12,4 @@ const DailyNorma = () => {
     )
 
 }
-export default DailyNorma;
+// export default DailyNorma;
