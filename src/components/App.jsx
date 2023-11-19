@@ -20,24 +20,21 @@ import Welcome from '../components/main/WelcomePage'
 import './ForgotPasswordPage';
 import ForgotPasswordPage from './ForgotPasswordPage';
 // import ResetPasswordForm from './ResetPasswordForm';
-
+import HomePage from './pages/HomePage/DailyNorma/HomePage';
 export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Welcome/>}/>
+        <Route index element={<Welcome />} />
 
         <Route path="/signup" element={<RegisterPage />} />
         <Route path="/signin" element={<LoginPage />} />
-
-
 
         <Route path="dashboard" element={<DaysGeneralStats />} />
 
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
 
-        <Route path='/HomePage' element=""/>
-
+        <Route path="/HomePage" element={<HomePage/>} />
 
         <Route path="whydrinkwater" element={<WhyDrinkWater />} />
         <Route
@@ -48,6 +45,5 @@ export const App = () => {
         />
       </Route>
     </Routes>
-
   );
 };

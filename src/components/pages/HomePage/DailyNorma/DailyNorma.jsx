@@ -12,3 +12,4 @@ const DailyNorma = () => {
     )
 
 }
+export default DailyNorma;
