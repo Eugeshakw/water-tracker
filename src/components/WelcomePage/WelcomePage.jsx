@@ -8,6 +8,7 @@ import backMobile from './icons/Background-mob.png';
 import backTablet from './icons/Background-tablet.png';
 import backDesktop from './icons/Background-desk.png';
 import img from '../WhyDrinkWater/icons/marker_item.svg';
+import deskElements from './icons/Pagedesk-elements.svg';
 
 const Front = styled.div`
   //   width: 320px;
@@ -27,7 +28,7 @@ const Front = styled.div`
     gap: 81px; */
   }
 `;
-const NewDecorateImg = styled.div`
+const Background = styled.div`
   padding-bottom: 40px;
   background-size: 100%;
   background-image: url(${backMobile});
@@ -41,15 +42,29 @@ const NewDecorateImg = styled.div`
 
   @media screen and (min-width: 1440px) {
     padding-top: 80px;
-    padding-bottom: 294px;
+  padding-bottom:294px;
     background-image: url(${backDesktop});
   }
 `;
 
+const DecorateImg = styled.div`
+@media screen and (min-width: 1440px) {
+  display: block;
+  background-image: url(${deskElements});
+  width: 100vw; 
+  height: 62vh; 
+  /* position: absolute; */
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  z-index: -1;
+  bottom: 0;
+}
+`;
 const DivBenefits = styled.div`
   margin-bottom: 40px;
   @media screen and (min-width: 768px) {
-    margin-top: 40px;
+    /* margin-top: 40px; */
     margin-bottom: 60px;
   }
   @media screen and (min-width: 1440px) {
@@ -183,8 +198,8 @@ const ItemOfListWhyDrinkWater = styled.li`
   list-style: none;
   margin-bottom: 16px;
   display: flex;
-  gap: 8px;
   align-items: center;
+  gap: 8px;
   &:last-child {
     margin-bottom: 0;
   }
@@ -205,22 +220,24 @@ const ItemWhyDrinkWater = styled.p`
 `;
 
 const DivWhyDrinkWater = styled.div`
-  border-radius: 10px;
   background-color: #ecf2ff;
+  padding: 24px 16px;
+  border-radius: 10px;
   box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.3);
-  @media (min-width: 0px) {
+  max-width: 280px;
+  /* @media (min-width: 0px) {
     padding-top: 24px;
     padding-bottom: 24px;
     padding-right: 16px;
     padding-left: 16px;
     max-width: 280px;
-  }
+  } */
   @media (min-width: 768px) {
-    padding-top: 32px;
-    padding-bottom: 32px;
-    padding-right: 24px;
-    padding-left: 24px;
+    padding: 32px 24px;
     max-width: 494px;
+  }
+  @media (min-width: 1440px) {
+    margin-top: 34px;
   }
 `;
 
@@ -231,7 +248,8 @@ const ListWhyDrinkWater = styled.ul`
 
 const WelcomePage = function () {
   return (
-    <NewDecorateImg>
+      <DecorateImg>
+    <Background>
       <div className="container">
         <Front>
           <DivBenefits>
@@ -304,7 +322,8 @@ const WelcomePage = function () {
           </DivWhyDrinkWater>
         </Front>
       </div>
-    </NewDecorateImg>
+    </Background>
+      </DecorateImg>
   );
 };
 
