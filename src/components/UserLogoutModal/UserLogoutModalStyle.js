@@ -1,125 +1,113 @@
 import { styled } from 'styled-components';
 
 export const LogoutModal = styled.div`
-  width: 232px;
-  height: 196px;
-  display: inline-flex;
-  padding: 32px 24px 32px 24px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 32px 24px;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   gap: 24px;
   border-radius: 10px;
-  background: #fff;
-  position: relative;
-  h3 {
-    margin: 0px;
-    color: #2f2f2f;
-    font-size: 26px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 32px;
-  }
-  p {
-    margin: 0px;
-    height: 32px;
-    color: #2f2f2f;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 20px;
-  }
-  ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 24px;
-  }
-  button {
-    border: none;
-  }
-
-  /* Media query для екранів менших за 768px */
-  @media (min-width: 768px) {
-    width: 544px;
-    height: 144px;
-    ul {
-      width: 100%;
-      flex-direction: row-reverse;
-      justify-content: flex-start;
-    }
-  }
-  /* Media query для екранів менших за 1440px */
-  @media (min-width: 1440px) {
-    ul {
-      flex-direction: row;
-    }
+  background: #FFF;
+  z-index:20;
+  @media screen and (min-width:768px){
+    width:592px;
+    height:208px;
   }
 `;
 
-export const LogoutBtn = styled.button`
-  width: 232px;
-  height: 36px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: 10px;
-  background: var(--secondary-color-3, #ef5050);
-  box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
-  color: #fff;
-  text-align: center;
-  font-size: 16px;
+export const DivOfHeadingOfLogOutModal = styled.div`
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:24px;
+
+`;
+
+export const HeadingOfLogOutModal = styled.p`
+  width: 200px;
+  color: #2F2F2F;
+  font-size: 26px;
+  font-style: normal;
   font-weight: 500;
-  line-height: 20px; /* 125% */
-  /* Media query для екранів менших за 768px */
-  @media (min-width: 768px) {
-    width: 160px;
-    height: 44px;
-  }
-  /* Media query для екранів менших за 1440px */
-  @media (min-width: 1440px) {
+  line-height: 32px; /* 123.077% */
+  margin:0;
+  @media screen and (min-width:768px){
+    width: 384px;
   }
 `;
 
-export const CancellBtn = styled.button`
+export const BtnOfCloseOfLogOutModal = styled.button`
+  width: 24px;
+  height: 24px;
+  cursor: pointer; 
+  background: none; 
+  border: none; 
+`;
+export const ParagraphOfExit = styled.p`
   width: 232px;
-  height: 36px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: 10px;
-  background: var(--secondary-color-5, #d7e3ff);
-
-  color: var(--primery-color-blue, #407bff);
-  text-align: center;
+  color: #2F2F2F;
+  font-family: Roboto;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
-  line-height: 24px; /* 133.333% */
-
-  /* Media query для екранів менших за 768px */
-  @media (min-width: 768px) {
-    width: 160px;
-    height: 44px;
-  }
-  /* Media query для екранів менших за 1440px */
-  @media (min-width: 1440px) {
-    color: blue;
+  line-height: 20px; 
+  margin-bottom:24px;
+  @media screen and (min-width:768px){
+    width: 338px;
+    display:flex;
+    justify-content:flex-start;
   }
 `;
-
-export const CloseBtn = styled.button`
-  position: absolute;
-  z-index: 1;
-  top: 36px;
-  right: 24px;
-  width: 24px;
-  height: 24px;
-  background-color: #fff;
+export const BtnOfExit = styled.button`
+  width: 100%;
+  color: #FFF;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 125% */
+  display: flex;
+  padding: 8px 30px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  background: var(--secondary-color-3, #EF5050);
+  box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
+  margin-bottom:24px;
+  @media screen and (min-width:768px){
+    width:160px
+  }
+`;
+export const BtnOfCancelModalLogOut = styled.button`
+  width: 100%;
+  color: var(--primery-color-blue, #407BFF);
+  height:44px;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 125% */
+  display: flex;
+  padding: 8px 30px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  background: var(--secondary-color-5, #D7E3FF);
+  @media screen and (min-width:768px){
+    width:160px
+  }
+`;
+export const DivOfBtns = styled.div`
+  display:block;
+  @media screen and (min-width:768px){
+    display:flex;
+    justify-content:flex-end;
+    align-items:baseline;
+    gap:24px;
+  }
 `;

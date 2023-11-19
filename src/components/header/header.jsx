@@ -1,15 +1,15 @@
-import { HeaderStyle } from './HederStyle';
+import { HeaderStyle, ContainerOfLogo } from './HederStyle';
 import { Link } from 'react-router-dom';
 import Icon from '../../images/main-logo.svg';
 
 const Header = ({ children }) => {
   return (
     <HeaderStyle className="container">
-      <div>
+      <ContainerOfLogo>
         <Link to={'/'}>
           <img src={Icon} alt="Logo" />
         </Link>
-      </div>
+      </ContainerOfLogo>
       {children}
     </HeaderStyle>
   );

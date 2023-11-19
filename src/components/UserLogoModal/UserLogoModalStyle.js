@@ -20,8 +20,18 @@ export const LogoModal = styled.div`
     align-items: flex-start;
     gap: 16px;
   }
-  button {
-    display: flex;
+  svg {
+    margin-right: 8px;
+  }
+  @media screen and (min-width: 768px) {
+    top: 56px;
+    right: 32px;
+  }
+  @media screen and (min-width: 1440px) {
+  }
+`;
+export const LogoModalBtn = styled.button`
+   display: flex;
     align-items: center;
     justify-content: center;
     padding: 0px;
@@ -33,14 +43,4 @@ export const LogoModal = styled.div`
     font-style: normal;
     font-weight: 400;
     line-height: 20px; /* 125% */
-  }
-  svg {
-    margin-right: 8px;
-  }
-  @media screen and (min-width: 768px) {
-    top: 56px;
-    right: 32px;
-  }
-  @media screen and (min-width: 1440px) {
-  }
 `;

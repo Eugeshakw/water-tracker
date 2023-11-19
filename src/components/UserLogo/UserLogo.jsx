@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { UserIn } from './UserLodoStyle';
+import { UserIn, UserInBtn } from './UserLodoStyle';
 import UserLogoModal from '../UserLogoModal/UserLogoModal';
 
 const UserLogo = () => {
@@ -15,7 +15,7 @@ const UserLogo = () => {
         src="https://trello-members.s3.amazonaws.com/63ee1379a0122cf60acbadf8/9cf5e1c5c18cdf0fb573732112c72bc7/30.png"
         alt="User avatar"
       />
-      <button onClick={toggleMenu}>
+      <UserInBtn onClick={toggleMenu}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -28,7 +28,7 @@ const UserLogo = () => {
             fill="#407BFF"
           />
         </svg>
-      </button>
+      </UserInBtn>
       {isOpen && <UserLogoModal />}
     </UserIn>
   );

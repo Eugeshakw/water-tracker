@@ -15,10 +15,12 @@ export const HeaderStyle = styled.header`
   @media screen and (min-width: 1440px) {
   }
 
-  div {
+  `;
+export const ContainerOfLogo = styled.div`
+
     display:flex;
     align-items:center;
     width: 102px;
     height: 48px;
-  }
+
 `;
