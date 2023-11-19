@@ -1,4 +1,4 @@
-import { ToDayWaterListStyle } from 'components/pages/HomePage/DailyNorma/WaterList/ToDayWaterListStyle.js';
+import { ToDayWaterListStyle } from 'components/DailyNorma/WaterList/ToDayWaterListStyle.js';
 import { Title } from 'common/Title/Title.styled.js';
 
 import { ReactComponent as CupWater } from './cupWater.svg';

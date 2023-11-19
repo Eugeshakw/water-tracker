@@ -1,4 +1,3 @@
-
 import { Routes, Route } from 'react-router-dom';
 
 // import { PublicRoute } from './publickRoute.jsx';
@@ -6,21 +5,19 @@ import Layout from '../components/Layout/Loyout';
 
 // import { PrivateRoute } from './privateRoute';
 
-
 import LoginPage from '../components/pages/LoginPage/LoginPage.jsx';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import WhyDrinkWater from './WhyDrinkWater/WhyDrinkWater';
 
 import AmountOfWater from './AmountOfWater/AmountOfWater';
 
-
 import DaysGeneralStats from './DaysGeneralStats/DaysGeneralStats';
-import Welcome from '../components/main/WelcomePage'
+import Welcome from '../components/main/WelcomePage';
 
 import './ForgotPasswordPage';
 import ForgotPasswordPage from './ForgotPasswordPage';
 // import ResetPasswordForm from './ResetPasswordForm';
-import HomePage from './pages/HomePage/DailyNorma/HomePage';
+import HomePage from './DailyNorma/HomePage';
 export const App = () => {
   return (
     <Routes>
@@ -34,7 +31,7 @@ export const App = () => {
 
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
 
-        <Route path="/HomePage" element={<HomePage/>} />
+        <Route path="/HomePage" element={<HomePage />} />
 
         <Route path="whydrinkwater" element={<WhyDrinkWater />} />
         <Route
