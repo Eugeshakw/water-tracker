@@ -1,6 +1,26 @@
 import { styled } from 'styled-components';
 
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    align-items: baseline;
+  }
+`;
+
+export const ContentWrapper = styled.div`
+  width: 280px;
+
+  @media screen and (min-width: 768px) {
+    width: 100%;
+  }
+`;
+
 export const Button = styled.button`
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,6 +39,8 @@ export const Button = styled.button`
     font-size: 18px;
     line-height: 1.3;
     padding: 10px 104px;
+    margin: 0;
+    margin-left: 12px;
   }
 
   @media screen and (min-width: 1440px) {
