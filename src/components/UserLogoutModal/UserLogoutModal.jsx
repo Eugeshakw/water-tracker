@@ -6,7 +6,7 @@ import {
   CloseBtn,
 } from './UserLogoutModalStyle';
 
-const UserLogoutModal = () => {
+const UserLogoutModal = ({ onClose }) => {
   return (
     <LogoutModal>
       <h3>Log out</h3>
@@ -16,17 +16,17 @@ const UserLogoutModal = () => {
           <LogoutBtn>Log out</LogoutBtn>
         </li>
         <li>
-          <CancellBtn>Cancel</CancellBtn>
+          <CancellBtn onClick={onClose}>Cancel</CancellBtn>
         </li>
       </ul>
-      <CloseBtn>
+      <CloseBtn onClick={onClose}>
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
           <path
             d="M1 13L13 1M1 1L13 13"
             stroke="#407BFF"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       </CloseBtn>
