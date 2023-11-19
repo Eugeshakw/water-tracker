@@ -20,8 +20,7 @@ import Welcome from '../components/main/WelcomePage'
 import './ForgotPasswordPage';
 import ForgotPasswordPage from './ForgotPasswordPage';
 // import ResetPasswordForm from './ResetPasswordForm';
-import DailyNorma from './pages/HomePage/DailyNorma/DailyNorma';
-
+import HomePage from './pages/HomePage/DailyNorma/HomePage';
 export const App = () => {
   return (
     <Routes>
@@ -35,7 +34,7 @@ export const App = () => {
 
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
 
-        <Route path="/HomePage" element={<DailyNorma/>} />
+        <Route path="/HomePage" element={<HomePage/>} />
 
         <Route path="whydrinkwater" element={<WhyDrinkWater />} />
         <Route
