@@ -30,16 +30,7 @@ export const UserIn = styled.div`
     fillrule: 'evenodd';
     cliprule: 'evenodd';
   }
-  button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0px;
-    background-color: white;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
+
   /* Стилі для екранів шириною від 321px до 768px */
   @media (min-width: 321px) {
     font-size: 18px;
@@ -52,4 +43,14 @@ export const UserIn = styled.div`
   /* Стилі для екранів шириною менше або рівно 320px */
   @media (min-width: 1441px) {
   }
+`;
+export const UserInBtn = styled.button`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+    background-color: white;
+    color: #fff;
+    border: none;
+    cursor: pointer;
 `;

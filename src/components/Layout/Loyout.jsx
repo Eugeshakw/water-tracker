@@ -5,8 +5,7 @@ import UserLogo from './../UserLogo/UserLogo';
 import UserAuth from './../UserAuth/UserAuth';
 
 const Layout = () => {
-  const authToken = localStorage.getItem('AuthToken');
-  const userPawned = authToken ? true : false;
+  const userPawned = true;
 
   return (
     <Suspense>

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { LogoModal } from './UserLogoModalStyle';
+import { LogoModal, LogoModalBtn } from './UserLogoModalStyle';
 import UserLogoutModal from '../UserLogoutModal/UserLogoutModal';
-import '../UserLogoutModal/UserLogoutModalStyle';
+import './UserLogoModalStyle';
+
 
 const UserLogoModal = () => {
   const [showLogoutModal, setShowLogoutModal] = useState(false);
@@ -19,7 +20,7 @@ const UserLogoModal = () => {
       <LogoModal>
         <ul>
           <li>
-            <button>
+            <LogoModalBtn>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -37,10 +38,10 @@ const UserLogoModal = () => {
                 />
               </svg>
               Setting
-            </button>
+            </LogoModalBtn>
           </li>
           <li>
-            <button onClick={handleLogoutClick}>
+            <LogoModalBtn  className='logo-modal-btn' onClick={handleLogoutClick}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -54,7 +55,7 @@ const UserLogoModal = () => {
                 />
               </svg>
               Log out
-            </button>
+            </LogoModalBtn>
           </li>
         </ul>
       </LogoModal>
