@@ -7,6 +7,9 @@ import {
   signout,
   refreshUser,
   resetPassword,
+  instance,
+  updateAvatar,
+  updateUser,
 } from 'service/api/authApi.js';
 
 export const signUpThunk = createAsyncThunk(
@@ -95,6 +98,30 @@ export const resetPasswordThunk = createAsyncThunk(
     } catch (error) {
       toast.error(`Error! User with this email not found!`);
       return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const updateAvatarThunk = createAsyncThunk(
+  'auth/updateAvatar',
+  async (newPhotoFile, { rejectWithValue }) => {
+    try {
+      const avatarURL = await updateAvatar(newPhotoFile);
+      return avatarURL;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+export const updateProfileThunk = createAsyncThunk(
+  'auth/updateUser',
+  async (updatedUser, { rejectWithValue }) => {
+    try {
+      const res = await updateUser(updatedUser);
+
+      return res.data.user;
+    } catch (error) {
+      return rejectWithValue(error);
     }
   }
 );
