@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import css from './settingsModal.module.css';
 import img from './ars.png';
 import { ReactComponent as UploadIcon } from './icons/outline.svg';

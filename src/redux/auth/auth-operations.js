@@ -7,7 +7,7 @@ import {
   signout,
   refreshUser,
   resetPassword,
-  instance,
+  // instance,
   updateAvatar,
   updateUser,
 } from 'service/api/authApi.js';
