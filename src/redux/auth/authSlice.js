@@ -5,17 +5,22 @@ import {
   signInThunk,
   refreshUserThunk,
   resetPasswordThunk,
+  updateAvatarThunk,
+  updateProfileThunk,
 } from './auth-operations.js';
 import {
   handleAuth,
+  handleAvatar,
+  handleLogIn,
   handleLogout,
   handlePendingRefresh,
   handleRefresh,
   handleRefreshReject,
+  handleUpdate,
 } from './handlers.js';
 
 const initialState = {
-  user: { name: null, email: null },
+  user: { name: null, email: null, gender: null, avatarURL: '' },
   token: null,
   isLogIn: false,
   isLoading: false,
@@ -30,12 +35,14 @@ export const authSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(signUpThunk.fulfilled, handleAuth)
-      .addCase(signInThunk.fulfilled, handleAuth)
+      .addCase(signInThunk.fulfilled, handleLogIn)
       .addCase(logOutThunk.fulfilled, handleLogout)
       .addCase(refreshUserThunk.pending, handlePendingRefresh)
       .addCase(refreshUserThunk.fulfilled, handleRefresh)
       .addCase(refreshUserThunk.rejected, handleRefreshReject)
-      .addCase(resetPasswordThunk.fulfilled, handleLogout);
+      .addCase(resetPasswordThunk.fulfilled, handleLogout)
+      .addCase(updateAvatarThunk.fulfilled, handleAvatar)
+      .addCase(updateProfileThunk.fulfilled, handleUpdate);
   },
 });
 
