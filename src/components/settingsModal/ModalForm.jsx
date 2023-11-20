@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useFormik } from 'formik';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectorUserProfile } from 'redux/auth/auth-selectors';
+import { useDispatch } from 'react-redux';
+// import { selectorUserProfile } from 'redux/auth/auth-selectors';
 
 import PasswordInput from 'components/PasswordInput/PasswordInput';
 
 import css from './settingsModal.module.css';
 import { updateProfileThunk } from 'redux/auth/auth-operations';
 const ModalForm = ({ onClose }) => {
-  const selectorUserProfile = state => state.auth.user;
-  const userProfile = useSelector(selectorUserProfile);
+  // const selectorUserProfile = state => state.auth.user;
+  // const userProfile = useSelector(selectorUserProfile);
 
   const dispatch = useDispatch();
 
