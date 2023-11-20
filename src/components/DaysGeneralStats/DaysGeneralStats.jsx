@@ -2,6 +2,7 @@ import img from '../DaysGeneralStats/icons/button_svg.svg';
 import styled from 'styled-components';
 import { useState } from 'react';
 
+
 const DateOfMonthParagrah = styled.p`
   color: #407bff;
   font-size: 16px;
@@ -159,7 +160,7 @@ const ModalDivOfCheckbox = styled.div`
   display:flex;
   gap:24px;
 `;
-const ModalInputOfCalculate = styled.input.attrs({ type: 'checkbox' })`
+const ModalInputOfCalculate = styled.input.attrs({ type: 'radio' })`
   appearance: none;
   width: 14px;
   height: 14px;
@@ -337,7 +338,7 @@ const DaysGeneralStats = function ({
           <ParagraphWater>
             How many servings of water: <SpanWater>{howManyServings}</SpanWater>
           </ParagraphWater>
-        </DivDaysGeneralStats>
+          </DivDaysGeneralStats>
           <Modal>
             <ModalDivOfHeading>
             <ModalHeading>My daily norma</ModalHeading>
@@ -356,11 +357,11 @@ const DaysGeneralStats = function ({
             <ModalDivOfCheckbox>
               <ModalDivOfCheckboxPosition>
                 <ModalInputOfCalculate></ModalInputOfCalculate>
-                <ModalParagraphOfCalculate>For girl</ModalParagraphOfCalculate>
+                <ModalParagraphOfCalculate  name="gender">For girl</ModalParagraphOfCalculate>
               </ModalDivOfCheckboxPosition>
               <ModalDivOfCheckboxPosition>
                 <ModalInputOfCalculate></ModalInputOfCalculate>
-                <ModalParagraphOfCalculate>For man</ModalParagraphOfCalculate>
+                <ModalParagraphOfCalculate  name="gender">For man</ModalParagraphOfCalculate>
               </ModalDivOfCheckboxPosition>
             </ModalDivOfCheckbox>
             <ModalDivOfInputs>
@@ -378,7 +379,8 @@ const DaysGeneralStats = function ({
             <ModalDivOfBtn>
               <ModalBtn>Save</ModalBtn>
             </ModalDivOfBtn>
-         </Modal>
+            </Modal>
+
         </div>
       )}
     </>

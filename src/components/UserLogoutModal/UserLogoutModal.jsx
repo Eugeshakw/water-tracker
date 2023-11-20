@@ -1,12 +1,13 @@
 import React from 'react';
 import { LogoutModal, HeadingOfLogOutModal, DivOfHeadingOfLogOutModal, BtnOfCloseOfLogOutModal, ParagraphOfExit, BtnOfExit, BtnOfCancelModalLogOut, DivOfBtns } from './UserLogoutModalStyle';
-
+import Backdrop from '../Backdrop/Backdrop';
 const UserLogoutModal = ({ onClose }) => {
   const handleClose = () => {
     onClose();
   };
 
   return (
+    <Backdrop>
     <LogoutModal>
       <DivOfHeadingOfLogOutModal>
         <HeadingOfLogOutModal>Log out</HeadingOfLogOutModal>
@@ -21,7 +22,8 @@ const UserLogoutModal = ({ onClose }) => {
         <BtnOfExit>Log out</BtnOfExit>
         <BtnOfCancelModalLogOut onClick={handleClose}>Cancel</BtnOfCancelModalLogOut>
       </DivOfBtns>
-    </LogoutModal>
+      </LogoutModal>
+      </Backdrop>
   );
 };
 

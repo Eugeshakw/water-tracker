@@ -9,6 +9,7 @@ import backTablet from './icons/Background-tablet.png';
 import backDesktop from './icons/Background-desk.png';
 import img from '../WhyDrinkWater/icons/marker_item.svg';
 import deskElements from './icons/Pagedesk-elements.svg';
+import { Link } from 'react-router-dom';
 
 const Front = styled.div`
   @media screen and (min-width: 1440px) {
@@ -247,7 +248,7 @@ const WelcomePage = function () {
                   <ItemText>Personal rate setting</ItemText>
                 </BenefitsItem>
               </BenefitsList>
-              <ButtonTracker type="submit">Try tracker</ButtonTracker>
+              <Link to='signin'><ButtonTracker type="submit">Try tracker</ButtonTracker></Link>
             </DivBenefits>
 
             <DivWhyDrinkWater>
