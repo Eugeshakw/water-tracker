@@ -12,7 +12,7 @@ export const RouterLink = styled(Link)`
   align-items: center;
   &:hover {
     color: #ff9d43;
-    transition: color 0.3s ease;
+    transition: color 0.4s ease;
   }
   &:before {
     content: '';
@@ -30,6 +30,8 @@ export const RouterLink = styled(Link)`
 `;
 
 export const HeaderIcon = styled.div`
+  width: 28px !important;
+  height: 28px !important;
   svg {
     margin-left: 8px;
     width: 28px;

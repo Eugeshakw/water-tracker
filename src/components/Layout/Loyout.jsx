@@ -5,7 +5,7 @@ import UserLogo from './../UserLogo/UserLogo';
 import UserAuth from './../UserAuth/UserAuth';
 
 const Layout = () => {
-  const userPawned = true;
+  const userPawned = false;
 
   return (
     <Suspense>
