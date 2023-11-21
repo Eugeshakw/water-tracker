@@ -6,11 +6,14 @@ import { useDispatch } from 'react-redux';
 import PasswordInput from 'components/PasswordInput/PasswordInput';
 
 import css from './settingsModal.module.css';
+import { useSelector } from 'react-redux';
+
 import { updateProfileThunk } from 'redux/auth/auth-operations';
+import { selectId } from 'redux/selectors';
 const ModalForm = ({ onClose }) => {
   // const selectorUserProfile = state => state.auth.user;
   // const userProfile = useSelector(selectorUserProfile);
-
+  const id = useSelector(selectId);
   const dispatch = useDispatch();
 
   const {
@@ -40,6 +43,7 @@ const ModalForm = ({ onClose }) => {
         ...(emailInp && { email: emailInp }),
         ...(oldPassword && { outdatedPassword: oldPassword }),
         ...(newPassword && { newPassword }),
+        id,
       };
       console.log(updatedValues);
       dispatch(updateProfileThunk(updatedValues))

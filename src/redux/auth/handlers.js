@@ -1,8 +1,17 @@
 export const handleAuth = (state, { payload }) => {
   state.user.email = payload.email;
 };
+
+export const handleSignError = (state, { payload }) => {
+  console.log(payload);
+  state.error = payload;
+  state.isLoading = false;
+};
+
 export const handleLogIn = (state, { payload }) => {
+  state.token = payload.token;
   state.user.email = payload.user.email;
+  state.isLogIn = true;
 };
 export const handleLogout = (state, { payload }) => {
   state.user = {};
@@ -14,7 +23,15 @@ export const handlePendingRefresh = (state, { payload }) => {
 };
 
 export const handleRefresh = (state, { payload }) => {
-  state.user = payload;
+  console.log(payload);
+  state.user.email = payload.email;
+  state.user.name = payload.name;
+  state.token = payload.token;
+  state.user.id = payload._id;
+
+  state.user.gender = payload.gender;
+  state.user.avatarURL = payload.avatarURL;
+
   state.isRefreshing = false;
 };
 

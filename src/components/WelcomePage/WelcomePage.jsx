@@ -9,6 +9,7 @@ import backTablet from './icons/Background-tablet.png';
 import backDesktop from './icons/Background-desk.png';
 import img from '../WhyDrinkWater/icons/marker_item.svg';
 import deskElements from './icons/Pagedesk-elements.svg';
+import { useNavigate } from 'react-router';
 
 const Front = styled.div`
   @media screen and (min-width: 1440px) {
@@ -224,6 +225,11 @@ const ListWhyDrinkWater = styled.ul`
 `;
 
 const WelcomePage = function () {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate('/signup');
+  };
+
   return (
     <DecorateImg>
       <Background>
@@ -247,7 +253,9 @@ const WelcomePage = function () {
                   <ItemText>Personal rate setting</ItemText>
                 </BenefitsItem>
               </BenefitsList>
-              <ButtonTracker type="submit">Try tracker</ButtonTracker>
+              <ButtonTracker type="submit" onClick={handleClick}>
+                Try tracker
+              </ButtonTracker>
             </DivBenefits>
 
             <DivWhyDrinkWater>

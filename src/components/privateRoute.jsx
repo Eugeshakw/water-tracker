@@ -1,14 +1,12 @@
-import { Navigate} from "react-router-dom";
+import { useSelector } from 'react-redux';
+import { Navigate, useLocation } from 'react-router';
+import { selectUserToken } from 'redux/selectors';
 
-// import { useSelector } from "react-redux";
+const PrivateRoute = ({ children }) => {
+  const token = useSelector(selectUserToken);
+  const location = useLocation();
 
-
-export  function PrivateRoute ({component: Component, redirectTo='/'}) {
-
-  
-
-  
-
-return  <Navigate to={redirectTo}/> 
-
+  return token ? children : <Navigate to="/" state={location} />;
 };
+
+export default PrivateRoute;

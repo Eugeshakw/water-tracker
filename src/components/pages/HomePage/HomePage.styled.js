@@ -4,10 +4,23 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 16px;
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
     align-items: baseline;
+    gap: 12px;
+  }
+`;
+
+export const Container = styled.div`
+  margin-top: 24px;
+
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    justify-content: space-between;
   }
 `;
 
@@ -16,6 +29,16 @@ export const ContentWrapper = styled.div`
 
   @media screen and (min-width: 768px) {
     width: 100%;
+  }
+`;
+
+export const NormaContainer = styled.div`
+  display: flex;
+
+  flex-direction: column;
+  margin-bottom: 42px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 40px;
   }
 `;
 
