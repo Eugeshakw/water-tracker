@@ -13,24 +13,13 @@ export const RouterLink = styled(Link)`
   gap:8px;
   &:hover {
     color: #ff9d43;
-    transition: color 0.3s ease;
-  }
-  &:before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background-color: #ff9d43;
-    transition: width 0.3s ease;
-  }
-  &:hover:before {
-    width: 60%;
+    transition: color 0.4s ease;
   }
 `;
 
 export const HeaderIcon = styled.div`
+  width: 28px !important;
+  height: 28px !important;
   svg {
     margin-left: 8px;
     width: 28px;
