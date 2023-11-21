@@ -352,9 +352,61 @@ const DivSpanFormGroup = styled.div`
 
 const AmountOfWater = ({ countOfWater, timeOfDay, partOfDay }) => {
   const [isClose, setIsClose] = useState(false);
+  const [amountOfWater, setAmountOfWater] = useState(parseFloat(countOfWater));
+  const [timeOfDayState, setTimeOfDay] = useState(String(timeOfDay));
+  const [partOfDayState, setOfPartOfDay] = useState(partOfDay);
 
   const onClickButtonClose = function () {
     setIsClose(true);
+  };
+
+  const onClickButtonDekr = function () {
+    setAmountOfWater(state => state - 1);
+  };
+
+  const onClickButtonInkr = function () {
+    setAmountOfWater(state => state + 1);
+  };
+
+  const onSubmitForm = function (evt) {
+    evt.preventDefault();
+
+    const currentId = '1';
+    const url = 'http://localhost:1111/water/' + currentId;
+    const data = { count: String(amountOfWater), time: timeOfDayState };
+  };
+
+  const onChangeInputNumber = function (e) {
+    const { value } = e.target;
+    setAmountOfWater(state => parseFloat(value));
+  };
+
+  const getPartOfDay = function (timeInt, minuteInt) {
+    if (timeInt >= 0 && timeInt <= 11) {
+      return 'AM';
+    } else {
+      if (timeInt === 12) {
+        if (minuteInt === 0) {
+          return 'AM';
+        } else {
+          return 'PM';
+        }
+      } else {
+        return 'PM';
+      }
+    }
+  };
+
+  const onChangeInputTime = function (e) {
+    const { value } = e.target;
+    setTimeOfDay(state => String(value));
+    const arrayTime = value.split(':');
+    const time = arrayTime[0];
+    const minute = arrayTime[1];
+    const timeInt = parseInt(time);
+    const minuteInt = parseInt(minute);
+    const valuePart = getPartOfDay(timeInt, minuteInt);
+    setOfPartOfDay(state => valuePart);
   };
 
   return (
@@ -369,42 +421,53 @@ const AmountOfWater = ({ countOfWater, timeOfDay, partOfDay }) => {
           </DivAmountGroup>
           <DivDateAmount>
             <ImgWater src={waterIcon} alt="water icon" />
-            <SpanCountOfWater>{countOfWater}</SpanCountOfWater>
+            <SpanCountOfWater>{amountOfWater}</SpanCountOfWater>
             &nbsp;
             <SpanMl>ml</SpanMl>
-            <SpanTimeOfDay>{timeOfDay}</SpanTimeOfDay>
+            <SpanTimeOfDay>{timeOfDayState}</SpanTimeOfDay>
             &nbsp;
-            <SpanPartOfDay>{partOfDay}</SpanPartOfDay>
+            <SpanPartOfDay>{partOfDayState}</SpanPartOfDay>
           </DivDateAmount>
           <HeadCorrectEnteredData>Correct entered data:</HeadCorrectEnteredData>
           <HeadAmountWater>Amount of water:</HeadAmountWater>
           <DivAmountWater>
-            <ButtonDekrIcon>
+            <ButtonDekrIcon onClick={onClickButtonDekr}>
               <IkonDekr src={IconDekrement} alt="icon dekrement" />
             </ButtonDekrIcon>
             <DivSpanCountMl>
-              <SpanCountWater>{countOfWater}</SpanCountWater>
+              <SpanCountWater>{amountOfWater}</SpanCountWater>
               <SpanCountWaterTitle>ml</SpanCountWaterTitle>
             </DivSpanCountMl>
-            <ButtonInkrIcon>
+            <ButtonInkrIcon onClick={onClickButtonInkr}>
               <IkonInkr src={IconInkrement} alt="icon inkrement" />
             </ButtonInkrIcon>
           </DivAmountWater>
-          <FormAmount>
+          <FormAmount onSubmit={onSubmitForm}>
             <LabelRecordingTime>
               Recording time:
-              <InputTime type="time" name="recordingtime" />
+              <InputTime
+                type="time"
+                step="0"
+                name="recordingtime"
+                value={timeOfDayState}
+                onChange={onChangeInputTime}
+              />
             </LabelRecordingTime>
             <LabelWaterUsed>
               Enter the value of the water used:
-              <InputNumber type="number" name="watervalue" />
+              <InputNumber
+                type="number"
+                name="watervalue"
+                value={amountOfWater}
+                onChange={onChangeInputNumber}
+              />
             </LabelWaterUsed>
             <DivGroupButtonForm>
               <DivSpanFormGroup>
-                <SpanCountForm>{countOfWater}</SpanCountForm>
+                <SpanCountForm>{amountOfWater}</SpanCountForm>
                 <SpanMlForm>ml</SpanMlForm>
               </DivSpanFormGroup>
-              <ButtonForm>
+              <ButtonForm type="submit">
                 <SpanButtonForm>Save</SpanButtonForm>
               </ButtonForm>
             </DivGroupButtonForm>
