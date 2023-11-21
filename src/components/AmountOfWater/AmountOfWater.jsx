@@ -3,7 +3,6 @@ import imgamountclose from '../AmountOfWater/icons/amount_close_icon.svg';
 import waterIcon from '../AmountOfWater/icons/water_icon.svg';
 import IconDekrement from '../AmountOfWater/icons/dekr_icon.svg';
 import IconInkrement from '../AmountOfWater/icons/inkr_icon.svg';
-import { useState } from 'react';
 
 const DivAmountGroup = styled.div`
   display: flex;
