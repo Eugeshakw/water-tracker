@@ -14,19 +14,6 @@ export const RouterLink = styled(Link)`
     color: #ff9d43;
     transition: color 0.4s ease;
   }
-  &:before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background-color: #ff9d43;
-    transition: width 0.3s ease;
-  }
-  &:hover:before {
-    width: 60%;
-  }
 `;
 
 export const HeaderIcon = styled.div`
