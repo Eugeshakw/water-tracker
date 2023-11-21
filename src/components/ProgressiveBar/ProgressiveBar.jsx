@@ -21,7 +21,6 @@ const ProgressiveBar = () => {
       style={{
         display: 'flex',
         flexWrap: 'wrap',
-        margin: '2em',
       }}
     >
       <Range

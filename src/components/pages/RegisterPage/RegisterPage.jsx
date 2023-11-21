@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useFormik } from 'formik';
 import SignLayout from 'components/SignLayout/SignLayout';
 import { AuthForm, FormLabel, InputError } from './RegisterPage.styled';
@@ -8,12 +8,23 @@ import { Title } from 'common/Title/Title.styled';
 import { Input } from 'common/Input/Input.styled';
 import { PasswordInputWrapper } from 'components/PasswordInput/PasswordInput.styled';
 import PasswordInput from 'components/PasswordInput/PasswordInput';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { signUpThunk } from 'redux/auth/auth-operations';
+import { useNavigate } from 'react-router';
+import { selectEmail } from 'redux/selectors';
+// import { selectError } from 'redux/selectors';
 
 const RegisterPage = () => {
   const dispatch = useDispatch();
+  const email = useSelector(selectEmail);
 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (email) {
+      navigate('/signin');
+    }
+  }, [email, navigate]);
   const onSubmit = e => {
     const { email, password } = e;
     dispatch(signUpThunk({ email, password }));

@@ -16,15 +16,16 @@ import {
   handlePendingRefresh,
   handleRefresh,
   handleRefreshReject,
+  handleSignError,
   handleUpdate,
 } from './handlers.js';
 
 const initialState = {
-  user: { name: null, email: null, gender: null, avatarURL: '' },
+  user: { name: null, email: null, gender: null, avatarURL: '', id: null },
   token: null,
   isLogIn: false,
   isLoading: false,
-  error: false,
+  error: null,
   isRefreshing: false,
   alert: false,
 };
@@ -36,6 +37,8 @@ export const authSlice = createSlice({
     builder
       .addCase(signUpThunk.fulfilled, handleAuth)
       .addCase(signInThunk.fulfilled, handleLogIn)
+      .addCase(signUpThunk.rejected, handleSignError)
+      .addCase(signInThunk.rejected, handleSignError)
       .addCase(logOutThunk.fulfilled, handleLogout)
       .addCase(refreshUserThunk.pending, handlePendingRefresh)
       .addCase(refreshUserThunk.fulfilled, handleRefresh)

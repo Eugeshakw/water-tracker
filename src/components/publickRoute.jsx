@@ -1,9 +1,12 @@
-import { Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { Navigate, useLocation } from 'react-router';
+import { selectUserToken } from 'redux/selectors';
 
+const PublicRoute = ({ children }) => {
+  const token = useSelector(selectUserToken);
+  const location = useLocation();
 
+  return !token ? children : <Navigate to={location.state ?? '/HomePage'} />;
+};
 
-
-export const PublicRoute = ({component: Component, redirectTo='/'}) => {
-   
-    return  <Navigate to={redirectTo}/>
-}
+export default PublicRoute;

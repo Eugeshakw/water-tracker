@@ -9,10 +9,10 @@ const Layout = () => {
 
   return (
     <Suspense>
-      <Header>
-        {userPawned ? <UserLogo /> : <UserAuth />}
-      </Header>
-      <Outlet />
+      <div className="container">
+        <Header>{userPawned ? <UserLogo /> : <UserAuth />}</Header>
+        <Outlet />
+      </div>
     </Suspense>
   );
 };

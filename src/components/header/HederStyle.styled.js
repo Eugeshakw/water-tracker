@@ -5,7 +5,7 @@ export const HeaderStyle = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  padding-top: 12px;
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -14,13 +14,10 @@ export const HeaderStyle = styled.header`
   }
   @media screen and (min-width: 1440px) {
   }
-
-  `;
+`;
 export const ContainerOfLogo = styled.div`
-
-    display:flex;
-    align-items:center;
-    width: 102px;
-    height: 48px;
-
+  display: flex;
+  align-items: center;
+  width: 102px;
+  height: 48px;
 `;

@@ -19,10 +19,10 @@ export const UserIn = styled.div`
     line-height: 20px; /* 125% */
   }
   img {
-    width: 28px;
+    /* width: 28px;
     height: 28px;
     border-radius: 28px;
-    margin-right: 4px;
+    margin-right: 4px; */
     /* ckground: url(<path-to-image>), lightgray 50% / cover no-repeat; */
   }
 
@@ -45,12 +45,19 @@ export const UserIn = styled.div`
   }
 `;
 export const UserInBtn = styled.button`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0px;
-    background-color: white;
-    color: #fff;
-    border: none;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
+  background-color: white;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+`;
+
+export const HeaderImage = styled.img`
+  width: 28px;
+  height: 28px;
+  border-radius: 28px;
+  margin-right: 4px;
 `;

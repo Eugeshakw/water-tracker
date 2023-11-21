@@ -1,15 +1,21 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  display: flex;
+  /* display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: column; */
   border-radius: 10px;
   border: 1px solid #ecf2ff;
   box-shadow: 0px 4px 8px 0px rgba(158, 187, 255, 0.12);
   padding: 8px 20px;
-  width: 164px;
+  width: 166px;
+  margin-bottom: 232px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 326px;
+  }
+  @media screen and (min-width: 1440px) {
+  }
   p {
     font-size: 18px;
     color: #2f2f2f;
@@ -20,8 +26,9 @@ export const Wrapper = styled.div`
 
   div {
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     gap: 12px;
+    text-align: start;
 
     span {
       color: #407bff;

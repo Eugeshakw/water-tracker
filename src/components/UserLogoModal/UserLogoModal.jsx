@@ -2,17 +2,18 @@ import React, { useState } from 'react';
 import { LogoModal, LogoModalBtn } from './UserLogoModalStyle';
 import UserLogoutModal from '../UserLogoutModal/UserLogoutModal';
 import './UserLogoModalStyle';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { setOpenModal } from 'redux/modals/Slice';
+import Backdrop from 'components/Backdrop/Backdrop';
+import SettingsModal from 'components/settingsModal/settingsModal';
 
 const UserLogoModal = () => {
-  const [showLogoutModal, setShowLogoutModal] = useState(false);
-
-  const handleLogoutClick = () => {
-    setShowLogoutModal(true);
-  };
-
-  const handleCloseLogoutModal = () => {
-    setShowLogoutModal(false);
+  const [activeModal, setActiveModal] = useState(null);
+  const isOpenModal = useSelector(state => state.modals.isOpenModal);
+  const dispatch = useDispatch();
+  const handleModalOpen = modalType => {
+    setActiveModal(modalType);
+    dispatch(setOpenModal(true));
   };
 
   return (
@@ -20,7 +21,7 @@ const UserLogoModal = () => {
       <LogoModal>
         <ul>
           <li>
-            <LogoModalBtn>
+            <LogoModalBtn onClick={() => handleModalOpen('settings')}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -41,7 +42,10 @@ const UserLogoModal = () => {
             </LogoModalBtn>
           </li>
           <li>
-            <LogoModalBtn  className='logo-modal-btn' onClick={handleLogoutClick}>
+            <LogoModalBtn
+              className="logo-modal-btn"
+              onClick={() => handleModalOpen('logout')}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -60,7 +64,12 @@ const UserLogoModal = () => {
         </ul>
       </LogoModal>
 
-      {showLogoutModal && <UserLogoutModal onClose={handleCloseLogoutModal} />}
+      {isOpenModal && (
+        <Backdrop>
+          {activeModal === 'settings' && <SettingsModal />}
+          {activeModal === 'logout' && <UserLogoutModal />}
+        </Backdrop>
+      )}
     </>
   );
 };
