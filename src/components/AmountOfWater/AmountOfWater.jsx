@@ -140,6 +140,10 @@ const SpanCountWaterTitle = styled.span`
 const DivMainAmount = styled.div`
   border-radius: 10px;
   background: #fff;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
   @media (min-width: 0px) {
     padding-top: 24px;
     padding-bottom: 24px;
@@ -153,13 +157,13 @@ const DivMainAmount = styled.div`
     padding-right: 24px;
   }
   @media (min-width: 0px) and (max-width: 767px) {
-    max-width: 280px;
+    width: 280px;
   }
   @media (min-width: 768px) and (max-width: 1439px) {
-    max-width: 704px;
+    width: 704px;
   }
   @media (min-width: 1440px) {
-    max-width: 592px;
+    width: 592px;
   }
 `;
 
