@@ -22,7 +22,7 @@ import PrivateRoute from './privateRoute';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { refreshUserThunk } from 'redux/auth/auth-operations';
-import SettingsModal from './settingsModal/settingsModal';
+
 import HomePage from './pages/HomePage/HomePage';
 export const App = () => {
   const dispatch = useDispatch();
