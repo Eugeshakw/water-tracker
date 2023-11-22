@@ -10,7 +10,7 @@ const HomePage = () => {
     dispatch(refreshUserThunk());
   }, [dispatch]);
   return (
-    <div>
+    <div className='container'>
       {/* <DailyNorma /> */}
       <WaterList />
     </div>
