@@ -14,12 +14,13 @@ import {
 
 export const signUpThunk = createAsyncThunk(
   '/signup',
-  async (body, { rejectWithValue }) => {
+  async (body, { rejectWithValue, dispatch }) => {
     try {
       const data = await signup(body);
+
       return data;
     } catch (error) {
-      switch (error.response.status) {
+      switch (error.response) {
         case 409:
           toast.error(
             `This email is already in use by another user. Please try a different address.`
@@ -64,29 +65,47 @@ export const logOutThunk = createAsyncThunk(
   }
 );
 
-export const refreshUserThunk = createAsyncThunk(
-  '/refresh',
-  async (_, { rejectWithValue, getState }) => {
-    try {
-      const {
-        auth: { token },
-      } = getState();
-      const data = await refreshUser(token);
+// export const refreshUserThunk = createAsyncThunk(
+//   '/refresh',
+//   async (_, { rejectWithValue, getState }) => {
+//     try {
+//       const {
+//         auth: { token },
+//       } = getState();
+//       const data = await refreshUser(token);
 
+//       return data;
+//     } catch (error) {
+//       return rejectWithValue(error.message);
+//     }
+//   },
+//   {
+//     condition: (_, thunkApi) => {
+//       const {
+//         auth: { token },
+//       } = thunkApi.getState();
+//       if (!token) {
+//         return false;
+//       }
+//     },
+//   }
+// );
+
+export const refreshUserThunk = createAsyncThunk(
+  'auth/refresh',
+  async (_, { rejectWithValue }) => {
+    const token = localStorage.getItem('token');
+
+    if (token === null) {
+      return rejectWithValue('Unable to fetch user');
+    }
+
+    try {
+      const data = await refreshUser(token);
       return data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error);
     }
-  },
-  {
-    condition: (_, thunkApi) => {
-      const {
-        auth: { token },
-      } = thunkApi.getState();
-      if (!token) {
-        return false;
-      }
-    },
   }
 );
 
@@ -106,18 +125,22 @@ export const updateAvatarThunk = createAsyncThunk(
   'auth/updateAvatar',
   async (newPhotoFile, { rejectWithValue }) => {
     try {
-      const avatarURL = await updateAvatar(newPhotoFile);
+      const token = localStorage.getItem('token');
+      const avatarURL = await updateAvatar(newPhotoFile, token);
       return avatarURL;
     } catch (error) {
       return rejectWithValue(error.message);
     }
   }
 );
+
 export const updateProfileThunk = createAsyncThunk(
   'auth/updateUser',
   async (updatedUser, { rejectWithValue }) => {
     try {
-      const res = await updateUser(updatedUser);
+      const { id } = updatedUser;
+      const token = localStorage.getItem('token');
+      const res = await updateUser(updatedUser, token, id);
 
       return res.data.user;
     } catch (error) {

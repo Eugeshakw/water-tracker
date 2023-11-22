@@ -5,14 +5,16 @@ import UserLogo from './../UserLogo/UserLogo';
 import UserAuth from './../UserAuth/UserAuth';
 
 const Layout = () => {
-  const userPawned = true;
+  const authToken = localStorage.getItem('AuthToken');
+  const userPawned = authToken ? true : false;
+
 
   return (
     <Suspense>
-      <Header>
-        {userPawned ? <UserLogo /> : <UserAuth />}
-      </Header>
-      <Outlet />
+      <div className="container">
+        <Header>{userPawned ? <UserLogo /> : <UserAuth />}</Header>
+        <Outlet />
+      </div>
     </Suspense>
   );
 };

@@ -3,7 +3,7 @@ const initialState = {
   //   isOpenModalSetting: false,
   //   isOpenModalWaterRate: false,
   //   isOpenDeleteEntryModal: false,
-  isOpenModal: true,
+  isOpenModal: false,
 };
 
 const modalSlice = createSlice({

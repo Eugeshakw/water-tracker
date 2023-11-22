@@ -7,7 +7,6 @@ import Layout from '../components/Layout/Loyout';
 
 import LoginPage from '../components/pages/LoginPage/LoginPage.jsx';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
-import WhyDrinkWater from './WhyDrinkWater/WhyDrinkWater';
 
 import AmountOfWater from './AmountOfWater/AmountOfWater';
 
@@ -17,23 +16,62 @@ import Welcome from '../components/main/WelcomePage';
 import './ForgotPasswordPage';
 import ForgotPasswordPage from './ForgotPasswordPage';
 // import ResetPasswordForm from './ResetPasswordForm';
-import HomePage from './DailyNorma/HomePage';
+
+import PublicRoute from './publickRoute';
+import PrivateRoute from './privateRoute';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { refreshUserThunk } from 'redux/auth/auth-operations';
+
+import HomePage from './pages/HomePage/HomePage';
 export const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(refreshUserThunk());
+  }, [dispatch]);
+
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Welcome />} />
+        <Route
+          index
+          element={
+            <PublicRoute>
+              <Welcome />
+            </PublicRoute>
+          }
+        />
 
-        <Route path="/signup" element={<RegisterPage />} />
-        <Route path="/signin" element={<LoginPage />} />
+        <Route
+          path="/signup"
+          element={
+            <PublicRoute>
+              <RegisterPage />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/signin"
+          element={
+            <PublicRoute>
+              <LoginPage />
+            </PublicRoute>
+          }
+        />
 
         <Route path="dashboard" element={<DaysGeneralStats />} />
 
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
 
-        <Route path="/HomePage" element={<HomePage />} />
+        <Route
+          path="/HomePage"
+          element={
+            <PrivateRoute>
+              <HomePage />
+            </PrivateRoute>
+          }
+        />
 
-        <Route path="whydrinkwater" element={<WhyDrinkWater />} />
         <Route
           path="amountofwater"
           element={
