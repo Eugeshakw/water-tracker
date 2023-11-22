@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 // import { selectorUserProfile } from 'redux/auth/auth-selectors';
@@ -10,11 +10,35 @@ import { useSelector } from 'react-redux';
 
 import { updateProfileThunk } from 'redux/auth/auth-operations';
 import { selectId } from 'redux/selectors';
-const ModalForm = ({ onClose }) => {
-  // const selectorUserProfile = state => state.auth.user;
-  // const userProfile = useSelector(selectorUserProfile);
+import { checkPasswordStrength } from 'common/validation/passwordStrength';
+// import { updateUserProfileSchema } from '../../common/validation/validationSchema';
+
+const ModalForm = () => {
+  const selectorUserProfile = state => state.auth.user;
+  const userProfile = useSelector(selectorUserProfile);
+
   const id = useSelector(selectId);
   const dispatch = useDispatch();
+
+  const onSubmit = values => {
+    const { gender, name, email, oldPassword, newPassword } = values;
+    const updatedValues = {
+      // Проверяем каждое поле и добавляем только непустые значения в объект
+      ...(gender && { gender }),
+      ...(name && { name: name }),
+      ...(email && { email: email }),
+      ...(oldPassword && { outdatedPassword: oldPassword }),
+      ...(newPassword && { newPassword }),
+      id,
+    };
+
+    dispatch(updateProfileThunk(updatedValues))
+      .unwrap()
+      .then(() => {
+        console.log('succes');
+        resetForm();
+      });
+  };
 
   const {
     values,
@@ -23,40 +47,52 @@ const ModalForm = ({ onClose }) => {
     handleSubmit,
     handleChange,
     handleBlur,
-    // resetForm,
+    resetForm,
+    setFieldValue,
   } = useFormik({
     initialValues: {
       gender: '',
-      nameInput: '',
-      emailInp: '',
+      name: '',
+      email: '',
       oldPassword: '',
       newPassword: '',
       repeatPassword: '',
+      newColor: '',
+      oldColor: '',
+      repeatColor: '',
     },
-
-    onSubmit: values => {
-      const { gender, nameInput, emailInp, oldPassword, newPassword } = values;
-      const updatedValues = {
-        // Проверяем каждое поле и добавляем только непустые значения в объект
-        ...(gender && { gender }),
-        ...(nameInput && { name: nameInput }),
-        ...(emailInp && { email: emailInp }),
-        ...(oldPassword && { outdatedPassword: oldPassword }),
-        ...(newPassword && { newPassword }),
-        id,
-      };
-      console.log(updatedValues);
-      dispatch(updateProfileThunk(updatedValues))
-        .unwrap()
-        .then(() => {
-          console.log('succes');
-        });
-    },
+    // validationSchema: updateUserProfileSchema,
+    onSubmit,
   });
 
+  // У меня не работает валидация полей ввода пароля через YUP  FORMIK, почему?
+
+  useEffect(() => {
+    // Проверяем значение gender из Redux и устанавливаем соответствующий радиобаттон
+    if (userProfile.gender === 'female' || userProfile.gender === 'male') {
+      setFieldValue('gender', userProfile.gender);
+    }
+  }, [setFieldValue, userProfile.gender]);
+
   const handlePasswordChange = e => {
-    // const password = e.target.value;
-    handleChange(e);
+    const password = e.target.value;
+    console.log(password);
+    const input = e.target.name;
+    const { color: newColor } = checkPasswordStrength(password);
+    if (input === 'oldPassword') {
+      setFieldValue('oldColor', newColor);
+      setFieldValue('oldPassword', password);
+    }
+    if (input === 'newPassword') {
+      setFieldValue('newColor', newColor);
+
+      setFieldValue('newPassword', password);
+    }
+    if (input === 'repeatPassword') {
+      setFieldValue('repeatColor', newColor);
+
+      setFieldValue('repeatPassword', password);
+    }
   };
 
   return (
@@ -90,26 +126,30 @@ const ModalForm = ({ onClose }) => {
             </label>
           </div>
 
-          <label htmlFor="nameInput" className={css.dataLabel}>
+          <label htmlFor="name" className={css.dataLabel}>
             Your name
           </label>
           <input
+            name="name"
             type="text"
-            placeholder="David"
-            id="nameInput"
+            placeholder={userProfile.name ?? 'David'}
+            id="name"
             onBlur={handleBlur}
             onChange={handleChange}
+            value={values.name}
             className={`${css.modal_input} ${css.modal_input_data}`}
           />
-          <label htmlFor="emailInp" className={css.dataLabel}>
+          <label htmlFor="email" className={css.dataLabel}>
             E-mail
           </label>
           <input
             type="text"
-            placeholder="david01@gmail.com"
-            id="emailInp"
+            placeholder={userProfile.email ?? 'david01@gmail.com'}
+            id="email"
+            name="email"
             onBlur={handleBlur}
             onChange={handleChange}
+            value={values.email}
             className={`${css.modal_input} ${css.modal_input_data}`}
           />
         </div>
@@ -118,17 +158,19 @@ const ModalForm = ({ onClose }) => {
           <p className={css.modal_password_text}>Password</p>
 
           <div className={css.passwordInputContainer}>
-            <label htmlFor="outdatedPas" className={css.password_label}>
+            <label htmlFor="oldPassword" className={css.password_label}>
               Outdated password:
             </label>
             <div className={css.inputContainer}>
               {/* <input type={pass ? 'text' : 'password'} /> */}
               <PasswordInput
+                name="oldPassword"
                 value={values.oldPassword || ''}
                 onChange={handlePasswordChange}
                 placeholder="Password"
                 id="oldPassword"
                 onBlur={handleBlur}
+                // style={{ borderColor: values.oldColor }}
                 className={`${css.modal_input} ${css.modal_input_password}`}
               />
               {/* <div
@@ -143,16 +185,18 @@ const ModalForm = ({ onClose }) => {
           </div>
 
           <div className={css.passwordInputContainer}>
-            <label htmlFor="newPas" className={css.password_label}>
+            <label htmlFor="newPassword" className={css.password_label}>
               New Password:
             </label>
             <div className={css.inputContainer}>
               <PasswordInput
+                name="newPassword"
                 value={values.newPassword || ''}
                 onChange={handlePasswordChange}
                 placeholder="Password"
                 id="newPassword"
                 onBlur={handleBlur}
+                // style={{ borderColor: values.newColor }}
                 // ref={inputRefs.newPas}
                 className={`${css.modal_input} ${css.modal_input_password}`}
               />
@@ -177,14 +221,16 @@ const ModalForm = ({ onClose }) => {
             </div>
           </div>
           <div className={css.passwordInputContainer}>
-            <label htmlFor="repeatPas" className={css.password_label}>
+            <label htmlFor="repeatPassword" className={css.password_label}>
               Repeat new password:
             </label>
 
             <div className={css.inputContainer}>
               <PasswordInput
+                name="repeatPassword"
                 value={values.repeatPassword || ''}
                 onChange={handlePasswordChange}
+                // style={{ borderColor: values.repeatColor }}
                 placeholder="Password"
                 id="repeatPassword"
                 onBlur={handleBlur}

@@ -13,6 +13,8 @@ import { signUpThunk } from 'redux/auth/auth-operations';
 import { useNavigate } from 'react-router';
 import { selectEmail } from 'redux/selectors';
 // import { selectError } from 'redux/selectors';
+import { signUpSchema } from 'common/validation/validationSchema';
+import { checkPasswordStrength } from 'common/validation/passwordStrength.js';
 
 const RegisterPage = () => {
   const dispatch = useDispatch();
@@ -43,19 +45,29 @@ const RegisterPage = () => {
       email: '',
       password: '',
       repeatPassword: '',
-      strengthScore: 0,
+      color: '',
+      repCol: '',
     },
-    // validationSchema: signUpSchema,
+    validationSchema: signUpSchema,
     onSubmit,
   });
 
   const handlePasswordChange = e => {
     const password = e.target.value;
-    // const score = calculateStrength(password);
+    const input = e.target.name;
+    const { color: newColor } = checkPasswordStrength(password);
 
-    setFieldValue('password', password);
-    // setFieldValue('strengthScore', score);
+    if (input === 'password') {
+      setFieldValue('color', newColor);
+      setFieldValue('password', password);
+    }
+    if (input === 'repeatPassword') {
+      setFieldValue('repCol', newColor);
+
+      setFieldValue('repeatPassword', password);
+    }
   };
+
   return (
     <SignLayout>
       <AuthForm onSubmit={handleSubmit}>
@@ -83,6 +95,7 @@ const RegisterPage = () => {
               value={values.password}
               onChange={handlePasswordChange}
               onBlur={handleBlur}
+              style={{ borderColor: values.color }}
               placeholder="Password"
               $error={touched.password && errors.password}
             />
@@ -103,8 +116,9 @@ const RegisterPage = () => {
           <PasswordInput
             name="repeatPassword"
             value={values.repeatPassword}
-            onChange={handleChange}
+            onChange={handlePasswordChange}
             onBlur={handleBlur}
+            style={{ borderColor: values.repCol }}
             placeholder="Repeat password"
           />
           {touched.repeatPassword && errors.repeatPassword && (
