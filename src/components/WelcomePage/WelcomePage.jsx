@@ -31,7 +31,7 @@ const Background = styled.div`
 
   @media screen and (min-width: 1440px) {
     padding-top: 80px;
-    padding-bottom: 294px;
+    padding-bottom: 405px;
     background-image: url(${backDesktop});
   }
 `;
@@ -40,10 +40,9 @@ const DecorateImg = styled.div`
   @media screen and (min-width: 1440px) {
     display: block;
     background-image: url(${deskElements});
-    width: 100vw;
     height: 62vh;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     background-position: center;
     z-index: -1;
     bottom: 0;
@@ -231,7 +230,8 @@ const WelcomePage = function () {
   };
 
   return (
-    <DecorateImg>
+
+    <DecorateImg> 
       <Background>
         <div className="container">
           <Front>
@@ -308,7 +308,7 @@ const WelcomePage = function () {
           </Front>
         </div>
       </Background>
-    </DecorateImg>
+</DecorateImg>
   );
 };
 
