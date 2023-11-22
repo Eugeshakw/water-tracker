@@ -11,10 +11,10 @@ const Layout = () => {
 
   return (
     <Suspense>
-      <div className="container">
+      
         <Header>{userPawned ? <UserLogo /> : <UserAuth />}</Header>
         <Outlet />
-      </div>
+      
     </Suspense>
   );
 };
