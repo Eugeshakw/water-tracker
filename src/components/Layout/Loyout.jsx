@@ -11,8 +11,9 @@ const Layout = () => {
 
   return (
     <Suspense>
-      
+      <div className="container">
         <Header>{userPawned ? <UserLogo /> : <UserAuth />}</Header>
+        </div>
         <Outlet />
       
     </Suspense>
