@@ -15,7 +15,9 @@ import WaterList from 'components/DailyNorma/WaterList/WaterList';
 
 const HomePage = () => {
   return (
-    <Container>
+    <div className='container'>
+
+<Container>
       <NormaContainer>
         <DailyNorma />
         <Wrapper>
@@ -32,6 +34,8 @@ const HomePage = () => {
       </NormaContainer>
       <WaterList />
     </Container>
+    </div>
+    
   );
 };
 
