@@ -9,12 +9,23 @@ import {
   BtnOfCancelModalLogOut,
   DivOfBtns,
 } from './UserLogoutModalStyle';
-// import { useDispatch, useSelector } from 'react-redux';
 import { useModal } from 'context/modalContext';
+import { useNavigate } from 'react-router-dom';
+
 const UserLogoutModal = () => {
-  //  const dispatch = useDispatch();
-  //  const isOpenModal = useSelector(state => state.modals.isOpenModal);
   const { closeModal } = useModal();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // Удаление токена из локального хранилища
+    localStorage.removeItem('token'); // Замените 'your_token_key' на ваш ключ токена
+    // Дополнительно, вы можете выполнить другие действия, связанные с выходом пользователя
+
+    // Перенаправление пользователя на страницу входа или другую страницу
+    navigate('/signin'); // Замените '/login' на путь к вашей странице входа
+    closeModal();
+  };
+
   return (
     <LogoutModal>
       <DivOfHeadingOfLogOutModal>
@@ -39,7 +50,7 @@ const UserLogoutModal = () => {
       </DivOfHeadingOfLogOutModal>
       <ParagraphOfExit>Do you really want to leave?</ParagraphOfExit>
       <DivOfBtns>
-        <BtnOfExit>Log out</BtnOfExit>
+        <BtnOfExit onClick={handleLogout}>Log out</BtnOfExit>
         <BtnOfCancelModalLogOut onClick={closeModal}>
           Cancel
         </BtnOfCancelModalLogOut>
