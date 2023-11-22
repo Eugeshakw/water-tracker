@@ -375,10 +375,10 @@ const AmountOfWater = ({ countOfWater, timeOfDay, partOfDay }) => {
   const onSubmitForm = function (evt) {
     evt.preventDefault();
 
-    const currentId = '1';
-    // const url = 'http://localhost:1111/water/' + currentId;
-    // const data = { count: String(amountOfWater), time: timeOfDayState };
-  };
+  //   const currentId = '1';
+  //   const url = 'http://localhost:1111/water/' + currentId;
+  //   const data = { count: String(amountOfWater), time: timeOfDayState };
+  // };
 
   const onChangeInputNumber = function (e) {
     const { value } = e.target;
