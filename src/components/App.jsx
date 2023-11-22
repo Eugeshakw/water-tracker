@@ -24,6 +24,7 @@ import { useDispatch } from 'react-redux';
 import { refreshUserThunk } from 'redux/auth/auth-operations';
 
 import HomePage from './pages/HomePage/HomePage';
+import SettingsModal from './settingsModal/settingsModal';
 export const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -79,6 +80,7 @@ export const App = () => {
           }
         />
       </Route>
+      <Route path="/modal" element={<SettingsModal />} />
     </Routes>
   );
 };
