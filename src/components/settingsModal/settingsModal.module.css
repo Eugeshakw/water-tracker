@@ -178,6 +178,7 @@ img {
   display: block;
   border-radius: 6px;
   border: 1px solid #d7e3ff;
+  outline: none;
 }
 .inputContainer {
   width: 256px;
@@ -255,4 +256,19 @@ img {
 }
 .passwordInputContainer {
   position: relative;
+}
+
+.closeIcon {
+  position: absolute;
+  top: 36px;
+  right: 12px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .closeIcon {
+    position: absolute;
+    top: 36px;
+    right: 24px;
+  }
 }

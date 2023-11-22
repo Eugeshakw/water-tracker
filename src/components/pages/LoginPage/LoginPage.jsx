@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import SignLayout from 'components/SignLayout/SignLayout';
 import {
@@ -13,24 +13,37 @@ import { Button } from 'common/Button/Button.styled';
 import { RouterLink } from 'common/RouterLink/RouterLink.styled';
 import { useDispatch } from 'react-redux';
 import { signInThunk } from 'redux/auth/auth-operations';
-
+import { signInSchema } from 'common/validation/validationSchema';
+import { checkPasswordStrength } from '../../../common/validation/passwordStrength.js';
 const LoginPage = () => {
   const dispatch = useDispatch();
-
+  const [color, setColor] = useState('');
   const onSubmit = e => {
     dispatch(signInThunk(e));
   };
 
-  const { values, touched, errors, handleSubmit, handleChange, handleBlur } =
-    useFormik({
-      initialValues: {
-        email: '',
-        password: '',
-      },
+  const {
+    values,
+    touched,
+    errors,
+    handleSubmit,
+    handleChange,
+    handleBlur,
+    setFieldValue,
+  } = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+    },
+    validationSchema: signInSchema,
+    onSubmit,
+  });
 
-      onSubmit,
-    });
-
+  const onChangeInp = event => {
+    const { color: newColor } = checkPasswordStrength(values.password);
+    setColor(newColor);
+    setFieldValue('password', event.target.value);
+  };
   return (
     <SignLayout>
       <AuthForm onSubmit={handleSubmit}>
@@ -55,7 +68,8 @@ const LoginPage = () => {
           <PasswordInput
             name="password"
             value={values.password}
-            onChange={handleChange}
+            onChange={onChangeInp}
+            style={{ borderColor: color }}
             onBlur={handleBlur}
             placeholder="Password"
             $error={touched.password && errors.password}
