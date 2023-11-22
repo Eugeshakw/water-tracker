@@ -378,7 +378,7 @@ const AmountOfWater = ({ countOfWater, timeOfDay, partOfDay }) => {
   //   const currentId = '1';
   //   const url = 'http://localhost:1111/water/' + currentId;
   //   const data = { count: String(amountOfWater), time: timeOfDayState };
-  // };
+  };
 
   const onChangeInputNumber = function (e) {
     const { value } = e.target;
@@ -482,5 +482,6 @@ const AmountOfWater = ({ countOfWater, timeOfDay, partOfDay }) => {
     </>
   );
 };
+
 
 export default AmountOfWater;
