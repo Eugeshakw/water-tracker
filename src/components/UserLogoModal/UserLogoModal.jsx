@@ -3,16 +3,18 @@ import { LogoModal, LogoModalBtn } from './UserLogoModalStyle';
 import UserLogoutModal from '../UserLogoutModal/UserLogoutModal';
 import './UserLogoModalStyle';
 import { useDispatch, useSelector } from 'react-redux';
-import { setOpenModal } from 'redux/modals/Slice';
+import { setModalType, setOpenModal } from 'redux/modals/Slice';
 import Backdrop from 'components/Backdrop/Backdrop';
 import SettingsModal from 'components/settingsModal/settingsModal';
 
 const UserLogoModal = () => {
-  const [activeModal, setActiveModal] = useState(null);
   const isOpenModal = useSelector(state => state.modals.isOpenModal);
+  const modalType = useSelector(state => state.modals.modalType);
   const dispatch = useDispatch();
+
   const handleModalOpen = modalType => {
-    setActiveModal(modalType);
+    console.log(modalType);
+    dispatch(setModalType(modalType));
     dispatch(setOpenModal(true));
   };
 
@@ -64,10 +66,14 @@ const UserLogoModal = () => {
         </ul>
       </LogoModal>
 
-      {isOpenModal && (
+      {isOpenModal && modalType === 'settings' && (
         <Backdrop>
-          {activeModal === 'settings' && <SettingsModal />}
-          {activeModal === 'logout' && <UserLogoutModal />}
+          <SettingsModal />
+        </Backdrop>
+      )}
+      {isOpenModal && modalType === 'logout' && (
+        <Backdrop>
+          <UserLogoutModal />
         </Backdrop>
       )}
     </>

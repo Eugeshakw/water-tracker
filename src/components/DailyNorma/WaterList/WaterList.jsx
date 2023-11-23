@@ -5,12 +5,12 @@ import { ReactComponent as ArrowL } from './icon/arrowLeft.svg';
 import { ReactComponent as ArrowR } from './icon/arrowRight.svg';
 
 import { ElemToDayList, ElemMonthList } from './ElemWaterList';
+import { useDispatch, useSelector } from 'react-redux';
+import { setModalType, setOpenModal } from 'redux/modals/Slice';
 
 const WaterList = () => {
   return (
-
-    
-      <ToDayWaterListStyle>
+    <ToDayWaterListStyle>
       <Title>Today</Title>
       <ul className="todayList">
         <ElemToDayList />
@@ -60,8 +60,6 @@ const WaterList = () => {
         <ElemMonthList />
       </ul>
     </ToDayWaterListStyle>
-
-    
   );
 };
 export default WaterList;
