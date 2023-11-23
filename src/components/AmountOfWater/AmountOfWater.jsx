@@ -4,6 +4,11 @@ import waterIcon from '../AmountOfWater/icons/water_icon.svg';
 import IconDekrement from '../AmountOfWater/icons/dekr_icon.svg';
 import IconInkrement from '../AmountOfWater/icons/inkr_icon.svg';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import Backdrop from 'components/Backdrop/Backdrop';
+import { useModal } from 'context/modalContext';
+import { editAmountThunk } from 'redux/water/waterOperations';
 const DivAmountGroup = styled.div`
   display: flex;
   margin-bottom: 24px;
@@ -353,15 +358,19 @@ const DivSpanFormGroup = styled.div`
   }
 `;
 
-const AmountOfWater = ({ countOfWater, timeOfDay, partOfDay }) => {
-
-  const [isClose, setIsClose] = useState(false);
+const AmountOfWater = ({
+  countOfWater = 250,
+  timeOfDay = '7:00',
+  partOfDay = 'AM',
+}) => {
+  const { closeModal } = useModal();
   const [amountOfWater, setAmountOfWater] = useState(parseFloat(countOfWater));
   const [timeOfDayState, setTimeOfDay] = useState(String(timeOfDay));
   const [partOfDayState, setOfPartOfDay] = useState(partOfDay);
+  const dispatch = useDispatch();
 
   const onClickButtonClose = function () {
-    setIsClose(true);
+    closeModal();
   };
 
   const onClickButtonDekr = function () {
@@ -374,10 +383,10 @@ const AmountOfWater = ({ countOfWater, timeOfDay, partOfDay }) => {
 
   const onSubmitForm = function (evt) {
     evt.preventDefault();
-
-  //   const currentId = '1';
-  //   const url = 'http://localhost:1111/water/' + currentId;
-  //   const data = { count: String(amountOfWater), time: timeOfDayState };
+    const id = '655f659ba816de477c3314f1';
+    const data = { count: String(amountOfWater), time: timeOfDayState, id };
+    dispatch(editAmountThunk(data));
+    closeModal();
   };
 
   const onChangeInputNumber = function (e) {
@@ -401,87 +410,99 @@ const AmountOfWater = ({ countOfWater, timeOfDay, partOfDay }) => {
     }
   };
 
+  // const onChangeInputTime = function (e) {
+  //   const { value } = e.target;
+  //   setTimeOfDay(state => String(value));
+  //   const arrayTime = value.split(':');
+  //   const time = arrayTime[0];
+  //   const minute = arrayTime[1];
+  //   const timeInt = parseInt(time);
+  //   const minuteInt = parseInt(minute);
+  //   const valuePart = getPartOfDay(timeInt, minuteInt);
+  //   setOfPartOfDay(state => valuePart);
+  // };
+
   const onChangeInputTime = function (e) {
     const { value } = e.target;
-    setTimeOfDay(state => String(value));
-    const arrayTime = value.split(':');
+    const formattedValue = value.length === 5 ? `${value}` : value; // Add a leading zero for hours less than 10
+
+    setTimeOfDay(formattedValue);
+    const arrayTime = formattedValue.split(':');
     const time = arrayTime[0];
     const minute = arrayTime[1];
     const timeInt = parseInt(time);
     const minuteInt = parseInt(minute);
     const valuePart = getPartOfDay(timeInt, minuteInt);
-    setOfPartOfDay(state => valuePart);
+    setOfPartOfDay(valuePart);
   };
 
   return (
     <>
-      {isClose === false && (
-        <DivMainAmount>
-          <DivAmountGroup>
-            <HeaderMain>Edit the entered amount of water</HeaderMain>
-            <ButtoCloseAmount onClick={onClickButtonClose}>
-              <ImgCloseButton src={imgamountclose} alt="button icon close" />
-            </ButtoCloseAmount>
-          </DivAmountGroup>
-          <DivDateAmount>
-            <ImgWater src={waterIcon} alt="water icon" />
-            <SpanCountOfWater>{amountOfWater}</SpanCountOfWater>
-            &nbsp;
-            <SpanMl>ml</SpanMl>
-            <SpanTimeOfDay>{timeOfDayState}</SpanTimeOfDay>
-            &nbsp;
-            <SpanPartOfDay>{partOfDayState}</SpanPartOfDay>
-          </DivDateAmount>
-          <HeadCorrectEnteredData>Correct entered data:</HeadCorrectEnteredData>
-          <HeadAmountWater>Amount of water:</HeadAmountWater>
-          <DivAmountWater>
-            <ButtonDekrIcon onClick={onClickButtonDekr}>
-              <IkonDekr src={IconDekrement} alt="icon dekrement" />
-            </ButtonDekrIcon>
-            <DivSpanCountMl>
-              <SpanCountWater>{amountOfWater}</SpanCountWater>
-              <SpanCountWaterTitle>ml</SpanCountWaterTitle>
-            </DivSpanCountMl>
-            <ButtonInkrIcon onClick={onClickButtonInkr}>
-              <IkonInkr src={IconInkrement} alt="icon inkrement" />
-            </ButtonInkrIcon>
-          </DivAmountWater>
-          <FormAmount onSubmit={onSubmitForm}>
-            <LabelRecordingTime>
-              Recording time:
-              <InputTime
-                type="time"
-                step="0"
-                name="recordingtime"
-                value={timeOfDayState}
-                onChange={onChangeInputTime}
-              />
-            </LabelRecordingTime>
-            <LabelWaterUsed>
-              Enter the value of the water used:
-              <InputNumber
-                type="number"
-                name="watervalue"
-                value={amountOfWater}
-                onChange={onChangeInputNumber}
-              />
-            </LabelWaterUsed>
-            <DivGroupButtonForm>
-              <DivSpanFormGroup>
-                <SpanCountForm>{amountOfWater}</SpanCountForm>
-                <SpanMlForm>ml</SpanMlForm>
-              </DivSpanFormGroup>
-              <ButtonForm type="submit">
-                <SpanButtonForm>Save</SpanButtonForm>
-              </ButtonForm>
-            </DivGroupButtonForm>
-          </FormAmount>
-        </DivMainAmount>
-      )}
-
+      (
+      <DivMainAmount>
+        <DivAmountGroup>
+          <HeaderMain>Edit the entered amount of water</HeaderMain>
+          <ButtoCloseAmount onClick={onClickButtonClose}>
+            <ImgCloseButton src={imgamountclose} alt="button icon close" />
+          </ButtoCloseAmount>
+        </DivAmountGroup>
+        <DivDateAmount>
+          <ImgWater src={waterIcon} alt="water icon" />
+          <SpanCountOfWater>{amountOfWater}</SpanCountOfWater>
+          &nbsp;
+          <SpanMl>ml</SpanMl>
+          <SpanTimeOfDay>{timeOfDayState}</SpanTimeOfDay>
+          &nbsp;
+          <SpanPartOfDay>{partOfDayState}</SpanPartOfDay>
+        </DivDateAmount>
+        <HeadCorrectEnteredData>Correct entered data:</HeadCorrectEnteredData>
+        <HeadAmountWater>Amount of water:</HeadAmountWater>
+        <DivAmountWater>
+          <ButtonDekrIcon onClick={onClickButtonDekr}>
+            <IkonDekr src={IconDekrement} alt="icon dekrement" />
+          </ButtonDekrIcon>
+          <DivSpanCountMl>
+            <SpanCountWater>{amountOfWater}</SpanCountWater>
+            <SpanCountWaterTitle>ml</SpanCountWaterTitle>
+          </DivSpanCountMl>
+          <ButtonInkrIcon onClick={onClickButtonInkr}>
+            <IkonInkr src={IconInkrement} alt="icon inkrement" />
+          </ButtonInkrIcon>
+        </DivAmountWater>
+        <FormAmount onSubmit={onSubmitForm}>
+          <LabelRecordingTime>
+            Recording time:
+            <InputTime
+              type="time"
+              step="0"
+              name="recordingtime"
+              value={timeOfDayState}
+              onChange={onChangeInputTime}
+            />
+          </LabelRecordingTime>
+          <LabelWaterUsed>
+            Enter the value of the water used:
+            <InputNumber
+              type="number"
+              name="watervalue"
+              value={amountOfWater}
+              onChange={onChangeInputNumber}
+            />
+          </LabelWaterUsed>
+          <DivGroupButtonForm>
+            <DivSpanFormGroup>
+              <SpanCountForm>{amountOfWater}</SpanCountForm>
+              <SpanMlForm>ml</SpanMlForm>
+            </DivSpanFormGroup>
+            <ButtonForm type="submit">
+              <SpanButtonForm>Save</SpanButtonForm>
+            </ButtonForm>
+          </DivGroupButtonForm>
+        </FormAmount>
+      </DivMainAmount>
+      )
     </>
   );
 };
-
 
 export default AmountOfWater;

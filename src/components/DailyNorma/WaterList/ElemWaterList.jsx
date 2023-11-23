@@ -1,19 +1,22 @@
+import { useDispatch, useSelector } from 'react-redux';
 import { ReactComponent as CupWater } from './icon/cupWater.svg';
 import { ReactComponent as Edit } from './icon/edit.svg';
 import { ReactComponent as Trash } from './icon/trash.svg';
+import { setModalType, setOpenModal } from 'redux/modals/Slice';
 // import { useState } from 'react';
 // import { setOpenModal } from 'redux/modals/Slice';
 // import Backdrop from 'components/Backdrop/Backdrop';
 // import AmountOfWater from 'components/AmountOfWater/AmountOfWater';
 
 export const ElemToDayList = () => {
-  // const [activeModal, setActiveModal] = useState(null);
-  // const isOpenModal = useSelector(state => state.modals.isOpenModal);
-  // const dispatch = useDispatch();
-  // const handleModalOpen = modalType => {
-  //   setActiveModal(modalType);
-  //   dispatch(setOpenModal(true));
-  // };
+  const modalType = useSelector(state => state.modals.modalType);
+  const dispatch = useDispatch();
+
+  const handleOpen = () => {
+    console.log(modalType);
+    dispatch(setModalType('EditWater'));
+    dispatch(setOpenModal(true));
+  };
 
   return (
     <>
@@ -27,7 +30,7 @@ export const ElemToDayList = () => {
         </div>
 
         <div className="iconWrapper">
-          <button>
+          <button onClick={handleOpen}>
             <Edit />
           </button>
 

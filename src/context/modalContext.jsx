@@ -1,6 +1,6 @@
 import React, { createContext, useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setOpenModal } from 'redux/modals/Slice';
+import { setModalType, setOpenModal } from 'redux/modals/Slice';
 
 // Создаем контекст для функции закрытия модального окна
 export const ModalContext = createContext(null);
@@ -12,6 +12,7 @@ export const ModalProvider = ({ children }) => {
 
   const closeModal = () => {
     dispatch(setOpenModal(!isOpenModal));
+    dispatch(setModalType(''));
   };
 
   return (
