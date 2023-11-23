@@ -8,9 +8,7 @@ import { ElemToDayList, ElemMonthList } from './ElemWaterList';
 
 const WaterList = () => {
   return (
-
-    
-      <ToDayWaterListStyle>
+    <ToDayWaterListStyle>
       <Title>Today</Title>
       <ul className="todayList">
         <ElemToDayList />
@@ -58,10 +56,19 @@ const WaterList = () => {
         <ElemMonthList />
         <ElemMonthList />
         <ElemMonthList />
+        <ElemMonthList />
+        <ElemMonthList />
+        <ElemMonthList />
+        <ElemMonthList />
+        <ElemMonthList />
+        <ElemMonthList />
+        <ElemMonthList />
+        <ElemMonthList />
+        <ElemMonthList />
+        <ElemMonthList />
+        <ElemMonthList />
       </ul>
     </ToDayWaterListStyle>
-
-    
   );
 };
 export default WaterList;
