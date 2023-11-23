@@ -3,19 +3,17 @@ import { Outlet } from 'react-router-dom';
 import Header from 'components/header/header';
 import UserLogo from './../UserLogo/UserLogo';
 import UserAuth from './../UserAuth/UserAuth';
+import { useSelector } from 'react-redux';
 
 const Layout = () => {
-  const authToken = localStorage.getItem('token');
-  const userPawned = authToken ? true : false;
-
+  const token = useSelector(state => state.auth.token);
 
   return (
     <Suspense>
       <div className="container">
-        <Header>{userPawned ? <UserLogo /> : <UserAuth />}</Header>
-        </div>
-        <Outlet />
-      
+        <Header>{token ? <UserLogo /> : <UserAuth />}</Header>
+      </div>
+      <Outlet />
     </Suspense>
   );
 };

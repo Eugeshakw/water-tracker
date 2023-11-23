@@ -8,7 +8,7 @@ import {
   NormaContainer,
   Wrapper,
   BackImage,
-  ConImg
+  ConImg,
 } from './HomePage.styled';
 import WaterList from 'components/DailyNorma/WaterList/WaterList';
 
@@ -18,7 +18,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setModalType, setOpenModal } from 'redux/modals/Slice';
 import AmountOfWater from 'components/AmountOfWater/AmountOfWater';
 import DailyNormaModal from 'components/MyDailyNorma/DailyNormaModal';
-
 
 const HomePage = () => {
   const isOpenModal = useSelector(state => state.modals.isOpenModal);
@@ -43,15 +42,12 @@ const HomePage = () => {
 
       <div className="container">
         <Container>
-        
           <NormaContainer>
-         
             <DailyNorma setActive={setActive} />
-            <ConImg> 
-                 <BackImage/>
-              </ConImg>     
+            <ConImg>
+              <BackImage />
+            </ConImg>
             <Wrapper>
-           
               <ContentWrapper>
                 <ProgressiveBar />
               </ContentWrapper>
@@ -64,7 +60,6 @@ const HomePage = () => {
             </Wrapper>
           </NormaContainer>
           <WaterList />
-          
         </Container>
       </div>
     </>
