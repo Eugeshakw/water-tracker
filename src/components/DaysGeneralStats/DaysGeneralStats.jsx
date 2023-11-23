@@ -1,9 +1,7 @@
 import img from '../DaysGeneralStats/icons/button_svg.svg';
 import styled from 'styled-components';
-import { useState } from 'react';
 import { useModal } from 'context/modalContext';
-// import { useDispatch } from 'react-redux';
-// import { setOpenModal } from 'redux/modals/Slice';
+
 
 const DateOfMonthParagrah = styled.p`
   color: #407bff;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { LogoModal, LogoModalBtn } from './UserLogoModalStyle';
 import UserLogoutModal from '../UserLogoutModal/UserLogoutModal';
 import './UserLogoModalStyle';

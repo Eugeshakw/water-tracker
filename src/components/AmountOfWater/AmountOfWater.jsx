@@ -4,9 +4,9 @@ import waterIcon from '../AmountOfWater/icons/water_icon.svg';
 import IconDekrement from '../AmountOfWater/icons/dekr_icon.svg';
 import IconInkrement from '../AmountOfWater/icons/inkr_icon.svg';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 
-import Backdrop from 'components/Backdrop/Backdrop';
+
 import { useModal } from 'context/modalContext';
 import { editAmountThunk } from 'redux/water/waterOperations';
 const DivAmountGroup = styled.div`

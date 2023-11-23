@@ -7,18 +7,18 @@ import {
   ContentWrapper,
   NormaContainer,
   Wrapper,
+  BackImage,
+  ConImg
 } from './HomePage.styled';
 import WaterList from 'components/DailyNorma/WaterList/WaterList';
 
 import Backdrop from 'components/Backdrop/Backdrop';
 import { useDispatch, useSelector } from 'react-redux';
-import DaysGeneralStats from 'components/DaysGeneralStats/DaysGeneralStats';
+
 import { setModalType, setOpenModal } from 'redux/modals/Slice';
 import AmountOfWater from 'components/AmountOfWater/AmountOfWater';
 import DailyNormaModal from 'components/MyDailyNorma/DailyNormaModal';
-// import { useEffect } from 'react';
-// import { useDispatch } from 'react-redux';
-// import { refreshUserThunk } from 'redux/auth/auth-operations';
+
 
 const HomePage = () => {
   const isOpenModal = useSelector(state => state.modals.isOpenModal);
@@ -43,9 +43,15 @@ const HomePage = () => {
 
       <div className="container">
         <Container>
+        
           <NormaContainer>
+         
             <DailyNorma setActive={setActive} />
+            <ConImg> 
+                 <BackImage/>
+              </ConImg>     
             <Wrapper>
+           
               <ContentWrapper>
                 <ProgressiveBar />
               </ContentWrapper>
@@ -58,6 +64,7 @@ const HomePage = () => {
             </Wrapper>
           </NormaContainer>
           <WaterList />
+          
         </Container>
       </div>
     </>
