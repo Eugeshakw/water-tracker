@@ -1,10 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
+  addWaterThunk,
   editAmountThunk,
   getAllWater,
   getWaterMonth,
 } from './waterOperations.js';
 import {
+  onAddWater,
   onEditWater,
   onGetAllWater,
   onGetMonthWater,
@@ -23,7 +25,8 @@ export const waterSlice = createSlice({
     builder
       .addCase(editAmountThunk.fulfilled, onEditWater)
       .addCase(getAllWater.fulfilled, onGetAllWater)
-      .addCase(getWaterMonth.fulfilled, onGetMonthWater);
+      .addCase(getWaterMonth.fulfilled, onGetMonthWater)
+      .addCase(addWaterThunk.fulfilled, onAddWater);
   },
 });
 

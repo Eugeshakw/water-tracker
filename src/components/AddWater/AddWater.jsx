@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 import imgamountclose from '../AmountOfWater/icons/amount_close_icon.svg';
-import waterIcon from '../AmountOfWater/icons/water_icon.svg';
+// import waterIcon from '../AmountOfWater/icons/water_icon.svg';
 import IconDekrement from '../AmountOfWater/icons/dekr_icon.svg';
 import IconInkrement from '../AmountOfWater/icons/inkr_icon.svg';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { useModal } from 'context/modalContext';
-import { editAmountThunk } from 'redux/water/waterOperations';
+import { addWaterThunk } from 'redux/water/waterOperations';
 const DivAmountGroup = styled.div`
   display: flex;
   margin-bottom: 24px;
@@ -15,7 +15,7 @@ const DivAmountGroup = styled.div`
     align-items: baseline;
   }
   @media (min-width: 768px) {
-    align-items: end;
+    align-items: center;
   }
 `;
 
@@ -40,34 +40,34 @@ const ButtoCloseAmount = styled.button`
   cursor: pointer;
 `;
 
-const DivDateAmount = styled.div`
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 24px;
-  padding-right: 24px;
-  border-radius: 10px;
-  background-color: #ecf2ff;
-  display: flex;
-  align-items: center;
-  max-width: 254px;
-  margin-bottom: 24px;
-`;
+// const DivDateAmount = styled.div`
+//   padding-top: 8px;
+//   padding-bottom: 8px;
+//   padding-left: 24px;
+//   padding-right: 24px;
+//   border-radius: 10px;
+//   background-color: #ecf2ff;
+//   display: flex;
+//   align-items: center;
+//   max-width: 254px;
+//   margin-bottom: 24px;
+// `;
 
-const ImgWater = styled.img`
-  display: block;
-  margin-right: 12px;
-`;
+// const ImgWater = styled.img`
+//   display: block;
+//   margin-right: 12px;
+// `;
 
-const SpanMl = styled.span`
-  display: block;
-  margin-right: 16px;
-  color: #407bff;
-  font-family: 'Roboto';
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px;
-`;
+// const SpanMl = styled.span`
+//   display: block;
+//   margin-right: 16px;
+//   color: #407bff;
+//   font-family: 'Roboto';
+//   font-size: 18px;
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: 24px;
+// `;
 
 const DivAmountWater = styled.div`
   display: flex;
@@ -184,32 +184,32 @@ const ImgCloseButton = styled.img`
   display: block;
 `;
 
-const SpanCountOfWater = styled.span`
-  color: #407bff;
-  font-family: 'Roboto';
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px;
-`;
+// const SpanCountOfWater = styled.span`
+//   color: #407bff;
+//   font-family: 'Roboto';
+//   font-size: 18px;
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: 24px;
+// `;
 
-const SpanTimeOfDay = styled.span`
-  color: #2f2f2f;
-  font-family: 'Roboto';
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px;
-`;
+// const SpanTimeOfDay = styled.span`
+//   color: #2f2f2f;
+//   font-family: 'Roboto';
+//   font-size: 12px;
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: 24px;
+// `;
 
-const SpanPartOfDay = styled.span`
-  color: #2f2f2f;
-  font-family: 'Roboto';
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px;
-`;
+// const SpanPartOfDay = styled.span`
+//   color: #2f2f2f;
+//   font-family: 'Roboto';
+//   font-size: 12px;
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: 24px;
+// `;
 
 const HeadCorrectEnteredData = styled.h3`
   margin: 0;
@@ -357,7 +357,7 @@ const DivSpanFormGroup = styled.div`
   }
 `;
 
-const AmountOfWater = ({
+const AddWater = ({
   countOfWater = 250,
   timeOfDay = '07:00',
   partOfDay = 'AM',
@@ -365,7 +365,7 @@ const AmountOfWater = ({
   const { closeModal } = useModal();
   const [amountOfWater, setAmountOfWater] = useState(parseFloat(countOfWater));
   const [timeOfDayState, setTimeOfDay] = useState(String(timeOfDay));
-  const [partOfDayState, setOfPartOfDay] = useState(partOfDay);
+  //   const [partOfDayState, setOfPartOfDay] = useState(partOfDay);
   const dispatch = useDispatch();
 
   const onClickButtonClose = function () {
@@ -382,9 +382,8 @@ const AmountOfWater = ({
 
   const onSubmitForm = function (evt) {
     evt.preventDefault();
-    const id = '655f659ba816de477c3314f1';
-    const data = { count: String(amountOfWater), time: timeOfDayState, id };
-    dispatch(editAmountThunk(data));
+    const data = { count: String(amountOfWater), time: timeOfDayState };
+    dispatch(addWaterThunk(data));
     closeModal();
   };
 
@@ -393,21 +392,21 @@ const AmountOfWater = ({
     setAmountOfWater(state => parseFloat(value));
   };
 
-  const getPartOfDay = function (timeInt, minuteInt) {
-    if (timeInt >= 0 && timeInt <= 11) {
-      return 'AM';
-    } else {
-      if (timeInt === 12) {
-        if (minuteInt === 0) {
-          return 'AM';
-        } else {
-          return 'PM';
-        }
-      } else {
-        return 'PM';
-      }
-    }
-  };
+  //   const getPartOfDay = function (timeInt, minuteInt) {
+  //     if (timeInt >= 0 && timeInt <= 11) {
+  //       return 'AM';
+  //     } else {
+  //       if (timeInt === 12) {
+  //         if (minuteInt === 0) {
+  //           return 'AM';
+  //         } else {
+  //           return 'PM';
+  //         }
+  //       } else {
+  //         return 'PM';
+  //       }
+  //     }
+  //   };
 
   // const onChangeInputTime = function (e) {
   //   const { value } = e.target;
@@ -423,16 +422,16 @@ const AmountOfWater = ({
 
   const onChangeInputTime = function (e) {
     const { value } = e.target;
-    const formattedValue = value.length === 5 ? `${value}` : value; // Добавление ведущего нуля для часов < 10
+    const formattedValue = value.length === 5 ? `${value}` : value; // Add a leading zero for hours less than 10
 
     setTimeOfDay(formattedValue);
-    const arrayTime = formattedValue.split(':');
-    const time = arrayTime[0];
-    const minute = arrayTime[1];
-    const timeInt = parseInt(time);
-    const minuteInt = parseInt(minute);
-    const valuePart = getPartOfDay(timeInt, minuteInt);
-    setOfPartOfDay(valuePart);
+    //   const arrayTime = formattedValue.split(':');
+    //   const time = arrayTime[0];
+    //   const minute = arrayTime[1];
+    //   const timeInt = parseInt(time);
+    //   const minuteInt = parseInt(minute);
+    // const valuePart = getPartOfDay(timeInt, minuteInt);
+    // setOfPartOfDay(valuePart);
   };
 
   return (
@@ -440,12 +439,12 @@ const AmountOfWater = ({
       (
       <DivMainAmount>
         <DivAmountGroup>
-          <HeaderMain>Edit the entered amount of water</HeaderMain>
+          <HeaderMain>Add Water</HeaderMain>
           <ButtoCloseAmount onClick={onClickButtonClose}>
             <ImgCloseButton src={imgamountclose} alt="button icon close" />
           </ButtoCloseAmount>
         </DivAmountGroup>
-        <DivDateAmount>
+        {/* <DivDateAmount>
           <ImgWater src={waterIcon} alt="water icon" />
           <SpanCountOfWater>{amountOfWater}</SpanCountOfWater>
           &nbsp;
@@ -453,8 +452,8 @@ const AmountOfWater = ({
           <SpanTimeOfDay>{timeOfDayState}</SpanTimeOfDay>
           &nbsp;
           <SpanPartOfDay>{partOfDayState}</SpanPartOfDay>
-        </DivDateAmount>
-        <HeadCorrectEnteredData>Correct entered data:</HeadCorrectEnteredData>
+      </DivDateAmount>*/}{' '}
+        <HeadCorrectEnteredData>Choose a value:</HeadCorrectEnteredData>
         <HeadAmountWater>Amount of water:</HeadAmountWater>
         <DivAmountWater>
           <ButtonDekrIcon onClick={onClickButtonDekr}>
@@ -504,4 +503,4 @@ const AmountOfWater = ({
   );
 };
 
-export default AmountOfWater;
+export default AddWater;
