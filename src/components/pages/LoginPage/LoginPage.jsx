@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+
+import React, { useEffect } from 'react';
 import { useFormik } from 'formik';
 import SignLayout from 'components/SignLayout/SignLayout';
 import {
@@ -20,24 +21,25 @@ const LoginPage = () => {
   const [color, setColor] = useState('');
   const onSubmit = e => {
     dispatch(signInThunk(e));
+    // Сохранение электронной почты в локальное хранилище
+   
   };
 
-  const {
-    values,
-    touched,
-    errors,
-    handleSubmit,
-    handleChange,
-    handleBlur,
-    setFieldValue,
-  } = useFormik({
-    initialValues: {
-      email: '',
-      password: '',
-    },
-    validationSchema: signInSchema,
-    onSubmit,
-  });
+
+  const { values, touched, errors, handleSubmit, handleChange, handleBlur } =
+    useFormik({
+      initialValues: {
+        email: '',
+        password: '',
+      },
+
+      onSubmit,
+    });
+    useEffect(() => {
+    localStorage.setItem('userEmail', values.email);
+  }, [values.email]);
+
+
 
   const onChangeInp = event => {
     const { color: newColor } = checkPasswordStrength(values.password);

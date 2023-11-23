@@ -61,8 +61,29 @@ const ModalForm = () => {
       oldColor: '',
       repeatColor: '',
     },
-    // validationSchema: updateUserProfileSchema,
-    onSubmit,
+
+
+    onSubmit: values => {
+      const { gender, nameInput, emailInp, oldPassword, newPassword } = values;
+      const updatedValues = {
+        // Проверяем каждое поле и добавляем только непустые значения в объект
+        ...(gender && { gender }),
+        ...(nameInput && { name: nameInput }),
+        ...(emailInp && { email: emailInp }),
+        ...(oldPassword && { outdatedPassword: oldPassword }),
+        ...(newPassword && { newPassword }),
+        id,
+      };
+      console.log(updatedValues);
+      dispatch(updateProfileThunk(updatedValues))
+        .unwrap()
+        .then(() => {
+        localStorage.removeItem('userEmail');
+        localStorage.setItem('userEmail', updatedValues.name);  
+        console.log('success');
+});
+    },
+
   });
 
   // У меня не работает валидация полей ввода пароля через YUP  FORMIK, почему?
