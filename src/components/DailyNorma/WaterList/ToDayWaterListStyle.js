@@ -140,7 +140,8 @@ export const ToDayWaterListStyle = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    width: 656px;
+    width: 704px;
+    padding: 32px 24px;
 
     .todayList {
       row-gap: 14px;
@@ -159,7 +160,7 @@ export const ToDayWaterListStyle = styled.div`
     }
   }
   @media screen and (min-width: 1440px) {
-    width: 544px;
+    width: 592px;
     .monthList {
       column-gap: 22px;
     }
