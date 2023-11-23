@@ -1,3 +1,7 @@
+export const onAddWater = (state, { payload }) => {
+  state.waters.push(payload);
+};
+
 export const onEditWater = (state, { payload }) => {
   state.waters.push(payload);
 };

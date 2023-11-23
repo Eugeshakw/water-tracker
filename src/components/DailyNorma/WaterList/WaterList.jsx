@@ -6,8 +6,7 @@ import { ReactComponent as ArrowR } from './icon/arrowRight.svg';
 
 import { ElemToDayList, ElemMonthList } from './ElemWaterList';
 
-
-const WaterList = () => {
+const WaterList = ({ setActive }) => {
   return (
     <ToDayWaterListStyle>
       <Title>Today</Title>
@@ -20,7 +19,15 @@ const WaterList = () => {
 
         {/* ----------button---------- */}
         <li>
-          <button className="addWater"> + Add water</button>
+          <button
+            className="addWater"
+            onClick={() => {
+              setActive('AddWater');
+            }}
+          >
+            {' '}
+            + Add water
+          </button>
         </li>
       </ul>
 

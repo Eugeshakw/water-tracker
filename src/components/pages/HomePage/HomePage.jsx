@@ -18,6 +18,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setModalType, setOpenModal } from 'redux/modals/Slice';
 import AmountOfWater from 'components/AmountOfWater/AmountOfWater';
 import DailyNormaModal from 'components/MyDailyNorma/DailyNormaModal';
+import AddWater from 'components/AddWater/AddWater';
 
 const HomePage = () => {
   const isOpenModal = useSelector(state => state.modals.isOpenModal);
@@ -40,6 +41,12 @@ const HomePage = () => {
         </Backdrop>
       )}
 
+      {isOpenModal && modalType === 'AddWater' && (
+        <Backdrop>
+          <AddWater />
+        </Backdrop>
+      )}
+
       <div className="container">
         <Container>
           <NormaContainer>
@@ -52,14 +59,19 @@ const HomePage = () => {
                 <ProgressiveBar />
               </ContentWrapper>
               <ContentWrapper>
-                <Button type="button">
+                <Button
+                  type="button"
+                  onClick={() => {
+                    setActive('AddWater');
+                  }}
+                >
                   <Icon />
                   Add Water
                 </Button>
               </ContentWrapper>
             </Wrapper>
           </NormaContainer>
-          <WaterList />
+          <WaterList setActive={setActive} />
         </Container>
       </div>
     </>

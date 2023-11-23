@@ -1,6 +1,21 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { editWater, getMonthWater, getWater } from './waterApi.js';
+import { addWater, editWater, getMonthWater, getWater } from './waterApi.js';
+
+export const addWaterThunk = createAsyncThunk(
+  'user/addWater',
+  async (data, { rejectWithValue }) => {
+    try {
+      const token = localStorage.getItem('token');
+      const res = await addWater(data, token);
+      console.log(data);
+      console.log(res);
+      return res.data;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);
 
 export const editAmountThunk = createAsyncThunk(
   'user/editWater',
