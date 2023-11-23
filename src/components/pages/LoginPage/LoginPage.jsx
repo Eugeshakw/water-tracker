@@ -1,4 +1,6 @@
-import React from 'react';
+// LoginPage.jsx
+
+import React, { useEffect } from 'react';
 import { useFormik } from 'formik';
 import SignLayout from 'components/SignLayout/SignLayout';
 import {
@@ -19,6 +21,8 @@ const LoginPage = () => {
 
   const onSubmit = e => {
     dispatch(signInThunk(e));
+    // Сохранение электронной почты в локальное хранилище
+   
   };
 
   const { values, touched, errors, handleSubmit, handleChange, handleBlur } =
@@ -30,6 +34,10 @@ const LoginPage = () => {
 
       onSubmit,
     });
+    useEffect(() => {
+    localStorage.setItem('userEmail', values.email);
+  }, [values.email]);
+
 
   return (
     <SignLayout>

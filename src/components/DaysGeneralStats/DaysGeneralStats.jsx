@@ -159,7 +159,7 @@ const ModalDivOfCheckbox = styled.div`
   display:flex;
   gap:24px;
 `;
-const ModalInputOfCalculate = styled.input.attrs({ type: 'checkbox' })`
+const ModalInputOfCalculate = styled.input.attrs({ type: 'radio' })`
   appearance: none;
   width: 14px;
   height: 14px;
@@ -183,6 +183,8 @@ const ModalInputOfCalculate = styled.input.attrs({ type: 'checkbox' })`
       background-color: #407BFF; 
     }
   }
+
+
 
   &:hover {
     cursor: pointer;

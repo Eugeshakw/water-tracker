@@ -49,8 +49,10 @@ const ModalForm = ({ onClose }) => {
       dispatch(updateProfileThunk(updatedValues))
         .unwrap()
         .then(() => {
-          console.log('succes');
-        });
+        localStorage.removeItem('userEmail');
+        localStorage.setItem('userEmail', updatedValues.name);  
+        console.log('success');
+});
     },
   });
 
