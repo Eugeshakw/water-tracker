@@ -3,11 +3,31 @@
 import React, { useState } from 'react';
 import { HeaderImage, UserIn, UserInBtn } from './UserLodoStyle';
 import UserLogoModal from '../UserLogoModal/UserLogoModal';
+import { useSelector } from 'react-redux';
+import { selectorUserEmail } from 'redux/auth/auth-selectors';
 
-const UserLogo = ({ avatarUrl }) => {
-  const storedEmail = localStorage.getItem('userEmail') || ''; 
-  const [userEmail] = useState(storedEmail);
+const UserLogo = () => {
+  const avatarUrl = useSelector(state => state.auth.user.avatarURL);
+
+  const name = useSelector(state => state.auth.user.name);
+  console.log(avatarUrl);
+  const userEmail = useSelector(selectorUserEmail);
+  // const [userEmail] = useState(storedEmail);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const domain = userEmail?.substring(0, userEmail.indexOf('@'));
+
+  console.log(domain); // sacsadasd
+
+  const headerTitle = () => {
+    if (name) {
+      return name;
+    }
+    if (!name && userEmail) {
+      return domain || '';
+    } else {
+      return 'Sign in';
+    }
+  };
 
   const toggleMenu = () => {
     setIsModalOpen(!isModalOpen);
@@ -19,8 +39,8 @@ const UserLogo = ({ avatarUrl }) => {
 
   const renderUserContent = () => (
     <>
-      <h2>{userEmail || 'V'}</h2>
-      <HeaderImage src={avatarUrl || placeholderUrl} />
+      <h2>{headerTitle()}</h2>
+      <HeaderImage src={avatarUrl ? avatarUrl : placeholderUrl} />
     </>
   );
 

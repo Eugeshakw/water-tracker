@@ -11,9 +11,11 @@ import { useSelector } from 'react-redux';
 import { updateProfileThunk } from 'redux/auth/auth-operations';
 import { selectId } from 'redux/selectors';
 import { checkPasswordStrength } from 'common/validation/passwordStrength';
+import { useModal } from 'context/modalContext';
 // import { updateUserProfileSchema } from '../../common/validation/validationSchema';
 
 const ModalForm = () => {
+  const { closeModal } = useModal();
   const selectorUserProfile = state => state.auth.user;
   const userProfile = useSelector(selectorUserProfile);
 
@@ -37,6 +39,7 @@ const ModalForm = () => {
       .then(() => {
         console.log('succes');
         resetForm();
+        closeModal();
       });
   };
 
