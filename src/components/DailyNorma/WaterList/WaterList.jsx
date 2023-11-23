@@ -6,6 +6,7 @@ import { ReactComponent as ArrowR } from './icon/arrowRight.svg';
 
 import { ElemToDayList, ElemMonthList } from './ElemWaterList';
 
+
 const WaterList = () => {
   return (
     <ToDayWaterListStyle>
@@ -36,6 +37,17 @@ const WaterList = () => {
         </div>
       </div>
       <ul className="monthList">
+        <ElemMonthList />
+        <ElemMonthList />
+        <ElemMonthList />
+        <ElemMonthList />
+        <ElemMonthList />
+        <ElemMonthList />
+        <ElemMonthList />
+        <ElemMonthList />
+        <ElemMonthList />
+        <ElemMonthList />
+        <ElemMonthList />
         <ElemMonthList />
         <ElemMonthList />
         <ElemMonthList />

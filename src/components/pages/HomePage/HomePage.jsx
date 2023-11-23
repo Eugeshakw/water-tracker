@@ -7,31 +7,67 @@ import {
   ContentWrapper,
   NormaContainer,
   Wrapper,
+  BackImage,
+  ConImg
 } from './HomePage.styled';
 import WaterList from 'components/DailyNorma/WaterList/WaterList';
-// import { useEffect } from 'react';
-// import { useDispatch } from 'react-redux';
-// import { refreshUserThunk } from 'redux/auth/auth-operations';
+
+import Backdrop from 'components/Backdrop/Backdrop';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { setModalType, setOpenModal } from 'redux/modals/Slice';
+import AmountOfWater from 'components/AmountOfWater/AmountOfWater';
+import DailyNormaModal from 'components/MyDailyNorma/DailyNormaModal';
+
 
 const HomePage = () => {
+  const isOpenModal = useSelector(state => state.modals.isOpenModal);
+  const modalType = useSelector(state => state.modals.modalType);
+  const dispatch = useDispatch();
+  const setActive = text => {
+    dispatch(setOpenModal(true));
+    dispatch(setModalType(text));
+  };
   return (
-    <Container>
-      <NormaContainer>
-        <DailyNorma />
-        <Wrapper>
-          <ContentWrapper>
-            <ProgressiveBar />
-          </ContentWrapper>
-          <ContentWrapper>
-            <Button type="button">
-              <Icon />
-              Add Water
-            </Button>
-          </ContentWrapper>
-        </Wrapper>
-      </NormaContainer>
-      <WaterList />
-    </Container>
+    <>
+      {isOpenModal && modalType === 'DailyNorma' && (
+        <Backdrop>
+          <DailyNormaModal />
+        </Backdrop>
+      )}
+      {isOpenModal && modalType === 'EditWater' && (
+        <Backdrop>
+          <AmountOfWater />
+        </Backdrop>
+      )}
+
+      <div className="container">
+        <Container>
+        
+          <NormaContainer>
+         
+            <DailyNorma setActive={setActive} />
+            <ConImg> 
+                 <BackImage/>
+              </ConImg>     
+            <Wrapper>
+           
+              <ContentWrapper>
+                <ProgressiveBar />
+              </ContentWrapper>
+              <ContentWrapper>
+                <Button type="button">
+                  <Icon />
+                  Add Water
+                </Button>
+              </ContentWrapper>
+            </Wrapper>
+          </NormaContainer>
+          <WaterList />
+          
+        </Container>
+      </div>
+    </>
   );
 };
 

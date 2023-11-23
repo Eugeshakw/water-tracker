@@ -2,18 +2,19 @@ import React from 'react';
 import css from './settingsModal.module.css';
 import img from './ars.png';
 import { ReactComponent as UploadIcon } from './icons/outline.svg';
+import { ReactComponent as CloseIcon } from './icons/close.svg';
 
 import { useDispatch, useSelector } from 'react-redux';
 import ModalForm from './ModalForm';
 import { updateAvatarThunk } from 'redux/auth/auth-operations';
+// import Backdrop from 'components/Backdrop/Backdrop';
+import { useModal } from 'context/modalContext';
 
 const SettingsModal = () => {
+  const { closeModal } = useModal();
   const dispatch = useDispatch();
   const avatar = useSelector(state => state.auth.user.avatarURL);
   console.log(avatar);
-  // const [outdatedPassword, setOutdatedPassword] = useState('');
-  // const [newPassword, setNewPassword] = useState('');
-  // const [repeatPassword, setRepeatPassword] = useState('');
 
   const handleFileChange = event => {
     const file = event.target.files[0];
@@ -25,13 +26,9 @@ const SettingsModal = () => {
     dispatch(updateAvatarThunk(formData));
   };
 
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-  //   console.log(e.currentTarget);
-  // };
-
   return (
     <div className={css.modal}>
+      <CloseIcon className={css.closeIcon} onClick={closeModal} />
       <div className={css.settings_flex_container}>
         <b className={css.modal_setting}>Setting</b>
       </div>

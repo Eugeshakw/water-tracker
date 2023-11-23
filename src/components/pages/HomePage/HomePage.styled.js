@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-
+import BackImages from '../../../images/ForgotPassPageImgTab.png';
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -21,6 +21,7 @@ export const Container = styled.div`
     gap: 32px;
     align-items: center;
     justify-content: space-between;
+    
   }
 `;
 
@@ -75,4 +76,19 @@ export const Button = styled.button`
     width: 24px;
     height: 24px;
   }
+`;
+export const ConImg = styled.div`
+
+`
+export const BackImage = styled.div`
+@media screen and (min-width: 1440px) {
+  background-image: url(${BackImages});
+  background-repeat: no-repeat;
+    width: 738px;
+    height: 548px;
+    
+    top: 0;
+    z-index: -2;
+}
+
 `;

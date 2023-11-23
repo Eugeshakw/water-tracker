@@ -22,13 +22,26 @@ import PrivateRoute from './privateRoute';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { refreshUserThunk } from 'redux/auth/auth-operations';
+import { useLocation } from 'react-router-dom';
 
 import HomePage from './pages/HomePage/HomePage';
+import SettingsModal from './settingsModal/settingsModal';
+import { getAllWater, getWaterMonth } from 'redux/water/waterOperations';
+
 export const App = () => {
+  const location = useLocation();
   const dispatch = useDispatch();
+  const currentPath = location.pathname;
+
   useEffect(() => {
-    dispatch(refreshUserThunk());
-  }, [dispatch]);
+    if (currentPath === '/HomePage') {
+      dispatch(refreshUserThunk());
+      dispatch(getAllWater());
+      dispatch(getWaterMonth());
+    } else {
+      dispatch(refreshUserThunk());
+    }
+  }, [dispatch, currentPath]);
 
   return (
     <Routes>
@@ -79,6 +92,7 @@ export const App = () => {
           }
         />
       </Route>
+      <Route path="/modal" element={<SettingsModal />} />
     </Routes>
   );
 };

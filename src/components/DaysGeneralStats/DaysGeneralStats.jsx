@@ -1,6 +1,7 @@
 import img from '../DaysGeneralStats/icons/button_svg.svg';
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useModal } from 'context/modalContext';
+
 
 const DateOfMonthParagrah = styled.p`
   color: #407bff;
@@ -43,6 +44,9 @@ const SpanWater = styled.span`
 `;
 
 const DivDaysGeneralStats = styled.div`
+  /* position: absolute;
+  top: 50%;
+  left: 50%; */
   border-radius: 10px;
   background-color: #fff;
   box-shadow: 0px 4px 4px 0px rgba(64, 123, 255, 0.3);
@@ -74,6 +78,7 @@ const ParagraphWater = styled.p`
     margin-bottom: 20px;
   }
 `;
+
 const Modal = styled.div`
   width:256px;
   margin-right:auto;
@@ -306,26 +311,23 @@ const ModalBtn = styled.button`
     width:160px;
   }
 `;
+
 const DaysGeneralStats = function ({
   dateOfMonth,
   dailyNorma,
   fullfilmentOfDailyNorma,
   howManyServings,
 }) {
-  const [isClose, setIsClose] = useState(false);
-
-  const onClickButtonClose = function () {
-    setIsClose(true);
-  };
+  const { closeModal } = useModal();
 
   return (
     <>
-      {isClose === false && (
-        <div>
+      (
+      <div>
         <DivDaysGeneralStats>
           <DateOfMonthGroup>
             <DateOfMonthParagrah>{dateOfMonth}</DateOfMonthParagrah>
-            <ButtonClose onClick={onClickButtonClose}>
+            <ButtonClose onClick={closeModal}>
               <ImgButtonClose src={img} alt="button icon" />
             </ButtonClose>
           </DateOfMonthGroup>
@@ -340,49 +342,8 @@ const DaysGeneralStats = function ({
             How many servings of water: <SpanWater>{howManyServings}</SpanWater>
           </ParagraphWater>
         </DivDaysGeneralStats>
-          <Modal>
-            <ModalDivOfHeading>
-            <ModalHeading>My daily norma</ModalHeading>
-            <ImgButtonClose src={img} alt="button icon" />  
-            </ModalDivOfHeading>  
-            <ModalDivOfFormulas>
-              <ModalParagraphOfFormul>For girl:<ModalSpanOfFormul>V=(M*0,03) + (T*0,4)</ModalSpanOfFormul></ModalParagraphOfFormul>
-              <ModalParagraphOfFormul>For man:<ModalSpanOfFormul>V=(M*0,04) + (T*0,6)</ModalSpanOfFormul></ModalParagraphOfFormul>
-            </ModalDivOfFormulas>
-            <ModalDivOfDescription>
-              <ModalParagraphOfDescription><ModalSpanOfDescription>*</ModalSpanOfDescription> V is the volume of the water norm in liters per day, M is your body weight, T is the time of active sports, or another type of activity commensurate in terms of loads (in the absence of these, you must set 0)</ModalParagraphOfDescription>
-            </ModalDivOfDescription>
-            <ModalDivOfCalculate>
-              <ModalHeadingOfCalculate>Calculate your rate:</ModalHeadingOfCalculate>
-            </ModalDivOfCalculate>
-            <ModalDivOfCheckbox>
-              <ModalDivOfCheckboxPosition>
-                <ModalInputOfCalculate></ModalInputOfCalculate>
-                <ModalParagraphOfCalculate>For girl</ModalParagraphOfCalculate>
-              </ModalDivOfCheckboxPosition>
-              <ModalDivOfCheckboxPosition>
-                <ModalInputOfCalculate></ModalInputOfCalculate>
-                <ModalParagraphOfCalculate>For man</ModalParagraphOfCalculate>
-              </ModalDivOfCheckboxPosition>
-            </ModalDivOfCheckbox>
-            <ModalDivOfInputs>
-              <ModalParagraphOfInput>Your weight in kilograms:</ModalParagraphOfInput>
-              <ModalInputOfWeight></ModalInputOfWeight>
-              <ModalParagraphOfSecondInput>The time of active participation in sports or other activities with a high physical. load:</ModalParagraphOfSecondInput>
-              <ModalInputOfWeight></ModalInputOfWeight>
-              <ModalDivOfWaterPerDay>
-                <ModalParagraphOfWaterPerDay>The required amount of water in liters per day:</ModalParagraphOfWaterPerDay>
-                <ModalParagraphOfLiter>1.8 L</ModalParagraphOfLiter>
-              </ModalDivOfWaterPerDay>
-              <ModalParagraphOfInputWillDrink>Write down how much water you will drink:</ModalParagraphOfInputWillDrink>
-              <ModalInputOfWeight></ModalInputOfWeight>
-            </ModalDivOfInputs>
-            <ModalDivOfBtn>
-              <ModalBtn>Save</ModalBtn>
-            </ModalDivOfBtn>
-         </Modal>
-        </div>
-      )}
+      </div>
+      )
     </>
   );
 };

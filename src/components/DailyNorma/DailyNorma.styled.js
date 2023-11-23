@@ -10,9 +10,9 @@ export const Wrapper = styled.div`
   box-shadow: 0px 4px 8px 0px rgba(158, 187, 255, 0.12);
   padding: 8px 20px;
   width: 166px;
-  margin-bottom: 232px;
+  
   @media screen and (min-width: 768px) {
-    margin-bottom: 326px;
+    
   }
   @media screen and (min-width: 1440px) {
   }

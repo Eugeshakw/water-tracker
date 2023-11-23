@@ -4,7 +4,7 @@ import { PasswordInputStyled } from './PasswordInput.styled';
 import { Input } from 'common/Input/Input.styled';
 import { ReactComponent as EyeIcon } from '../settingsModal/icons/eye.svg';
 
-const PasswordInput = ({ ...fields }) => {
+const PasswordInput = ({ style, ...fields }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePassword = () => {
@@ -13,7 +13,11 @@ const PasswordInput = ({ ...fields }) => {
 
   return (
     <PasswordInputStyled>
-      <Input type={showPassword ? 'text' : 'password'} {...fields} />
+      <Input
+        type={showPassword ? 'text' : 'password'}
+        {...fields}
+        style={style}
+      />
       <button
         onClick={togglePassword}
         type="button"
