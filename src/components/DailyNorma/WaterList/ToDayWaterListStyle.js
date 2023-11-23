@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 export const ToDayWaterListStyle = styled.div`
-  width: 264px;
+  width: 280px;
   padding: 24px 8px;
   background-color: #ecf2ff;
   border-radius: 10px;
@@ -92,7 +92,7 @@ export const ToDayWaterListStyle = styled.div`
   .pagination {
     display: flex;
     align-items: center;
-    column-gap: 12px;
+    column-gap: 20px;
 
     p {
       color: #407bff;
@@ -115,11 +115,11 @@ export const ToDayWaterListStyle = styled.div`
     align-items: center;
   }
   .day {
-    width: 14px;
-    height: 14px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     border: 1px solid #fff;
-
+    font-weight: 400;
     background-color: #fff;
     display: flex;
     justify-content: center;
@@ -149,11 +149,23 @@ export const ToDayWaterListStyle = styled.div`
       column-gap: 34px;
       row-gap: 20px;
     }
+    .day {
+      font-size: 16px;
+      line-height: calc(20 / 16);
+    }
+    .percent {
+      font-size: 13px;
+      line-height: calc(20 / 13);
+    }
   }
   @media screen and (min-width: 1440px) {
     width: 544px;
     .monthList {
       column-gap: 22px;
+    }
+    .percent {
+      font-size: 12px;
+      line-height: calc(18 / 13);
     }
   }
 `;
