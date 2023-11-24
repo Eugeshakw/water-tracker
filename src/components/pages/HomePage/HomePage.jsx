@@ -24,6 +24,7 @@ const HomePage = () => {
   const isOpenModal = useSelector(state => state.modals.isOpenModal);
   const modalType = useSelector(state => state.modals.modalType);
   const dispatch = useDispatch();
+
   const setActive = text => {
     dispatch(setOpenModal(true));
     dispatch(setModalType(text));

@@ -14,6 +14,8 @@ const WaterList = ({ setActive }) => {
 
   const handleDelete = id => {
     dispatch(deleteWater(id));
+
+    console.log(id);
   };
 
   return (
@@ -24,9 +26,11 @@ const WaterList = ({ setActive }) => {
           <ElemToDayList
             key={_id}
             id={_id}
+            modalId={_id + 1}
             count={count}
             time={time}
             handleDelete={handleDelete}
+            setActive={setActive}
           />
         ))}
         {/* <ElemToDayList />
