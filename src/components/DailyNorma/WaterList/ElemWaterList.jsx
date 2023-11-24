@@ -5,11 +5,9 @@ import { ReactComponent as Trash } from './icon/trash.svg';
 import { setModalType, setOpenModal } from 'redux/modals/Slice';
 import Backdrop from 'components/Backdrop/Backdrop';
 import DeleteModal from './DeleteModal/DeleteModal';
+
 import AmountOfWater from 'components/AmountOfWater/AmountOfWater';
-// import { useState } from 'react';
-// import { setOpenModal } from 'redux/modals/Slice';
-// import Backdrop from 'components/Backdrop/Backdrop';
-// import AmountOfWater from 'components/AmountOfWater/AmountOfWater';
+
 
 export const ElemToDayList = ({ modalId, id, count, time, handleDelete }) => {
   const modalType = useSelector(state => state.modals.modalType);

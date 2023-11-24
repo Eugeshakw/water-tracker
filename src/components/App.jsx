@@ -32,7 +32,6 @@ export const App = () => {
   const location = useLocation();
   const dispatch = useDispatch();
   const currentPath = location.pathname;
-  const Token = localStorage.getItem('token');
 
   useEffect(() => {
     if (currentPath === '/HomePage') {
