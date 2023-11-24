@@ -9,14 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteWater } from 'redux/water/waterOperations';
 
 const WaterList = ({ setActive }) => {
-  const dispatch = useDispatch();
   const waterList = useSelector(state => state.water.waters);
-
-  const handleDelete = id => {
-    dispatch(deleteWater(id));
-
-    console.log(id);
-  };
 
   return (
     <ToDayWaterListStyle>
@@ -29,7 +22,6 @@ const WaterList = ({ setActive }) => {
             modalId={_id + 1}
             count={count}
             time={time}
-            handleDelete={handleDelete}
             setActive={setActive}
           />
         ))}
