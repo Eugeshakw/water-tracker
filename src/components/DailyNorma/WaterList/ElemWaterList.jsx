@@ -8,8 +8,8 @@ import DeleteModal from './DeleteModal/DeleteModal';
 
 import AmountOfWater from 'components/AmountOfWater/AmountOfWater';
 
-
 export const ElemToDayList = ({ modalId, id, count, time, handleDelete }) => {
+  console.log(id);
   const modalType = useSelector(state => state.modals.modalType);
   const dispatch = useDispatch();
   const isOpenModal = useSelector(state => state.modals.isOpenModal);
