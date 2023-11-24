@@ -1,4 +1,7 @@
-import React from 'react';
+import { useModal } from 'context/modalContext';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addUserWaterRate } from 'redux/auth/auth-operations';
 import styled from 'styled-components';
 
 const Modal = styled.div`
@@ -94,7 +97,7 @@ const ModalDivOfCheckbox = styled.div`
   display: flex;
   gap: 24px;
 `;
-const ModalInputOfCalculate = styled.input.attrs({ type: 'checkbox' })`
+const ModalInputOfCalculate = styled.input`
   appearance: none;
   width: 14px;
   height: 14px;
@@ -231,6 +234,39 @@ const ModalBtn = styled.button`
 `;
 
 const DailyNormaModal = () => {
+  const [weight, setWeight] = useState(null);
+  const [timeOfActivity, setTimeOfActivity] = useState(null);
+  const [gender, setGender] = useState(null);
+  const [result, setResult] = useState(null);
+  const [userWater, setUserWater] = useState(null);
+
+  const dispatch = useDispatch();
+  const userId = useSelector(state => state.auth.user.id);
+
+  const { closeModal } = useModal();
+
+  const handleSave = () => {
+    if (!userWater) {
+      return;
+    }
+    dispatch(addUserWaterRate({ waterRate: userWater, id: userId }));
+  };
+
+  useEffect(() => {
+    if (gender && weight !== null && timeOfActivity !== null) {
+      const timeInHours = timeOfActivity / 60;
+
+      let norma;
+      if (gender === 'female') {
+        norma = weight * 0.03 + timeInHours * 0.4;
+      } else {
+        norma = weight * 0.04 + timeInHours * 0.6;
+      }
+
+      setResult(norma.toFixed(2));
+    }
+  }, [gender, weight, timeOfActivity]);
+
   return (
     <Modal>
       <ModalDivOfHeading>
@@ -259,35 +295,60 @@ const DailyNormaModal = () => {
       </ModalDivOfCalculate>
       <ModalDivOfCheckbox>
         <ModalDivOfCheckboxPosition>
-          <ModalInputOfCalculate></ModalInputOfCalculate>
+          <ModalInputOfCalculate
+            type="radio"
+            name="gender"
+            value={'female'}
+            onChange={() => setGender('female')}
+          ></ModalInputOfCalculate>
           <ModalParagraphOfCalculate>For girl</ModalParagraphOfCalculate>
         </ModalDivOfCheckboxPosition>
         <ModalDivOfCheckboxPosition>
-          <ModalInputOfCalculate></ModalInputOfCalculate>
+          <ModalInputOfCalculate
+            type="radio"
+            name="gender"
+            value={'male'}
+            onChange={() => setGender('male')}
+          ></ModalInputOfCalculate>
           <ModalParagraphOfCalculate>For man</ModalParagraphOfCalculate>
         </ModalDivOfCheckboxPosition>
       </ModalDivOfCheckbox>
       <ModalDivOfInputs>
         <ModalParagraphOfInput>Your weight in kilograms:</ModalParagraphOfInput>
-        <ModalInputOfWeight></ModalInputOfWeight>
+        <ModalInputOfWeight
+          onChange={e => setWeight(e.target.value)}
+        ></ModalInputOfWeight>
         <ModalParagraphOfSecondInput>
           The time of active participation in sports or other activities with a
           high physical. load:
         </ModalParagraphOfSecondInput>
-        <ModalInputOfWeight></ModalInputOfWeight>
+        <ModalInputOfWeight
+          onChange={e => setTimeOfActivity(e.target.value)}
+        ></ModalInputOfWeight>
         <ModalDivOfWaterPerDay>
           <ModalParagraphOfWaterPerDay>
             The required amount of water in liters per day:
           </ModalParagraphOfWaterPerDay>
-          <ModalParagraphOfLiter>1.8 L</ModalParagraphOfLiter>
+          <ModalParagraphOfLiter>
+            {result ? result + ' L' : 0 + ' L'}
+          </ModalParagraphOfLiter>
         </ModalDivOfWaterPerDay>
         <ModalParagraphOfInputWillDrink>
           Write down how much water you will drink:
         </ModalParagraphOfInputWillDrink>
-        <ModalInputOfWeight></ModalInputOfWeight>
+        <ModalInputOfWeight
+          onChange={e => setUserWater(e.target.value)}
+        ></ModalInputOfWeight>
       </ModalDivOfInputs>
       <ModalDivOfBtn>
-        <ModalBtn>Save</ModalBtn>
+        <ModalBtn
+          onClick={() => {
+            handleSave();
+            closeModal();
+          }}
+        >
+          Save
+        </ModalBtn>
       </ModalDivOfBtn>
     </Modal>
   );

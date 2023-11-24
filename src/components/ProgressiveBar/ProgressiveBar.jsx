@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Range, getTrackBackground } from 'react-range';
 import {
   Container,
@@ -8,13 +8,31 @@ import {
   Span,
   Wrapper,
 } from './ProgressiveBar.styled.js';
+import { useSelector } from 'react-redux';
 
 const STEP = 0.1;
 const MIN = 0;
 const MAX = 100;
 
 const ProgressiveBar = () => {
-  const [values, setValues] = useState([50]);
+  const [values, setValues] = useState([0]);
+
+  const waterRate = useSelector(state => state.auth.user.waterRate);
+
+  const water = useSelector(state => state.water.waters);
+
+  const totalWater = water.reduce(
+    (accumulator, currentValue) => accumulator + currentValue.count,
+    0
+  );
+
+  const waterPercent = (totalWater / waterRate) * 100;
+
+  useEffect(() => {
+    setValues([waterPercent]);
+  }, [waterPercent]);
+
+  console.log(values[0]);
 
   return (
     <div
@@ -28,7 +46,6 @@ const ProgressiveBar = () => {
         step={STEP}
         min={MIN}
         max={MAX}
-        onChange={newValues => setValues(newValues)}
         draggable={false}
         renderTrack={({ props, children }) => (
           <div

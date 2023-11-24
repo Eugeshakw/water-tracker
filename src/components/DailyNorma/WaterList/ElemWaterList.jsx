@@ -6,7 +6,10 @@ import { setModalType, setOpenModal } from 'redux/modals/Slice';
 import Backdrop from 'components/Backdrop/Backdrop';
 import DeleteModal from './DeleteModal/DeleteModal';
 
-export const ElemToDayList = ({ id, count, time, handleDelete }) => {
+import AmountOfWater from 'components/AmountOfWater/AmountOfWater';
+
+
+export const ElemToDayList = ({ modalId, id, count, time, handleDelete }) => {
   const modalType = useSelector(state => state.modals.modalType);
   const dispatch = useDispatch();
   const isOpenModal = useSelector(state => state.modals.isOpenModal);
@@ -17,17 +20,23 @@ export const ElemToDayList = ({ id, count, time, handleDelete }) => {
   };
 
   const handleOpen = () => {
-    dispatch(setModalType(id));
+    dispatch(setModalType('EditWater'));
     dispatch(setOpenModal(true));
   };
 
   return (
     <>
-      {isOpenModal && modalType === id && (
+      {isOpenModal && modalType === modalId && (
         <Backdrop>
           <DeleteModal handleDelete={handleDelete} id={id} />
         </Backdrop>
       )}
+
+      {/* {isOpenModal && modalType === modalId && (
+        <Backdrop>
+          <AmountOfWater />
+        </Backdrop>
+      )} */}
       <li className="consumeWater">
         <div className="textWrapper">
           <CupWater />
@@ -42,14 +51,11 @@ export const ElemToDayList = ({ id, count, time, handleDelete }) => {
             <Edit />
           </button>
 
-          <button type="button" onClick={() => setActive(id)}>
+          <button type="button" onClick={() => setActive(modalId)}>
             <Trash />
           </button>
         </div>
       </li>
-      {/* {isOpenModal && (
-        <Backdrop>{activeModal === 'edit' && <AmountOfWater />}</Backdrop>
-      )} */}
     </>
   );
 };

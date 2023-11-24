@@ -75,3 +75,16 @@ export const updateUser = async (updatedUser, token, id) => {
   return data;
 };
 // export const updateAvatar = async PhotoFile => {};
+export const addWaterRate = async (data, token) => {
+  const { id } = data;
+
+  if (data.hasOwnProperty('id')) {
+    delete data.id;
+  }
+  setAuthHeader(token);
+  const res = await instance.patch(`api/auth/waterRate/${id}`, data);
+
+  console.log(res);
+
+  return res;
+};
