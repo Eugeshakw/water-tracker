@@ -5,8 +5,8 @@ import { ReactComponent as ArrowL } from './icon/arrowLeft.svg';
 import { ReactComponent as ArrowR } from './icon/arrowRight.svg';
 
 import { ElemToDayList, ElemMonthList } from './ElemWaterList';
-import { useDispatch, useSelector } from 'react-redux';
-import { deleteWater } from 'redux/water/waterOperations';
+import { useSelector } from 'react-redux';
+
 
 const WaterList = ({ setActive }) => {
   const waterList = useSelector(state => state.water.waters);
