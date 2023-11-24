@@ -4,7 +4,7 @@ import { ReactComponent as Edit } from './icon/edit.svg';
 import { ReactComponent as Trash } from './icon/trash.svg';
 import { setModalType, setOpenModal } from 'redux/modals/Slice';
 import Backdrop from 'components/Backdrop/Backdrop';
-import { useState, useEffect } from 'react';
+
 import DeleteModal from './DeleteModal/DeleteModal';
 
 // import AmountOfWater from 'components/AmountOfWater/AmountOfWater';

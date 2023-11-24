@@ -11,7 +11,7 @@ import {
 } from './DeleteModal.styled';
 import { useModal } from 'context/modalContext';
 import { useDispatch } from 'react-redux';
-import { deleteWater, getAllWater, getWaterMonth } from 'redux/water/waterOperations';
+import { deleteWater} from 'redux/water/waterOperations';
 
 const DeleteModal = ({ id }) => {
   const { closeModal } = useModal();
