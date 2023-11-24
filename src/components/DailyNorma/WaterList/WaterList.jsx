@@ -5,20 +5,11 @@ import { ReactComponent as ArrowL } from './icon/arrowLeft.svg';
 import { ReactComponent as ArrowR } from './icon/arrowRight.svg';
 
 import { ElemToDayList, ElemMonthList } from './ElemWaterList';
-import { useSelector , useDispatch} from 'react-redux';
-import { useEffect} from 'react';
-
-import { getMonthWater } from 'redux/water/waterApi';
-
+import { useSelector } from 'react-redux';
 
 const WaterList = ({ setActive }) => {
   const waterList = useSelector(state => state.water.waters);
-  const monthWater = useSelector(state => state.water.monthWaters)
- const dispatch = useDispatch()
-
-useEffect(() => {
-  dispatch(getMonthWater())
-},[dispatch])
+  const monthWater = useSelector(state => state.water.monthWaters);
 
   return (
     <ToDayWaterListStyle>
@@ -65,10 +56,9 @@ useEffect(() => {
         </div>
       </div>
       <ul className="monthList">
-            {monthWater.map(({day, percent}) => (
-              
-              <ElemMonthList day={day} percent={percent} />
-            ))}
+        {monthWater.map(({ day, percent }) => (
+          <ElemMonthList day={day} percent={percent} />
+        ))}
       </ul>
     </ToDayWaterListStyle>
   );
