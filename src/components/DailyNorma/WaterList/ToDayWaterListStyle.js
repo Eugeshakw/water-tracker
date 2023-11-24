@@ -1,6 +1,9 @@
 import { styled } from 'styled-components';
 
 export const ToDayWaterListStyle = styled.div`
+  margin: 0 auto;
+  max-height: 836px;
+  margin-bottom: 48px;
   width: 280px;
   padding: 24px 8px;
   background-color: #ecf2ff;
@@ -142,6 +145,7 @@ export const ToDayWaterListStyle = styled.div`
   @media screen and (min-width: 768px) {
     width: 704px;
     padding: 32px 24px;
+    max-height: 688px;
 
     .todayList {
       row-gap: 14px;
@@ -160,7 +164,10 @@ export const ToDayWaterListStyle = styled.div`
     }
   }
   @media screen and (min-width: 1440px) {
-    width: 592px;
+    position: relative;
+    left: -150px;
+    min-width: 592px;
+    max-height: 680px;
     .monthList {
       column-gap: 22px;
     }
