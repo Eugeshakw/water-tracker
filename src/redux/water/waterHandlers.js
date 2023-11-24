@@ -10,8 +10,8 @@ export const onGetAllWater = (state, { payload }) => {
   state.percentage = payload.percentageUsedRounded;
 };
 export const onGetMonthWater = (state, { payload }) => {
-  state.monthWaters = payload.waterRecords;
-  state.monthWaters = payload.percentageUsedRounded;
+  state.monthWaters = payload
+ ;
 };
 
 export const onDelete = (state, { payload }) => {

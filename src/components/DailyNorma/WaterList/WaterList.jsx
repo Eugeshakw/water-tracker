@@ -10,7 +10,8 @@ import { useSelector } from 'react-redux';
 
 const WaterList = ({ setActive }) => {
   const waterList = useSelector(state => state.water.waters);
-
+  const monthWater = useSelector(state => state.water.monthWaters)
+ 
   return (
     <ToDayWaterListStyle>
       <Title>Today</Title>
@@ -56,37 +57,10 @@ const WaterList = ({ setActive }) => {
         </div>
       </div>
       <ul className="monthList">
-        <ElemMonthList />
-        <ElemMonthList />
-        <ElemMonthList />
-        <ElemMonthList />
-        <ElemMonthList />
-        <ElemMonthList />
-        <ElemMonthList />
-        <ElemMonthList />
-        <ElemMonthList />
-        <ElemMonthList />
-        <ElemMonthList />
-        <ElemMonthList />
-        <ElemMonthList />
-        <ElemMonthList />
-        <ElemMonthList />
-        <ElemMonthList />
-        <ElemMonthList />
-        <ElemMonthList />
-        <ElemMonthList />
-        <ElemMonthList />
-        <ElemMonthList />
-        <ElemMonthList />
-        <ElemMonthList />
-        <ElemMonthList />
-        <ElemMonthList />
-        <ElemMonthList />
-        <ElemMonthList />
-        <ElemMonthList />
-        <ElemMonthList />
-        <ElemMonthList />
-        <ElemMonthList />
+            {monthWater.map(({date}) => (
+              
+              <ElemMonthList date={date} />
+            ))}
       </ul>
     </ToDayWaterListStyle>
   );

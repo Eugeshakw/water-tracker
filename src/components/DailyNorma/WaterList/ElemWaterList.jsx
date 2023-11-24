@@ -60,10 +60,12 @@ export const ElemToDayList = ({ modalId, id, count, time, handleDelete }) => {
   );
 };
 
-export const ElemMonthList = () => {
+export const ElemMonthList = ({date}) => {
+ 
+ 
   return (
     <li className="monthListItem">
-      <div className="day">1</div>
+      <div className="day">{date}</div>
       <p className="percent">75%</p>
     </li>
   );
