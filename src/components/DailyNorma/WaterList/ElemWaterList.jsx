@@ -6,7 +6,7 @@ import { setModalType, setOpenModal } from 'redux/modals/Slice';
 import Backdrop from 'components/Backdrop/Backdrop';
 import DeleteModal from './DeleteModal/DeleteModal';
 
-import AmountOfWater from 'components/AmountOfWater/AmountOfWater';
+// import AmountOfWater from 'components/AmountOfWater/AmountOfWater';
 
 export const ElemToDayList = ({ modalId, id, count, time, handleDelete }) => {
   console.log(id);
