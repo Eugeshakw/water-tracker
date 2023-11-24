@@ -57,9 +57,9 @@ const WaterList = ({ setActive }) => {
         </div>
       </div>
       <ul className="monthList">
-            {monthWater.map(({date}) => (
+            {monthWater.map(({day, percent}) => (
               
-              <ElemMonthList date={date} />
+              <ElemMonthList day={day} percent={percent} />
             ))}
       </ul>
     </ToDayWaterListStyle>
