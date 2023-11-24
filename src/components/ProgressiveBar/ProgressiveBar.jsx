@@ -17,6 +17,10 @@ const MAX = 100;
 const ProgressiveBar = () => {
   const [values, setValues] = useState([0]);
 
+  if (values[0] > 100) {
+    setValues([100]);
+  }
+
   const waterRate = useSelector(state => state.auth.user.waterRate);
 
   const water = useSelector(state => state.water.waters);
