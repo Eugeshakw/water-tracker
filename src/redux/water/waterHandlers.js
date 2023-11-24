@@ -16,5 +16,8 @@ export const onGetMonthWater = (state, { payload }) => {
 
 export const onDelete = (state, { payload }) => {
   const index = state.waters.findIndex(water => water._id === payload.id);
+  
   state.waters.splice(index, 1);
+  
+  state.percentage = payload.percentageUsedRounded;
 };

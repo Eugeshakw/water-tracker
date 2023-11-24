@@ -6,12 +6,19 @@ import { ReactComponent as ArrowR } from './icon/arrowRight.svg';
 
 import { ElemToDayList, ElemMonthList } from './ElemWaterList';
 import { useSelector } from 'react-redux';
+import { useEffect, useDispatch } from 'react';
+import { getMonthWater } from 'redux/water/waterApi';
 
 
 const WaterList = ({ setActive }) => {
   const waterList = useSelector(state => state.water.waters);
   const monthWater = useSelector(state => state.water.monthWaters)
+ const dispatch = useDispatch()
  
+useEffect(() => {
+  dispatch(getMonthWater())
+},[dispatch])
+
   return (
     <ToDayWaterListStyle>
       <Title>Today</Title>
