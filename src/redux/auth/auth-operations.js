@@ -10,6 +10,7 @@ import {
   // instance,
   updateAvatar,
   updateUser,
+  addWaterRate,
 } from 'service/api/authApi.js';
 
 export const signUpThunk = createAsyncThunk(
@@ -145,6 +146,19 @@ export const updateProfileThunk = createAsyncThunk(
       return res.data.user;
     } catch (error) {
       return rejectWithValue(error);
+    }
+  }
+);
+
+export const addUserWaterRate = createAsyncThunk(
+  'auth/waterRate',
+  async (data, { rejectWithValue }) => {
+    try {
+      const token = localStorage.getItem('token');
+      const res = await addWaterRate(data, token);
+      return res.data.waterRate;
+    } catch (error) {
+      return rejectWithValue(error.message);
     }
   }
 );

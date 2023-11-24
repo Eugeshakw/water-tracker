@@ -26,7 +26,7 @@ export const handleRefresh = (state, { payload }) => {
   state.user.name = payload.name;
   state.token = payload.token;
   state.user.id = payload._id;
-
+  state.user.waterRate = payload.waterRate;
   state.user.gender = payload.gender;
   state.user.avatarURL = payload.avatarURL;
 
@@ -48,4 +48,8 @@ export const handleUpdate = (state, { payload }) => {
   state.user.name = payload.name;
   state.user.gender = payload.gender;
   state.user.avatarURL = payload.avatarURL;
+};
+
+export const handleWaterRate = (state, { payload }) => {
+  state.user.waterRate = payload;
 };

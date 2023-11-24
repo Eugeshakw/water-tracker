@@ -39,10 +39,10 @@ export const App = () => {
       dispatch(refreshUserThunk());
       dispatch(getAllWater());
       dispatch(getWaterMonth());
-    } else if (!Token) {
-      // dispatch(refreshUserThunk());
+    } else {
+      dispatch(refreshUserThunk());
     }
-  }, [dispatch, currentPath, Token]);
+  }, [dispatch, currentPath]);
 
   return (
     <Routes>
