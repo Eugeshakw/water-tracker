@@ -32,17 +32,16 @@ export const App = () => {
   const location = useLocation();
   const dispatch = useDispatch();
   const currentPath = location.pathname;
-  const Token = localStorage.getItem('token');
 
   useEffect(() => {
     if (currentPath === '/HomePage') {
       dispatch(refreshUserThunk());
       dispatch(getAllWater());
       dispatch(getWaterMonth());
-    } else if (!Token) {
-      // dispatch(refreshUserThunk());
+    } else {
+      dispatch(refreshUserThunk());
     }
-  }, [dispatch, currentPath, Token]);
+  }, [dispatch, currentPath]);
 
   return (
     <Routes>
