@@ -10,6 +10,7 @@ export const SignLayoutStyled = styled.section`
   form {
     width: 100%;
     max-width: 280px;
+    margin-top: 40px
   }
   @media screen and (max-width: 767px) {
     flex-direction: column-reverse;
@@ -22,6 +23,8 @@ export const SignLayoutStyled = styled.section`
     form {
       width: 50%;
       max-width: 336px;
+      margin-top: 40px;
+      margin-left: 230px;
     }
     picture {
       position: absolute;
@@ -36,5 +39,9 @@ export const SignLayoutStyled = styled.section`
     picture {
       width: 58.1%;
     }
+  }
+
+  @media screen and (min-width: 768px) {
+
   }
 `;
