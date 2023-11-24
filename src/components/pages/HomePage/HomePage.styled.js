@@ -1,5 +1,9 @@
 import { styled } from 'styled-components';
-import BackImages from '../../../images/ForgotPassPageImgTab.png';
+import BackDes from '../HomePage/icons/bottle-desk.png';
+import BackTab from '../HomePage/icons/bottle-tab.png';
+import BackMob from '../HomePage/icons/bottle-mob.png';
+import bg from '../../../images/sign/bg-mobile.png';
+import deskElements from '../../WelcomePage/icons/Pagedesk-elements.svg';
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -19,9 +23,7 @@ export const Container = styled.div`
   @media screen and (min-width: 1440px) {
     display: flex;
     gap: 32px;
-    align-items: center;
-    justify-content: space-between;
-    
+    flex-direction: row;
   }
 `;
 
@@ -77,18 +79,37 @@ export const Button = styled.button`
     height: 24px;
   }
 `;
-export const ConImg = styled.div`
-
-`
+export const ConImg = styled.div``;
 export const BackImage = styled.div`
-@media screen and (min-width: 1440px) {
-  background-image: url(${BackImages});
+  background-image: url(${BackMob});
   background-repeat: no-repeat;
+  width: 280px;
+  height: 208px;
+  margin: 0px auto 16px;
+
+  @media screen and (min-width: 768px) {
+    background-image: url(${BackTab});
+    width: 518px;
+    height: 386px;
+  }
+  @media screen and (min-width: 1440px) {
+    background-image: url(${BackDes});
     width: 738px;
     height: 548px;
-    
-    top: 0;
     z-index: -2;
-}
+  }
+`;
 
+export const DecorateImg = styled.div`
+  background-image: url(${bg});
+  display: block;
+  background-repeat: no-repeat;
+  z-index: -1;
+  bottom: 0;
+  @media screen and (min-width: 768px) {
+    background-image: url(${deskElements});
+  }
+  @media screen and (min-width: 1440px) {
+    background-image: url(${deskElements});
+  }
 `;
