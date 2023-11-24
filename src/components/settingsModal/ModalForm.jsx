@@ -37,7 +37,6 @@ const ModalForm = () => {
     dispatch(updateProfileThunk(updatedValues))
       .unwrap()
       .then(() => {
-        console.log('succes');
         resetForm();
         closeModal();
       });
@@ -79,7 +78,7 @@ const ModalForm = () => {
 
   const handlePasswordChange = e => {
     const password = e.target.value;
-    console.log(password);
+
     const input = e.target.name;
     const { color: newColor } = checkPasswordStrength(password);
     if (input === 'oldPassword') {

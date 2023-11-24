@@ -22,14 +22,14 @@ const removeToken = () => {
 export const signin = async body => {
   const { data } = await instance.post('api/auth/signin', body);
   setAuthHeader(data.token);
-  console.log(data);
+
   return data;
 };
 
 export const signup = async body => {
   const { data } = await instance.post('api/auth/signup', body);
   setAuthHeader(data.token);
-  console.log(data);
+
   return data;
 };
 
@@ -42,7 +42,7 @@ export const refreshUser = async token => {
   setAuthHeader(token);
 
   const { data } = await instance.get('api/auth/current');
-  console.log(data);
+
   return data;
 };
 
@@ -72,7 +72,6 @@ export const updateUser = async (updatedUser, token, id) => {
   }
   const data = await instance.patch(`api/auth/${id}`, updatedUser);
 
-  console.log(data);
   return data;
 };
 // export const updateAvatar = async PhotoFile => {};

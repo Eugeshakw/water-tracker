@@ -13,7 +13,6 @@ const UserLogoModal = () => {
   const dispatch = useDispatch();
 
   const handleModalOpen = modalType => {
-    console.log(modalType);
     dispatch(setModalType(modalType));
     dispatch(setOpenModal(true));
   };

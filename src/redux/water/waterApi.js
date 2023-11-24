@@ -13,7 +13,7 @@ export const addWater = async (data, token) => {
   setAuthHeader(token);
 
   const response = await instance.post(`api/water/`, data);
-  console.log(response);
+
   return response;
 };
 
@@ -22,25 +22,29 @@ export const editWater = async (data, token, id) => {
   if (data.hasOwnProperty('id')) {
     delete data.id;
   }
-  console.log(id);
 
   const response = await instance.patch(`api/water/${id}`, data);
   return response;
-  // console.log(response);
 };
 export const getWater = async token => {
   setAuthHeader(token);
 
   const response = await instance.get(`api/water/today`);
-  console.log(response);
+
   return response;
-  // console.log(response);
 };
 export const getMonthWater = async token => {
   setAuthHeader(token);
 
   const response = await instance.get(`api/water/month`);
-  console.log(response);
+
   return response;
-  // console.log(response);
+};
+
+export const deleteWaterById = async (token, id) => {
+  setAuthHeader(token);
+
+  const response = await instance.delete(`api/water/${id}`);
+
+  return response;
 };

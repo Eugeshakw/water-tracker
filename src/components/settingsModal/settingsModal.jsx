@@ -14,7 +14,6 @@ const SettingsModal = () => {
   const { closeModal } = useModal();
   const dispatch = useDispatch();
   const avatar = useSelector(state => state.auth.user.avatarURL);
-  console.log(avatar);
 
   const handleFileChange = event => {
     const file = event.target.files[0];

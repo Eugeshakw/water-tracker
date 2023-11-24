@@ -40,7 +40,6 @@ export const App = () => {
       dispatch(getAllWater());
       dispatch(getWaterMonth());
     } else if (!Token) {
-      console.log('Token');
       // dispatch(refreshUserThunk());
     }
   }, [dispatch, currentPath, Token]);

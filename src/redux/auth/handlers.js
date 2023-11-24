@@ -3,7 +3,6 @@ export const handleAuth = (state, { payload }) => {
 };
 
 export const handleSignError = (state, { payload }) => {
-  console.log(payload);
   state.error = payload;
   state.isLoading = false;
 };
@@ -23,7 +22,6 @@ export const handlePendingRefresh = (state, { payload }) => {
 };
 
 export const handleRefresh = (state, { payload }) => {
-  console.log(payload);
   state.user.email = payload.email;
   state.user.name = payload.name;
   state.token = payload.token;
@@ -46,7 +44,6 @@ export const handleAvatar = (state, { payload }) => {
 };
 
 export const handleUpdate = (state, { payload }) => {
-  console.log(payload);
   state.user.email = payload.email;
   state.user.name = payload.name;
   state.user.gender = payload.gender;
