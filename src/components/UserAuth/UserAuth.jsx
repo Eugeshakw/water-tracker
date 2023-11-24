@@ -3,8 +3,6 @@ import { RouterLink, HeaderIcon } from './UserAuth.styled';
 import sprite from '../../images/sprite.svg';
 
 const UserAuth = () => {
-  console.log('UserAuth');
-
   return (
     <RouterLink to="/signin">
       Sign in

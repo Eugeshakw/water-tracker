@@ -5,18 +5,39 @@ import { ReactComponent as ArrowL } from './icon/arrowLeft.svg';
 import { ReactComponent as ArrowR } from './icon/arrowRight.svg';
 
 import { ElemToDayList, ElemMonthList } from './ElemWaterList';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteWater } from 'redux/water/waterOperations';
 
 const WaterList = ({ setActive }) => {
+  const dispatch = useDispatch();
+  const waterList = useSelector(state => state.water.waters);
+
+  const handleDelete = id => {
+    dispatch(deleteWater(id));
+
+    console.log(id);
+  };
+
   return (
     <ToDayWaterListStyle>
       <Title>Today</Title>
       <ul className="todayList">
+        {waterList.map(({ _id, count, time }) => (
+          <ElemToDayList
+            key={_id}
+            id={_id}
+            modalId={_id + 1}
+            count={count}
+            time={time}
+            handleDelete={handleDelete}
+            setActive={setActive}
+          />
+        ))}
+        {/* <ElemToDayList />
         <ElemToDayList />
         <ElemToDayList />
         <ElemToDayList />
-        <ElemToDayList />
-        <ElemToDayList />
-
+        <ElemToDayList /> */}
         {/* ----------button---------- */}
         <li>
           <button
@@ -25,7 +46,6 @@ const WaterList = ({ setActive }) => {
               setActive('AddWater');
             }}
           >
-            {' '}
             + Add water
           </button>
         </li>

@@ -10,13 +10,11 @@ const UserLogo = () => {
   const avatarUrl = useSelector(state => state.auth.user.avatarURL);
 
   const name = useSelector(state => state.auth.user.name);
-  console.log(avatarUrl);
+
   const userEmail = useSelector(selectorUserEmail);
   // const [userEmail] = useState(storedEmail);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const domain = userEmail?.substring(0, userEmail.indexOf('@'));
-
-  console.log(domain); // sacsadasd
 
   const headerTitle = () => {
     if (name) {

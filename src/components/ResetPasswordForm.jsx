@@ -28,8 +28,6 @@ const ResetPasswordForm = () => {
 
       const data = await response.json();
 
-      console.log('Response from server:', data);
-
       if (response.ok) {
         setNotification(data.message);
       } else {
