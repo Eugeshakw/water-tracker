@@ -10,9 +10,14 @@ import {
   ParagraphOfExit,
 } from './DeleteModal.styled';
 import { useModal } from 'context/modalContext';
+import { useDispatch } from 'react-redux';
+import { deleteWater } from 'redux/water/waterOperations';
 
-const DeleteModal = ({ id, handleDelete }) => {
+const DeleteModal = ({ id }) => {
   const { closeModal } = useModal();
+
+  const dispatch = useDispatch();
+
   return (
     <>
       <LogoutModal>
@@ -40,7 +45,9 @@ const DeleteModal = ({ id, handleDelete }) => {
           Are you sure you want to delete the entry?
         </ParagraphOfExit>
         <DivOfBtns>
-          <BtnOfExit onClick={() => handleDelete(id)}>Delete</BtnOfExit>
+          <BtnOfExit onClick={() => dispatch(deleteWater(id))}>
+            Delete
+          </BtnOfExit>
           <BtnOfCancelModalLogOut onClick={closeModal}>
             Cancel
           </BtnOfCancelModalLogOut>

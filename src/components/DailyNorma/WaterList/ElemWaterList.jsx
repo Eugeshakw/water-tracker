@@ -28,7 +28,7 @@ export const ElemToDayList = ({ modalId, id, count, time, handleDelete }) => {
     <>
       {isOpenModal && modalType === modalId && (
         <Backdrop>
-          <DeleteModal handleDelete={handleDelete} id={id} />
+          <DeleteModal id={id} />
         </Backdrop>
       )}
 
